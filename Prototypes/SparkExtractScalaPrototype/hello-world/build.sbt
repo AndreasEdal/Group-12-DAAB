@@ -1,4 +1,4 @@
-val scala3Version = "3.2.0"
+val scala3Version = "2.12.0"
 
 lazy val root = project
   .in(file("."))
@@ -8,5 +8,6 @@ lazy val root = project
 
     scalaVersion := scala3Version,
 
-    libraryDependencies += "org.scalameta" %% "munit" % "0.7.29" % Test
+    libraryDependencies += "org.apache.spark" %% "spark-sql" % "3.3.0"
+
   )
