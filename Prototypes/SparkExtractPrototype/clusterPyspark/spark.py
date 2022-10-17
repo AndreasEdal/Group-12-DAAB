@@ -19,8 +19,12 @@ file = "hdfs://namenode:9000/commitData/commitAuthorMessage.json"
 df = spark.read.json(file)
 
 data = df.select("author.name", "commit", "message")
-dataJacks = df.filter(df.author["name"] == "jacks")
+
+name = "cph"
+dataByName = df.filter(df.author["name"] == name)
 
 
 # Take the content of the files and split them
-dataJacks.show() 
+dataByName.show() 
+
+dataByName.write.save('hdfs://namenode:9000/commitData/commitsBy' + name, format='json', mode='append')
