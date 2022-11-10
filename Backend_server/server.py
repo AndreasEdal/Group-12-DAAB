@@ -43,14 +43,17 @@ def getLanguages():
 
     languages = dataByName.select("language.name").collect()
 
+    message = "Code languages used in"+ name+ ": "
+
     languageArray = []
     i = 0
-    while (i < len(languages[0])):
-        languageArray.append(languages[0][i])
+    print(languages)    
+    while (i < len(languages[0][0])):
+        languageArray.append(languages[0][0][i])
+        print(languageArray[i])
+        message += languageArray[i] + ", "
         i += 1
 
-    
-    message = "Code languages used in"+ name+ ": "+ languageArray[0][0]+ ", " + languageArray[0][1]+ " and " + languageArray[0][2]
     print(message)
     
     return message
