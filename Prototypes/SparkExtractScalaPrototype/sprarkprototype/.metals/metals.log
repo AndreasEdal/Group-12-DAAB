@@ -466,3 +466,6 @@ WARNING: Unmatched cancel notification for request id 2109
 2022.10.17 13:23:38 INFO  compiling sprarkprototype (1 scala source)
 2022.10.17 13:23:38 WARN  1 deprecation (since 2.13.3); re-run with -deprecation for details
 2022.10.17 13:23:38 INFO  time: compiled sprarkprototype in 0.6s
+2022.10.17 14:01:03 INFO  shutting down Metals
+2022.10.17 14:01:03 INFO  Shut down connection with build server.
+2022.10.17 14:01:03 INFO  Shut down connection with build server.
