@@ -7,7 +7,7 @@ cors = CORS(app)
 
 from pyspark import SparkConf, SparkContext
 from pyspark.sql import SparkSession, Row
-from pyspark.sql.functions import explode, split, to_json, array, col, udf, sum
+from pyspark.sql.functions import explode, split, to_json, array, col, udf, sum, max
 import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
@@ -71,23 +71,14 @@ def getMostContributions():
     #dataByName = dataByName.select("repo_name", "author")
 
     dataByName.show()
-    authors = dataByName.select("author.name").collect()
-    print(authors)
+    authors = dataByName.groupBy("author.name").count().orderBy(col('count').desc())
+    author = authors.first()
+    
+    print(author)
 
-    authorDict = dict()
-    i = 0
-    while (i < len(authors)):
-        print(authors[i][0])
-        if (authorDict.get(authors[i][0]) != None):
-            count = authorDict.get(authors[i][0])
-            authorDict.update({authors[i][0]: count + 1})
-        else:
-            authorDict[authors[i][0]] = 1
-        i += 1
+
     
-    max_key = max(authorDict, key=authorDict.get)
-    
-    return "Most contributions to " + name + " are made by: " + max_key + " with " + str(authorDict.get(max_key)) + " commits"
+    return "Most contributions to " + name + " are made by: " + author[0] + " with " + str(author[1]) + " commits"
 
 @app.route('/person/', methods=['POST'])
 @cross_origin()
