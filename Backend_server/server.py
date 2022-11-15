@@ -14,13 +14,13 @@ locale.getpreferredencoding()
 
 spark = SparkSession.builder.appName('streamTest') \
     .config('spark.master','spark://spark-master:7077') \
-    .config('spark.executor.cores', 2) \
-    .config('spark.cores.max',2) \
-    .config('spark.executor.memory', '2g') \
+    .config('spark.executor.cores', 1) \
+    .config('spark.cores.max',1) \
+    .config('spark.executor.memory', '1g') \
     .config('spark.sql.streaming.checkpointLocation','hdfs://namenode:9000/stream-checkpoint/') \
     .getOrCreate()
 
-@app.route('/language')
+@app.route('/codeLanguage')
 @cross_origin()
 def getLanguages():
     file = "hdfs://namenode:9000/commitData/repoLanguages.json"
@@ -34,8 +34,6 @@ def getLanguages():
 
     # Take the content of the files and split them "vr367305/elaboratokitten"
     dataByName.show() 
-
-    savedFile = 'hdfs://namenode:9000/commitData/' + name
 
     #dataByName.write.save(savedFile, format='json', mode='append')
 
@@ -76,22 +74,33 @@ def getMostContributions():
     
     print(author)
 
-
-    
     return "Most contributions to " + name + " are made by: " + author[0] + " with " + str(author[1]) + " commits"
 
-@app.route('/person/', methods=['POST'])
+@app.route('/linesOfCode')
 @cross_origin()
-def insertPerson():
-    if request.method == "POST":
-        firstName = request.form['firstname']
-        lastName = request.form['lastname']
+def getLinesOfCode():
+    return
 
-        cur = mysql.get_db().cursor()
-        cur.execute('''INSERT INTO persons (firstName, lastName) VALUES (%s,%s)''', (firstName, lastName))
-        mysql.get_db().commit()
-        cur.close()
-    return "Person added"
+@app.route('/commitFrequency')
+@cross_origin()
+def getCommitFrequency():
+    return
+
+@app.route('/repoWithMostCommits') 
+@cross_origin()
+def getRepoWithMostCommits():
+    return
+
+@app.route('/repoSize') 
+@cross_origin()
+def getRepoSize():
+    return
+
+@app.route('/highestContributor') 
+@cross_origin()
+def getHighestContributor():
+    return
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=7050)
