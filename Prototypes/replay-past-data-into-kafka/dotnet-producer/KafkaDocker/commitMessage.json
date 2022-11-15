@@ -1,0 +1,1000 @@
+{"commit":"c41c03a3dc1c8d4b024439a4901c4818c9c8997f","message":"Merge branch 'master' of github.com:purple52/librarian-puppet-vagrant\n\nConflicts:\n\tshell/main.sh\n"}
+{"commit":"5de8126b0d96f0808c0b2677e6bdecf75ae7e80c","message":"Initial repository create\n\nBKrev: 3c6d515aBUQMglrIzL_V-dcSBCH1Hw\n"}
+{"commit":"f21c703cd4d2e5785f8e551896f321506e385d2a","message":"- Update the other configs, too.\n\nsuse-commit: 81f6ba1c3874052b89bed1ad3c22cb90c3980266\n"}
+{"commit":"a40a7816b017b8007eb2cd2df2f569e6cdde3b13","message":"This is where all test source code goes including unit tests, component test and functional tests such as Selenium.\n\nSVN-Revision: 9\n"}
+{"commit":"6191bfe92bfc004144da52451fe05693326b3859","message":"Bug 8643: Add sporsorship\n\nSponsored-by: CCSR ( http://www.ccsr.qc.ca )\nSigned-off-by: Martin Renvoize \u003ce328553c8782de72a55cb4ac905938926e626fa1@ptfs-europe.com\u003e\n"}
+{"commit":"706298e539235f311e3c7027a0fd4ee3028efeae","message":"Set EOL=LF for shell scripts\n\ngit-svn-id: https://svn.apache.org/repos/asf/jakarta/jmeter/trunk@578815 13f79535-47bb-0310-9956-ffa450edef68\n\nFormer-commit-id: b4f23d9266bb2b4e341e2b986896fc4a2f4c796d"}
+{"commit":"25d9ca514860b4ad590aa115dd96b0a83d2f57d2","message":"Bump self after commit cf6c4eaffc4d59fbe9018b44bb6db957bb05d3d4\n\nTravis-Build-ID: 50454904\nTravis-Job-ID: 50454905\nTravis-Commit: cf6c4eaffc4d59fbe9018b44bb6db957bb05d3d4\n"}
+{"commit":"7d7d7132796e21a71460e28684d1bac670702007","message":"Make openstack mirror optional.\n\nWhile we debug mirror creation.\n\nChange-Id: Iae00bacded97d1d59ee3a48c3aa75d6b87708821\nReviewed-on: https://review.openstack.org/24712\nApproved: James E. Blair \u003ce81a02a9d6405977f63a769d9f6ec8ed9d924325@inaugust.com\u003e\nReviewed-by: James E. Blair \u003ce81a02a9d6405977f63a769d9f6ec8ed9d924325@inaugust.com\u003e\nTested-by: Jenkins\n"}
+{"commit":"3424f8f039a8431a085337eed446e78895c7f46a","message":"[CMake] Work around to use target_link_libraries(PUBLIC) in BUILD_SHARED_LIBS mode.\n\nFIXME: It may be PRIVATE since SO knows its dependent libs."}
+{"commit":"6a5148688ed9ba556d5e7405bfaccb1d50ef723a","message":"Add MIPS Technologies to the vendors in llvm::Triple.\n\nThis is a prerequisite for checking for 'mti' and 'img' in a consistent way in\nclang. Previously 'img' could use Triple::getVendor() but 'mti' could only use\nTriple::getVendorName().\n\n"}
+{"commit":"12bcc8c381a7c7dfe6014b2a17487545adb9c9a6","message":"(portal-ui) fix gene id that is incorrectly attached to the series names in stacked chart.\n\n\nFormer-commit-id: 54adda15568aadf3079168ea1929ba932db3ed6f\nFormer-commit-id: fa210628b56aafc88b3f07090231634f70e5febf"}
+{"commit":"ed12de4d6124339aa3c86dd3b77a54fa07702e61","message":"Merge branch 'develop' of github.com:icgc-dcc/dcc into develop\n\n\nFormer-commit-id: 0656a6dc02b85886f8196aa440201a19181be5b5\nFormer-commit-id: dd0cb64dd7f30875c3711048c270afe995788ddf"}
+{"commit":"917ebf3934a3a678f6a93f989c8459650502a07c","message":"update\n\n\nFormer-commit-id: 0079980442f880a494bbb1ca7906212627f4d05f\nFormer-commit-id: 3b38edffee0ab72dfc5cf5486aadd99569bfa6b6"}
+{"commit":"17d6e7d6eede39453fb0bca5ea6d046b6ec3220f","message":"Merge branch 'master' of https://github.com/Dwolla/dwolla-node\n\nConflicts:\n\texamples/autoWithdrawal.js\n\texamples/balance.js\n\texamples/requests.js\n\texamples/send.js\n"}
+{"commit":"055c84edddf1c7dab6eed8fc61c43c4f2994c476","message":"ガンタレ、索敵装置関連の字下げミスとコードミスを修正\n\nConflicts:\n\tinclude/bb_object.js\n"}
+{"commit":"af5dc028569a48061208a218c5b885a269f6f15b","message":"cat-file: remove unused includes\n\n - \"exec_cmd.h\" became unnecessary at b931aa5a (Call builtin ls-tree\n   in git-cat-file -p, 2006-05-26), when it changed an earlier code\n   that delegated tree display to \"ls-tree\" via the run_command()\n   API (hence needing \"exec_cmd.h\") to call cmd_ls_tree() directly.\n   We should have removed the include in the same commit, but we\n   forgot to do so.\n\n - \"diff.h\" was added at e5fba602 (textconv: support for cat_file,\n   2010-06-15), together with \"userdiff.h\", but \"userdiff.h\" can be\n   included without including \"diff.h\"; the header was unnecessary\n   from the beginning.\n\n - \"tag.h\" and \"tree.h\" were necessary since 8e440259 (Use blob_,\n   commit_, tag_, and tree_type throughout., 2006-04-02) to check\n   the type of object by comparing typename with tree_type and\n   tag_type (pointers to extern strings).\n\n   21666f1a (convert object type handling from a string to a number,\n   2007-02-26) made these \u003ctype\u003e_type strings unnecessary, and it\n   could have switched to include \"object.h\", which is necessary to\n   use typename(), but it forgot to do so.  Because \"tag.h\" and\n   \"tree.h\" include \"object.h\", it did not need to explicitly\n   include \"object.h\" in order to start using typename() itself.\n\n   We do not even have to include \"object.h\" after removing these\n   two #includes, because \"builtin.h\" includes \"commit.h\" which in\n   turn includes \"object.h\" these days.  This happened at 7b9c0a69\n   (git-commit-tree: make it usable from other builtins,\n   2008-07-01).\n\nSigned-off-by: Alexander Kuleshov \u003c1e54dc1c299571bb7a58e37a7ea31ffd91d38f4e@gmail.com\u003e\nSigned-off-by: Junio C Hamano \u003ca6723cc3f76163bf7adb636a73ac3b0ceb3e6b9b@pobox.com\u003e\n"}
+{"commit":"8528b7645475be9c65e794af7f7a28d439a68423","message":"slightly better auto gc message\n\nSigned-off-by: Nicolas Pitre \u003cd659c10e27d52b00987b65e85d99bce5480adcae@cam.org\u003e\nSigned-off-by: Junio C Hamano \u003ca6723cc3f76163bf7adb636a73ac3b0ceb3e6b9b@pobox.com\u003e\n"}
+{"commit":"4280d484d5c4ca2b377780c8122271d1048cc0d3","message":"sha1_object_info_extended: rename \"status\" to \"type\"\n\nThe value we get from each low-level object_info function\n(e.g., loose, packed) is actually the object type (or -1 for\nerror). Let's explicitly call it \"type\", which will make\nfurther refactorings easier to read.\n\nSigned-off-by: Jeff King \u003c696e3fbcf235d40b6ea1ebd61c87cbea79d444e7@peff.net\u003e\nSigned-off-by: Junio C Hamano \u003ca6723cc3f76163bf7adb636a73ac3b0ceb3e6b9b@pobox.com\u003e\n"}
+{"commit":"d33b8cf4420cafb8cefc342beb6d7ab8ae2bf6a8","message":"Do exact rename detection regardless of rename limits\n\nNow that the exact rename detection is linear-time (with a very small\nconstant factor to boot), there is no longer any reason to limit it by\nthe number of files involved.\n\nIn some trivial testing, I created a repository with a directory that\nhad a hundred thousand files in it (all with different contents), and\nthen moved that directory to show the effects of renaming 100,000 files.\n\nWith the new code, that resulted in\n\n\t[torvalds@woody big-rename]$ time ~/git/git show -C | wc -l\n\t400006\n\n\treal    0m2.071s\n\tuser    0m1.520s\n\tsys     0m0.576s\n\nie the code can correctly detect the hundred thousand renames in about 2\nseconds (the number \"400006\" comes from four lines for each rename:\n\n\tdiff --git a/really-big-dir/file-1-1-1-1-1 b/moved-big-dir/file-1-1-1-1-1\n\tsimilarity index 100%\n\trename from really-big-dir/file-1-1-1-1-1\n\trename to moved-big-dir/file-1-1-1-1-1\n\nand the extra six lines is from a one-liner commit message and all the\ncommit information and spacing).\n\nMost of those two seconds weren't even really the rename detection, it's\nreally all the other stuff needed to get there.\n\nWith the old code, this wouldn't have been practically possible.  Doing\na pairwise check of the ten billion possible pairs would have been\nprohibitively expensive.  In fact, even with the rename limiter in\nplace, the old code would waste a lot of time just on the diff_filespec\nchecks, and despite not even trying to find renames, it used to look\nlike:\n\n\t[torvalds@woody big-rename]$ time git show -C | wc -l\n\t1400006\n\n\treal    0m12.337s\n\tuser    0m12.285s\n\tsys     0m0.192s\n\nie we used to take 12 seconds for this load and not even do any rename\ndetection! (The number 1400006 comes from fourteen lines per file moved:\nseven lines each for the delete and the create of a one-liner file, and\nthe same extra six lines of commit information).\n\nSigned-off-by: Linus Torvalds \u003c69652caca27c8b940640ad396ab71f93cacec34f@linux-foundation.org\u003e\nSigned-off-by: Junio C Hamano \u003ca6723cc3f76163bf7adb636a73ac3b0ceb3e6b9b@pobox.com\u003e\n"}
+{"commit":"60af48f02d55f1634f454000d4e7519d9c6722a4","message":"find_short_object_filename: convert sprintf to xsnprintf\n\nWe use sprintf() to format some hex data into a buffer. The\nbuffer is clearly long enough, and using snprintf here is\nnot necessary. And in fact, it does not really make anything\neasier to audit, as the size we feed to snprintf accounts\nfor the magic extra 42 bytes found in each alt-\u003ename field\nof struct alternate_object_database (which is there exactly\nto do this formatting).\n\nStill, it is nice to remove an sprintf call and replace it\nwith an xsnprintf and explanatory comment, which makes it\neasier to audit the code base for overflows.\n\nSigned-off-by: Jeff King \u003c696e3fbcf235d40b6ea1ebd61c87cbea79d444e7@peff.net\u003e\nSigned-off-by: Junio C Hamano \u003ca6723cc3f76163bf7adb636a73ac3b0ceb3e6b9b@pobox.com\u003e\n"}
+{"commit":"28c7cc01b7f80ea582800ba589e008fb2d84eb31","message":"Add 'util/freefocus/' from commit '7892edc1dd3e6d9ae5dc93ada94d5e1b0cc60753'\n\ngit-subtree-dir: util/freefocus\ngit-subtree-mainline: 714f48c1524d1be36d196db40b51fb848934c28d\ngit-subtree-split: 7892edc1dd3e6d9ae5dc93ada94d5e1b0cc60753\n"}
+{"commit":"00b0bd6d425425e70a1e0188a929cbe7ceaeb484","message":"Merge branch 'master' of git://git.qubes-os.org/joanna/core into hvm\n\nConflicts:\n\tversion_dom0\n\tversion_vm\n"}
+{"commit":"e8583ecad0f0fd81489122bdb9aad804f4b2c0cc","message":"Merge branch 'master' of local repository into camel\n\nConflicts:\n\tpom.xml\n"}
+{"commit":"fa6ed85a0399a936b5129e4cd5769d77ab62ba32","message":"Merge branch 'master' into develop\n\nConflicts:\n\tcomposer.json\n"}
+{"commit":"f8f9102c90b7456d6fc5eb2f5dc4d12654e41d44","message":"Merge branch 'master' of github.com:MarkRatjens/dreambridge_location\n\nConflicts:\n\tapp/views/addresses/_show_map.html.erb\n"}
+{"commit":"dcf99836b3304b0621410621924fbeba3e9a4dd0","message":"Merge commit 'AU_LINUX_ANDROID_JB_MR1_RB1.04.02.02.050.074' into HEAD\n\n* commit 'AU_LINUX_ANDROID_JB_MR1_RB1.04.02.02.050.074': (125 commits)\n  msm: camera2: Silence non-critical logs in cpp driver\n  Revert \"msm: cpufreq: Update limit management to support multiple clients\"\n  msm: kgsl: Remove extra call to sync_fence_put()\n  msm: mdss: unstage target mixer stage when replacing pipe\n  msm_serial_hs_lite: Vote for bus bandwidth before enabling clocks\n  msm: cpufreq: Update limit management to support multiple clients\n  msm: mdss: change underrun log to debug message\n  msm: iommu: Lock the genpool allocation\n  msm: vidc: Free shared queues after subsystem_put.\n  msm: vidc: Add memory barrier after before/after queue read/write.\n  msm: mdss: implement fall back to vsync polling logic.\n  msm: vidc: Fix a NULL pointer dereference.\n  mfd: wcd9xxx: clear unhandled interrupt request properly.\n  msm: vidc: Report close done event to client.\n  msm: Fix mem leak when using per-process pages.\n  msm: camera_v2: Post fd close event to user space..\n  msm: camera: Avoid clk_set_rate for branch clocks.\n  iommu: msm: Ensure power is on in pg fault handler.\n  msm: kgsl: Do not store timestamp for null context in pagefault handler.\n  msm: krait-regulator: Stage power-on of BHS switches in APC_PWR_GATE_CTL.\n  ...\n\nChange-Id: If955aa00d90e5efb20cc3059ec62fd2a42d1d50a\nSigned-off-by: Shashank Babu Chinta Venkata \u003c935d4198fbe41d34408187f48abefa6549991e74@codeaurora.org\u003e\n"}
+{"commit":"55dce9db50e5f77fd448460ad1194b2ba6690f65","message":"Merge branch 'master' of github.com:fnordcorp/chartsql\n\nConflicts:\n\tsrc/chartsql/CMakeLists.txt\n\tsrc/chartsql/svalue.cc\n"}
+{"commit":"a804ad1f53534c8e3667270bccfb40bc886de1c5","message":"Forward zendframework/zf2#4847\n\nConflicts:\n\tlibrary/Zend/Version/Version.php\n"}
+{"commit":"0b23cfc15f28cc78172fa5e410f25a79df0f5af8","message":"Merge branch 'master' of https://github.com/tkrugg/angular-delite\n\nConflicts:\n\tngWidget.js\n"}
+{"commit":"af7276a9ff366b29408a678ab18dc37ce781f5de","message":"Merge commit 'c1a7be6c3a7a35c8f5ad5fb286df15537f261d95' into develop\n\nConflicts:\n\tlibrary/Zend/Memory/composer.json\n"}
+{"commit":"e02a2a5a4e23b377de733d0c1d4760c1ad5e0bee","message":"Merge pull request #8577 from vbatts/vbatts-registry_certs\n\nregistry: don't iterate through certs"}
+{"commit":"360fbda7674dd86b800785c1705672db13c2fda2","message":"Merge branch 'packaging'\n\nsuse-commit: 7c5cbc33e8262b56a516aa4c190067f8e0dcb995\n"}
+{"commit":"ecac8fdff1905395d7fa2be7e239793f23dd5801","message":"- Update config files. Disable CONFIG_CC_STACKPROTECTOR on all\n  x86 kernels except debug. Overhead is prohibitive.\n\nsuse-commit: b4df61d63c69c3d83b5dbf8a9929d9a5022a4027\n"}
+{"commit":"c6658aaed42a64ef5e69924ecefbe6211874199f","message":"Merge branch 'master' of https://github.com/BurntIcing/IcingPHP\n\nConflicts:\n\tREADME.md\n"}
+{"commit":"9cdb9c0806ea8b62f20528be8c47ad10888dfa32","message":"Merge pull request zendframework/zf2#7121 from ins0/fix/curl-ssl-verify\n\nFeature: Added sslverifypeer to curl adapter\n"}
+{"commit":"f701b9f7866e75c03b58ff6ea68dfd8c81f667bc","message":"Merge pull request zendframework/zf2#5731 from blanchonvincent/feature/zend-tests-ajax-dispatch\n\nZend\\Test Provide dispatch like a XmlHttpRequest\n\nConflicts:\n\ttests/ZendTest/Test/PHPUnit/Controller/AbstractHttpControllerTestCaseTest.php\n"}
+{"commit":"0e136eb2450ad5643f7fd1fa92e5420ebdd0283f","message":"Add session control and expiration date.\n\n\nFormer-commit-id: daa393d4d015824a3b08139807499768e496535d\nFormer-commit-id: 3fd3125ef2f5ca7bcba13453ee17feb7fe2bc359\nFormer-commit-id: 478862eced2c785509a9c2a978c7d79a8296af91"}
+{"commit":"bfdb1ea01cf41dbad3da38077b6df443473c5eea","message":"Merge branch 'integration' into config-api\n\nConflicts:\n\tgui/src/main/java/org/verapdf/cli/VeraPdfCliProcessor.java\n\tgui/src/main/java/org/verapdf/gui/PDFValidationApplication.java\n\tgui/src/main/java/org/verapdf/gui/SettingsPanel.java\n\tgui/src/main/java/org/verapdf/gui/config/Config.java\n"}
+{"commit":"745ea2352f689356f4fb4f1c47841ea7c0da80bd","message":"Merge remote-tracking branch 'origin/master'\n\nConflicts:\n\tREADME.md\n"}
+{"commit":"d70a31223db54e57ea614409343ef12849e31f50","message":"Merge branch 'hotfix/ZF-11238' of https://github.com/thomasweidner/zf2 into hotfix/zf-11238\n\nConflicts:\n\tlibrary/Zend/Filter/InputFilter.php\n\ttests/Zend/Filter/InputTest.php\n"}
+{"commit":"fe52dcc0f073664738afb4985580fa663c20982b","message":"Merge branch 'version/bump' into develop\n\nConflicts:\n\tREADME.md\n\tlibrary/Zend/Version/Version.php\n"}
+{"commit":"3e1e388bfc62f44a9f991e283b5f7bbefce395e7","message":"Merge branch 'version/bump' into develop\n\nback to dev\n\nConflicts:\n\tREADME.md\n\tlibrary/Zend/Version/Version.php\n"}
+{"commit":"ef5c53511cc84c81ff84e91881f50da1d26da596","message":"Merging.\nMerge branch 'cctransort' of github.com:psi4/psi4 into cctransort\n\n\nFormer-commit-id: bbb4707d74b3eb0af22e04f0074d681e331f3801"}
+{"commit":"de38fa7980eb31bfa4a3caa517d0aafd47c8e2c3","message":"Merge pull request zendframework/zf2#3844 from wryck7/fix-identical-validator\n\nAdded new option to fix a little issue originated from last PR\n\nConflicts:\n\ttests/ZendTest/Validator/IdenticalTest.php\n"}
+{"commit":"fd407939555013358e8e3466fd516023778119d6","message":"Merge pull request zendframework/zf2#7242 from asvgit/zf2-add-flexibility-to-flash-messenger\n\nAdd flexibility to FlashMessenger by determining hops as parameter.\n\nConflicts:\n\tlibrary/Zend/Mvc/Controller/Plugin/FlashMessenger.php\n"}
+{"commit":"3f9e591da1c069d9a9d23913b6792e71158ddbef","message":"o.c.trends.databrowser: Fix archive search panel\n\nOn name lookup error, the search pattern and button were disabled\n\nConflicts:\n\tapplications/plugins/org.csstudio.trends.databrowser2/META-INF/MANIFEST.MF\n"}
+{"commit":"5fd529dc8f6c7bd93c3bfc5e52ebd970833f0673","message":"Merge branch 'patch-1' of https://github.com/rdohms/zf2 into feature/http-status_codes\n\nConflicts:\n\tlibrary/Zend/Http/Response.php\n"}
+{"commit":"450fec9ae253b86ec64a685b168aa39c84506108","message":"Merge branch 'master' of https://github.com/cs2103aug2014-w13-3c/main\n\nConflicts:\n\tefficiency/effiCommand/predParser.cpp\n"}
+{"commit":"ee7f2d42c765b34077ae62102f6b48f0dd31f746","message":"Merge remote-tracking branch 'origin/gg-7903' into gg-7903\n\nConflicts:\n\tos/modules/scalar-examples/src/org/gridgain/scalar/examples/ScalarStartStopExample.scala\n"}
+{"commit":"c61f9d9ec0e73c7dfbb1c9da4d09811b213b84e1","message":"Created folder remotely\n\nSVN-Revision: 476\n"}
+{"commit":"7fb40ca90cfc639eede000aaa260abbed717b2c4","message":"removed relabelanalysis dir\n\nBKrev: 41f7ee76D-MEyEZTrETPNwtaHZtTOQ\n\n"}
+{"commit":"891af361280e781b377c5b2f4fb88b60790924ec","message":"scripts-integration-changes-7 - Fixed annotator report path issue\n\n\nFormer-commit-id: 3f382d6913f49a76ce50e2060fa5287aaa381a70\nFormer-commit-id: 8a51b6818fb0b72945f857978995be8426c11371"}
+{"commit":"9a66661ec47ca7957e043cdd7c6996950e6045ed","message":"imap-send.c: fix compiler warnings for OpenSSL 1.0\n\nThe openssl/CHANGES file says:\n\n    Let the TLSv1_method() etc. functions return a 'const' SSL_METHOD\n    pointer and make the SSL_METHOD parameter in SSL_CTX_new,\n    SSL_CTX_set_ssl_version and SSL_set_ssl_method 'const'.\n\nIn older versions, unqualified pointers were used, so we unfortunately\ncannot unconditionally update the type of the variable we use.\n\nSigned-off-by: Vietor Liu \u003c4a0af326e891619406bb7230f1dea26a4caf2ff1@vxwo.org\u003e\nSigned-off-by: Junio C Hamano \u003ca6723cc3f76163bf7adb636a73ac3b0ceb3e6b9b@pobox.com\u003e\n"}
+{"commit":"f6dc3a2282e9ac4d04da933cbdb21ad202edb53f","message":"apply: hide unused options from short help\n\nThe options \"--binary\" and \"--allow-binary-replacement\" of\ngit-apply are no-op and maintained for backward compatibility,\nso avoid to show them in the short help screen.\n\nSigned-off-by: Michele Ballabio \u003c6d29a3bf69c43ceb7b71ca8c4643bffed2f4d310@katamail.com\u003e\nSigned-off-by: Junio C Hamano \u003ca6723cc3f76163bf7adb636a73ac3b0ceb3e6b9b@pobox.com\u003e\n"}
+{"commit":"28a658656fba4de369f4a61000d32dda0f3712ac","message":"Merge branch 'master' of https://github.com/mickem/json-protobuf\n\nConflicts:\n\tprotoc-gen-json.cmd\n"}
+{"commit":"b8b3eee2ce5b5eb7e93f547a07e81fc7bda48a54","message":"Merge branch 'feature/MS-671-create-edit-teleappointing-campaign' of http://git.mothershipdev.com:7990/scm/ms2/mothershipv2_services into feature/MS-261-add-a-merchant\n\nConflicts:\n\tExternals/Core/PS.Mothership.Core/PS.Mothership.Core.Common/PS.Mothership.Core.Common.csproj\n\tPS.Mothership.Services/PS.Mothership.Api/Config/DependencyConventions.cs\n\tPS.Mothership.Services/PS.Mothership.Api/PS.Mothership.Api.csproj\n\tPS.Mothership.Services/PS.Mothership.Repository/PS.Mothership.Repository.csproj\n\tPS.Mothership.Services/PS.Mothership.Services.sln\n"}
+{"commit":"81626c917ca80b8a050e0035b9598763e2c8ba9f","message":"Merge pull request #2502 from mercadopago/release/4.41.1\n\nRelease: 4.41.1"}
+{"commit":"ecd4a89287be45e534aeef4c09d7416c7d4d6810","message":"Fix recovery mode for rocksdb_rpl.rpl_rocksdb_stress_crash\n\nUpstream commit ID : fb-mysql-5.6.35/df7c86f72e7e3d6a87eac60aad56195623455e92\n\nThis is a NULL cherry-pick to Percona Server 5.7 to create the commit\nplaceholder for the corresponding upstream commit.\nReason: Patch not taken into Percona Server.\n"}
+{"commit":"77b8afd410d93acb15097b56f946fd297252a6c0","message":"Merge branch 'version/bump' into develop\n\nBump to next dev version\n\nConflicts:\n\tREADME.md\n\tlibrary/Zend/Version/Version.php\n"}
+{"commit":"dccdcb29c2d91f946c6433fdc1891317ddfef5e3","message":"Merge branch 'feature/MSP-12669/rspec-3-1' of github.com:rapid7/metasploit_data_models into feature/MSP-12669/rspec-3-1\n\nConflicts:\n\tmetasploit_data_models.gemspec\n"}
+{"commit":"1625f5098dd5f2d64a141a217a841f0a21510fad","message":"Merge branch 'update_firestone' of github.com:austinwrx/firestone-xml into update_firestone\n\nConflicts:\n\tfirestone.xml\n"}
+{"commit":"f58cd4c2faa1cee52ffdf94aff965fcc56618c65","message":"Reduce puppet run interval.\n\nAdd splay option to spread out runs (even though it doesn't work\nvery well, it might be better than nothing).\n\nChange-Id: Ia45340bb5de81037b892e4e574e7c6cb83c3b07c\nReviewed-on: https://review.openstack.org/11679\nApproved: Monty Taylor \u003c37c07a49ee3d5191376d758eb1d8298b34456b8e@inaugust.com\u003e\nReviewed-by: Monty Taylor \u003c37c07a49ee3d5191376d758eb1d8298b34456b8e@inaugust.com\u003e\nTested-by: Jenkins\n"}
+{"commit":"5e9f53541d2a9c0478e2e391f9b6f35c8c4f696b","message":"inprogress #3153 - reported in trunk\n\nFormer-commit-id: c94a47f9279b7e27df796b8dd2e6614a566f7af1\nFormer-commit-id: 7b2fa19a28700a3d332db22c2c16e110e4381eaf\nFormer-commit-id: c52726d03523da3e00cb6fef60004438e227b5ab\nFormer-commit-id: 93470de6434930f0e1df5a35add13205ae616878"}
+{"commit":"cb66bddf7105c679255f58b6b598c1772966cec3","message":"$/ERM.BL/Main -\u003e $/ERM.BL/Prerelease FI\n\ngit-tfs-id: [http://uk-tfs02:8080/tfs/DefaultCollection]$/ERM.BL/Prerelease/BLFlex;C23238\n"}
+{"commit":"8779946178be0eda41bc79b7697b6465bee3e82c","message":"help.c: give correct structure's size to memset()\n\nThese two structures are of the same type, but we'd better be consistent.\n\nSigned-off-by: Johan Herland \u003c759412786bc533369b22377bf83fb9056c5b25b2@herland.net\u003e\nSigned-off-by: Junio C Hamano \u003ca6723cc3f76163bf7adb636a73ac3b0ceb3e6b9b@pobox.com\u003e\n"}
+{"commit":"ad3230fcb895867ef984b0c10c06b1b6483b669e","message":"Merge branch 'maint-1.0'\n\n* maint-1.0:\n  BibFormat: fix regression test\n  WebJournal: fix seminar widget for new Indico APIs\n  urlutils: new Indico request generator helper\n  WebJournal: update weather widget for new APIs\n  BibFormat: better escape BFE in admin test UI\n  BibFormat: fix URL to ejournal resolver\n  BibFormat: use default namespace in XSL\n  BibHarvest: check for empty resumptionToken\n  BibFormat: fix XSLT formatting of MARCXML snippets\n  WebSearch: fix CDSIndico external search\n  WebSubmit: check_user_can_view_record in publiline\n  WebSubmit: fix filename bug in document manager\n  BibHarvest: fix MARCXML creation in OAI updater\n  installation: fix issue with FCKeditor\n  BibHarvest: fix MARCXML creation in OAI updater\n  WebComment: fix washing of email to admin\n  WebJournal: fix seminar widget encoding issue\n  htmlutils: fix FCKeditor upload URLs\n  mailutils: remove unnecessary 'multipart/related'\n  BibRank: fix empty citation data cacher\n\nConflicts:\n\tMakefile.am\n\tmodules/bibformat/lib/bibformat.py\n\tmodules/bibformat/lib/bibformat_engine.py\n\tmodules/bibharvest/lib/oai_repository_regression_tests.py\n\tmodules/bibharvest/lib/oai_repository_server.py\n\tmodules/bibharvest/lib/oai_repository_tests.py\n\tmodules/bibharvest/lib/oai_repository_updater.py\n\tmodules/miscutil/lib/htmlutils.py\n\tmodules/webcomment/lib/webcomment.py\n\tmodules/websubmit/web/publiline.py\n"}
+{"commit":"ed3f0c8bdf7bf70be08dfcaf36b7d666771df880","message":"Bump copyfiles from 2.1.1 to 2.2.0 (#5134)\n\nBumps [copyfiles](https://github.com/calvinmetcalf/copyfiles) from 2.1.1 to 2.2.0.\r\n- [Release notes](https://github.com/calvinmetcalf/copyfiles/releases)\r\n- [Commits](https://github.com/calvinmetcalf/copyfiles/compare/v2.1.1...v2.2.0)\r\n\r\nSigned-off-by: dependabot-preview[bot] \u003c5bdcd3c0d4d24ae3e71b3b452a024c6324c7e4bb@dependabot.com\u003e\r\n\r\nCo-authored-by: dependabot-preview[bot] \u003c6a4c1c4838f800d1998274cd5234e1f65c55e90c@users.noreply.github.com\u003e"}
+{"commit":"1230f86045a2041c60aa9d318dc3a4364be46b56","message":"Merge branch 'master' of git@scm.dev.nokia.troll.no:qtmobility/systeminfo\nfix merge\n\nConflicts:\n\tdoc/html/qsystemdeviceinfo-members.html\n\tdoc/html/qsystemdeviceinfo.html\n\tdoc/html/qsystemdisplayinfo.html\n\tdoc/html/qsysteminfo-members.html\n\tdoc/html/qsysteminfo.html\n\tdoc/html/qsystemmemoryinfo-members.html\n\tdoc/html/qsystemmemoryinfo.html\n\tdoc/html/qsystemnetworkinfo-members.html\n\tdoc/html/qsystemnetworkinfo.html\n\tdoc/html/systeminformation-library.dcf\n\tdoc/html/systeminformation-library.index\n"}
+{"commit":"4b673c2a614ecf79113df5893f472892817eb5d4","message":"- patches.drivers/e1000-enhance-frame-fragment-detection.patch:\n  Delete.\n- patches.drivers/e1000e-enhance-frame-fragment-detection.patch:\n  Delete.\n\nsuse-commit: 39844bd52997561ba4c1ad0a8f8658fc3196ce9a\n"}
+{"commit":"a4f6ddaa868772b0d2f0e70dccb82f20b29b4af2","message":"Merge remote-tracking branch 'origin/master'\n\nConflicts:\n\tsrc/main/web/imcms/lang/jsp/admin/admin_panel.jsp\n\tsrc/main/web/imcms/lang/scripts/imcms_bootstrap.js.jsp\n\tsrc/main/web/imcms/lang/scripts/imcms_document.js\n"}
+{"commit":"1eb8048711ccae03b98ed5149a223ecb52160e32","message":"Delete patches.suse/ocfs2-kapi-compat.patch - backport helper only\n\nsuse-commit: a3a05fe4ca95fce7bb9a96727889df64d9a56aa2\n"}
+{"commit":"aa7d4d29955526314efed39ce50923397ab5897c","message":"Merge branch 'hotfix/5186' into develop\n\nForward port zendframework/zf2#5186\n\nConflicts:\n\tlibrary/Zend/Math/composer.json\n"}
+{"commit":"aa956a75720817e67d595725e7ba6ad423321cbc","message":"Merge branch 'version/bump' into develop\n\nBump to next dev version\n\nConflicts:\n\tREADME.md\n\tlibrary/Zend/Version/Version.php\n"}
+{"commit":"7d1e8e8dbe822c3ac7ef55b28a4fba100b5df9f0","message":"Merge pull request zendframework/zf2#7292 from marcelto/patch-3\n\nFix call to method not in ExpressionInterface\n\nConflicts:\n\tlibrary/Zend/Db/Sql/Select.php\n"}
+{"commit":"d154afe93150e1776f7b06a70ecdd533cd1756ea","message":"mapping these results to unicode now, since neither _format_optdict nor _format_mapdict impose restrictions on key value"}
+{"commit":"1f764ec7b9b70455d4eb7f0d9eb486b8d13edce7","message":"* delete old buggered manual \n"}
+{"commit":"e59f7b0fd0f1dfa3bc10d4d8ed1583d7af41ee86","message":"This is an empty revision for padding.\n"}
+{"commit":"1525a9f54b0f3c170d8c01bda5e02e247d0d143e","message":"Updated the httpx feedstock."}
+{"commit":"c3c7091ac9a5a0eca23830ab6f6076e448b3c2fd","message":"0.3.x maintenance branch\n"}
+{"commit":"0529421f09b62cdf253fdd8e1f65cc670c745b47","message":"Added output to indicate when the builder tasks are running phase 2\n\n\n"}
+{"commit":"8517fc0d85ce56adf7dc82f891ee69658ccc0812","message":"fixed JAR file generation\n"}
+{"commit":"217fe1fbaf61342ce099ef7249c85a5fd332dfb1","message":"2014-11-01T03:10\n"}
+{"commit":"996d0a3c21df057292fb86bd3600fd4d6ac580a0","message":"Merge branch 'master' of https://github.com/sagyeli/omniwallet\n"}
+{"commit":"f9ff147772d7d4f291400f8aff6451752a5492d7","message":"New version of Dazzling - 1.3.1"}
+{"commit":"0c6ba958acc6a3584109814ceb668707f2dddb7a","message":"Updated the frictionqpotfem feedstock."}
+{"commit":"69f463b4d81ed85a98cf63f76a35600d96859a0a","message":"[packages] quagga: Build daemons of selected packages only"}
+{"commit":"5497a5eee709cffbc7887acd144574729fad928e","message":"Updated the python-suitesparse-graphblas feedstock."}
+{"commit":"22f0fdd62fec0ff2bdfc2430c49a3107aac30db9","message":"Implement functionality to create/delete VMs to VM platform\n\n * Created branch of mcvirt for performing work for this ticket\n\n"}
+{"commit":"3ba520fd97b02f1bbcc6cbbc1c8599c3dd3f9615","message":"Merge \"Refactor _run_instance() to unify control flow\""}
+{"commit":"fdff59e3ca3bf59176de0b5b363d1b4b5d197f34","message":"Update SizeOfImage in PE header, fixes boot."}
+{"commit":"70ac6e8c8c803f6ef2e38cca4c2ab0696dec0633","message":"Deploy from Forestry.io"}
+{"commit":"dd12a066ab3cca73c00f2ad791b57f86162b9ba3","message":"Objective-C [qoi]. When reporting that a property is not\nauto synthesized because it is synthesized in its super\nclass. locate property declaration in super class\nwhich will default synthesize the property. rdar://18488727\n"}
+{"commit":"650fb3a419a511bb0deb4204cdc68230011428bb","message":"This is an empty revision for padding."}
+{"commit":"da9acc1234be1b36ef06d995bc24b7a16d05387d","message":"Updated the aws-c-io feedstock."}
+{"commit":"aa76a0b0623101b7bf783bfe87818f9e189b894c","message":"Updated the r-clickr feedstock."}
+{"commit":"c706bfb842d6bf34af08697c82aaba151b400d46","message":"Imported Upstream version 1.1.5-42-g6e96316"}
+{"commit":"0d8661f4b33dbd9f6857f9980515e98fc6011b45","message":"Give AsmParser an option to control whether it finalizes\nthe stream.  New demo:\n\n$ clang asm.c -S -o - -emit-llvm | llc -filetype=obj -o t.o\n$ otool -tv t.o\nt.o:\n(__TEXT,__text) section\n_foo:\n0000000000000000\tsubq\t$0x08,%rsp\n0000000000000004\tmovl\t%edi,(%rsp)\n0000000000000007\tmovl\t%edi,%eax\n0000000000000009\tincl\t%eax\n000000000000000b\tmovl\t%eax,(%rsp)\n000000000000000e\tmovl\t%eax,0x04(%rsp)\n0000000000000012\taddq\t$0x08,%rsp\n0000000000000016\tret\n\n"}
+{"commit":"3398fbc07b1d63843178f6f58ba73ae15c01a23f","message":"merge trunk"}
+{"commit":"65b86704d0f832f620310d31539aad24068cfcad","message":"Translate researches_pl.yml via GitLocalize"}
+{"commit":"c3619ad160a313767a2c69e5492e0013003fd922","message":"bug fix\n"}
+{"commit":"1bf205dc9f4d672ba5c7a082763caf9d0eb11f5a","message":"* bug fix: lost constraints led to false negatives\n+ initial marking read from net if missing in problem statement\n* local changes to PNML parser to use name tags for IDs\n+ allowing for dummy problem statements"}
+{"commit":"a129232c7158a70368f162308ddbe37ef4b4eda6","message":"- Analyzer y converter muestran el numero de configuraciones procesadas\n\n\n"}
+{"commit":"8a767fbcb2f79a6824feb2118dcf0d326e4e20bc","message":"autoselect dependencies\n"}
+{"commit":"c2502e7699a62585e6f6b7882bfd22cd8a87b36f","message":"[mips] Delete MipsFunctionInfo::EmitNOAT. Unconditionally print directive\n\"set .noat\" so that the assembler doesn't issue warnings when register $AT is\nused.\n\n"}
+{"commit":"e551041485ad936c8de15e77d6010ec30065925f","message":"Updated the awscli feedstock."}
+{"commit":"d6dc7145c8a6e2822fafe67e71c805d7fa89eae1","message":"Correctly determine if the @property has been previously declared.  If\na property has the same name as the ivar it wraps then the old logic\nwouldn't find the previous property declaration."}
+{"commit":"60f183ec3be312e40577e49af346478a7fc7e2ba","message":"[maven-release-plugin] prepare for next development iteration"}
+{"commit":"fe55dfa7217f834f3439f16bea8a89e6c482937e","message":"Removed unneeded comment.\n"}
+{"commit":"cdbcfe51c5d524f6733ae20da3c6ba730b68e68a","message":"Merge \"Change CIDR column size on migration version 149\""}
+{"commit":"6c4445226eb725260d3e6b6f98a15a178240919e","message":"enabled max size config. added common functions\n"}
+{"commit":"1355e02323699fdf84c0ddc4eafc31c98e1cd3e3","message":"Updating tests that fail with ICC 13.1 because of the different mapping of assembly to DWARF.\n"}
+{"commit":"de436ee58dc737d2c450194e76fdd0673e3ca646","message":"[packages] olsrd: Upgrade to v0.5.6-r6"}
+{"commit":"443b2e1d795a4a009e5d911c3340df4f721d737f","message":"additional network type for WLAN \n"}
+{"commit":"8c35a08ebf30cd7cabda20d54bfc2ead2bcae455","message":"Merge branch '5.1.0-post' into 5.1.1-post\n"}
+{"commit":"af8dc2b3ae3bcc2015900810ad044402fe5c5623","message":""}
+{"commit":"1f5ed05dc7960f0fbcde6a4e7705339876080e12","message":"fix mantis 1453\n"}
+{"commit":"9f18cb525f258ec3ff227b7a00ede613e6e8dd10","message":"Adding the feeddown correction\n\n"}
+{"commit":"76d1cb4190b859460329bd0bf495c37bd002ff7e","message":"Merge \"Imported Translations from Transifex\""}
+{"commit":"7ca2b0e76e892f97bff772201a5dc25c75445dee","message":"CORSAIR-91\n\nVirtualised mesh reading and generation to class MeshReader. Currently\nonly point meshes can be read.\n"}
+{"commit":"56e7906b3159a02c89acde0946662c7ba843566c","message":"Merged revisions 65795 via svnmerge from \nsvn+ssh://pythondev@svn.python.org/python/trunk\n\n........\n  r65795 | brett.cannon | 2008-08-17 17:46:22 -0700 (Sun, 17 Aug 2008) | 3 lines\n  \n  Update __all__ for cookielib, csv, os, and urllib2 for objects imported into\n  the module but exposed as part of the API.\n........\n"}
+{"commit":"27c136aed39346c8958350c75d6151d651eddfc8","message":"\n"}
+{"commit":"4b98f7e7861f0d102c91bb9e7ee7d1d682079649","message":"2004-10-28\n"}
+{"commit":"3abc94c82c3d78a6bef163b7a501227b5b58a861","message":"Dics/elements/beans Now with JPA Capabilities. Almost Complete\n"}
+{"commit":"1e818304ffe526f1fdbb159eaaf8e2b4c6f9b53d","message":"Revert r113439, which relaxed the requirement that loops containing calls cannot be unrolled.  After some discussion,\nthere seems to be a better way to achieve the same effect.\n"}
+{"commit":"7b85915be0d4662e7008935203656a5fa62ccf58","message":"\n\ngit-svn-id: https://svn.pengutronix.de/svn/ptxdist/trunks/ptxdist-0.10-trunk@5101 33e552b5-05e3-0310-8538-816dae2090ed\n"}
+{"commit":"7d8e203c0b963397a6f9540adaff8d105af00e4a","message":"adding expiration year options"}
+{"commit":"a6801a262b55dc68f66a6a42bf8a2e31cc700a56","message":"[KMTESTS]\n- add START_TEST macro in case test functions ever have to be passed an argument\n- add a few ok_* convenience macros\n- remove unnecessary C library function renaming macros"}
+{"commit":"0c170b42e271afeccc692277675941ae2a648510","message":"[dev] Refactoring: Commands sent via WWSympa are injected in msg spool with \"md5\" authentication level, by setting {md5_check} attribute as true.\n"}
+{"commit":"17c9ae5b33b69a4017303b13ef6d3bd2b57d3ab3","message":"Merge branch 'dev' of https://github.com/mariocoski/laravel-blogger into dev\n"}
+{"commit":"89ffbd2ecd7610c1269a4f497531185a177ec267","message":"Reverting commit r185999 due to buildboot failure."}
+{"commit":"8f5cf974438ce2510ba18709189c7632874f8284","message":"Updated the flake8-typing-imports feedstock."}
+{"commit":"2afc2aadbb5a450a89df3ed92a2eb93fd0428fe9","message":"Updated the r-wk feedstock."}
+{"commit":"b89974fa797891ae3db6da54a7593c64585c8d35","message":"TFD: correct implementation for effect copy in translate\n"}
+{"commit":"23dfa92b5d3dd58a97e21b9456fa610b41ed9839","message":"fix"}
+{"commit":"d10a74f53f47450e1abb63573d87dd9829b4e4c1","message":"clang-format: Don't force line breaks in ObjC calls with ColumnLimit 0.\n\nBefore:\n  [self.x a:b c:d];\n\nGot reformatted toi (with ColumnLimit set to 0):\n  [self.x a:b\n          c:d];"}
+{"commit":"8843e901549e78572508589b52d89b698e517c62","message":"Removed CGAL form MacOS dir as it is perfectly supported by the port\n\n"}
+{"commit":"77e8f900f155c19cac5e8b9d16ee8e7a947b141d","message":"Fix a typo.\n"}
+{"commit":"2747f7d420b83d4bd863eac0f7ef9d7811dd2507","message":"properly sort rules in TT 1"}
+{"commit":"1e39062c22cd8883343644d098b6f5a4794facc0","message":"Merge \"Correct the status code to 201 for create v3\""}
+{"commit":"24e0ab51e93138e9eba2c571180a08fb45b86aa3","message":"Updated the larch feedstock."}
+{"commit":"b744536de02828133d2d9bfdb5e8396422e8e3ad","message":"Updated the apache-airflow-providers-papermill feedstock."}
+{"commit":"a1431a2a2dab7720b679b33625c1b78b948f29cc","message":"Updated the formulaic feedstock."}
+{"commit":"03af8eb5a5b00320ff5781cff490cfd12e9d7d5e","message":"New version of Stargazer - 1.2.1"}
+{"commit":"4136c88dd33562e19b440deddf5e59920af4ad26","message":"Extracted parameterisable tree model for arbitratry contents (typically LDAP trees) from module org.csstudio.utility.ldap into own module.\n"}
+{"commit":"824b727ada140360fa50e627296ec8f9c5fc75d4","message":"Remove data file that was too large for GitHub.\n\n\n"}
+{"commit":"16a4e03ac6221341f9d0fb319b190ead6a270231","message":"Updated the piou feedstock."}
+{"commit":"cba735b69b5c434252ef61dfeee316bb4fc0895c","message":"2014-04-05T13:00\n"}
+{"commit":"3b0514bd28b06655c8ac6f147a090f5a3d48ed7f","message":"include example application in distribution\n"}
+{"commit":"8966722e9959f1faf6c23c55a24102e106e90618","message":""}
+{"commit":"d9cfe56f225116e4478bfda8e53a76a9caf2b2fe","message":"2015-07-03T18:00\n"}
+{"commit":"356136919a42e23d4f98c27554f63775df615e1e","message":"Remove BitVector binops.\n\nThese operators were crazy slow, calling malloc to return a temporary\nresult. At the same time, they look very innocent when used in code.\n\nIf you need temporary BitVectors to compute your thing, create them\nexplicitly, and use the inplace logical operators. This makes the high\ncost explicit in the code."}
+{"commit":"5573760fca3b2577baeb1f42963edd4570c79543","message":"Updated the cleanlab feedstock."}
+{"commit":"e16b41470907fc2c5ed311893fc89ce033dc82d9","message":"more words"}
+{"commit":"b33461706e51a7b177e69467f22844a4dc6daa00","message":"- Created branch for developing calendars and appointments.\n"}
+{"commit":"69cdf21c21ca6dd14f02cf91d9db2013cc294b6c","message":"INTEGRATION: CWS so3deadcorpses (1.6.160); FILE MERGED\n2007/09/11 08:30:55 fs 1.6.160.1: #i81309# so3 is dead, long live bf_so3\n"}
+{"commit":"165257a73551dba495f10ffd54e3874459a798ca","message":"Updated with code changes on LP"}
+{"commit":"90b16f4061fef334aeecff686df84944758fa749","message":"Implement ARMBaseInstrInfo::commuteInstruction() for MOVCCr.\n\nA MOVCCr instruction can be commuted by inverting the condition. This\ncan help reduce register pressure and remove unnecessary copies in some\ncases.\n\n\u003crdar://problem/11182914\u003e"}
+{"commit":"80e8e9681efc7d518fe028084b74674a3905ac8e","message":"fixed teleportation--now AI needs to ramp up"}
+{"commit":"08b869972db2c508d81469760c9249d8100d6565","message":"2014-10-11T21:00\n"}
+{"commit":"14695360b90777b10fb7bd298a6ceccc412bbdc2","message":"Updated the mypy_boto3_lambda feedstock."}
+{"commit":"8097d2ee6483358796e8b5304e3a64db3ab2cfe6","message":"Once again remove properties that subversive sets on new files. If anyone knows how to prevent subversive doing this please let me know."}
+{"commit":"09a375955b8950adb7768aa5666d0f4fc78c1b90","message":"Updated the qcelemental feedstock."}
+{"commit":"f76b9135a48964b45b881adf59174d1e0102dc4b","message":"Plugin functions first"}
+{"commit":"4e3ece856db799bc509f30f55af6aeb319e256f4","message":"sensor: pow benchmarking\n"}
+{"commit":"335f6ee701ad9dc14aaaa4d13b9f3d1ea3c89619","message":"new MTA(s), sabine.fessele@helmholtz-muenchen.de\n"}
+{"commit":"26b6d336f58d6c973ca268e0c361a1faa21b114a","message":"Fix packing for commdlg"}
+{"commit":"ae023d689564165231a1a390a2379d41fb67e6b4","message":"Only adding files to the dist list does not add them to svn."}
+{"commit":"e19d531679206a0638ee6c72f7b3c1ae257bf837","message":"Auto generated devel build.\nThis build contains all changes up to and including  change 28595\n"}
+{"commit":"98312949e5ea0caf90e1a039256c7ecdc4020e18","message":"Updated the swagger-spec-validator feedstock."}
+{"commit":"193fc208b4fcf181c8ffb077e5730d11c35b3c10","message":"Fix CellSPU CMakeLists.txt"}
+{"commit":"c6a4df2fb284287e0e773d4d9ec2d6d04d79d9a8","message":"triggering build with pending triggers: 0; pending removals: 6\n\n    additions:\n    A\tk8s-dev/building/unclaimed/crabby-pumpkin\n\n    removals:\n    D\tk8s-dev/building/unclaimed/abnormal-suitcase\n"}
+{"commit":"23834507d56a24a88b34a8c389fa90435e4a5a7e","message":"Auto generated devel build.\nThis build contains all changes up to and including  change 46720\n"}
+{"commit":"ddf53c80da9fa7e82a91c452420e15f86def5a86","message":"[package] update nano to 2.1.11 (#5879)"}
+{"commit":"848676bf5d9d5c4695d8d02f0abf5caea2becd8b","message":"sort"}
+{"commit":"ca1db66d8b66528b91345d2c5c4c7ed9680b9de2","message":"Rename parentGA to definingGA as it may not be the parent project"}
+{"commit":"fbf804e4afec25611e63354dce8a528cac0c8cba","message":"2014-03-20T16:10\n"}
+{"commit":"f63765dc75ac0357ecfac9bdf431fdaf6db59159","message":"Updated the thriftpy feedstock."}
+{"commit":"cc21296636285760155c51ebc15a489eac511d0f","message":"2014-09-19T15:10\n"}
+{"commit":"2798edb17936f4287e1b6cd4334be67a2e9f391a","message":"2014-04-10T21:20\n"}
+{"commit":"eb372c55849e688442c4aaba48c983b4a4b08f9e","message":"\n\ngit-svn-id: svn+ssh://kelev.kaltura.com/usr/local/kalsource/backend/server/trunk/core@54835 6b8eccd3-e8c5-4e7d-8186-e12b5326b719\n"}
+{"commit":"6d8e574e095858233d78ef9c6b830c9bd52f3db2","message":"committing obo package\n"}
+{"commit":"e29921412bd1ac5ee0d4cffcd876b8a6976414c0","message":"Update status of commands."}
+{"commit":"d489e07290459502905a108fb2fa0c6b56272d6c","message":"Updated the pystackreg feedstock."}
+{"commit":"fbe70be60db7b9ee12cea6fbd3bbfd74d8f7fa95","message":"Updated the instaseis feedstock."}
+{"commit":"58afc3547e1b05175153a20d8d340ce3ee97ba7d","message":"am 729ad90f: (-s ours) Import translations. DO NOT MERGE\n\n* commit '729ad90fb6c1b5c7c6e79507beb00934fbdd44ea':\n  Import translations. DO NOT MERGE\n"}
+{"commit":"b0c38097dff926e377e6d98fd97218db8013e803","message":"Merge branch 'master' of https://github.com/georgelacey/perceptron\n"}
+{"commit":"83749521709085bd60ffdba8ec8e6e53e281fbb0","message":"merge of rev 14158. Fix for GROOVY-2657, applying fix provided by Roshan Dawrani plus new test case. This ensures that a correct line/col information is provided for Strings that end with $."}
+{"commit":"0ed8cb8c4117d4630678d7addb1d97c883532bfb","message":"first commit of spectra-cluster-hadoop"}
+{"commit":"a90eaf887379b9f905c1e76aac3bd04392f4e258","message":"cleaning up 8-25-2010. Added functionality for Next loan Number for Mamm, Mala. Still issues with Fish."}
+{"commit":"77e5e1aa14e6b4cfb884e0b744bf097f6b841f0b","message":"Keep track of which source locations are part of a macro argument\ninstantiation and improve diagnostics which are stem from macro\narguments to trace the argument itself back through the layers of macro\nexpansion.\n\nThis requires some tricky handling of the source locations, as the\nargument appears to be expanded in the opposite direction from the\nsurrounding macro. This patch provides helper routines that encapsulate\nthe logic and explain the reasoning behind how we step through macros\nduring diagnostic printing.\n\nThis fixes the rest of the test cases originially in PR9279, and later\nsplit out into PR10214 and PR10215.\n\nThere is still some more work we can do here to improve the macro\nbacktrace, but those will follow as separate patches."}
+{"commit":"45e5dfd156bc6dc6b0f7d6da28f0459171375269","message":"blah const\n"}
+{"commit":"0227ada7c5a2a86ceff06fb9ca759e607a721621","message":"keš - keč\n\n"}
+{"commit":"b6f1578faa4debc21512ccdb55deb9a4c0c3efa9","message":"new summary\n\n"}
+{"commit":"75f3305e6cbfa8db881ef4dbcee64fcba931298e","message":"haserl: moved to github"}
+{"commit":"2d7e72f9cbf673fbd140d76beff28cc9ad5c1f52","message":"create 2.8 module branch\n"}
+{"commit":"33111a774cf96f834c9b943cb9b588bf91eeefe9","message":"relax assertion in ConstantExpr::getWithOperands.  It can take operands of\ndifferent types now, fixing a linker testcase assertion.\n\n"}
+{"commit":"ce2030ca4341571b63adc8eb15e072c5adedf082","message":"adding source by hand\n"}
+{"commit":"da0e2b949a5f6127006e6c9531af92a4989cc2f6","message":"Add MIPS accumulator and DSP control registers.\n"}
+{"commit":"e5dfebe8a613bffd24e5197458571d970671db9f","message":"Fix coverity : CID 19655 - Forward Null\n\nCheck the AliESDtrack pointer is not null, in the method AliAnalysisTaskCheckCascade::DoAngularCorrelation.\nIf null, return the function.\n\n       AliESDtrack *lLeadingTrck = 0x0;\n              lLeadingTrck =dynamic_cast\u003cAliESDtrack*\u003e( (InputEvent())-\u003eGetTrack( lLeadingPrimTrackIdx ) );\n       if( !lLeadingTrck ) return;\n\nCheers,\n   Antonin\n\n"}
+{"commit":"caab9d43e6bbc23032a7ebf67edeba01f4899191","message":"2015-08-28T02:30\n"}
+{"commit":"5b4f2f02fc6c1ab247810db238ce06f370ebded6","message":"Updated the lightfm feedstock."}
+{"commit":"00e6b280265c0849f1d4210b1cd700de8e176591","message":"Stub out some of the MachO relocation decoding hooks.\n"}
+{"commit":"1a83d93eecc66e6ad63a85322ef92624c8add85b","message":"fix generic_vblex paradigm\n\n"}
+{"commit":"111abc1cc36a11cce90431cb4273337dbe7a8691","message":"Edited wiki page through web user interface."}
+{"commit":"cba3830665a502c6d0e702dce4aedce36d43d2cb","message":"Further expand what a call graph pass may do.\n\nThe rationale is that after analyzing a function in the SCC, we may want to\nmodify it in a way that requires us to update its uses (f.e. to replace the\ncall with a constant) or its users (f.e. to call it with fewer arguments).\n"}
+{"commit":"81cca044eda72b576322be5d364ffeda304057fa","message":"New version of Subtle - 1.5.2"}
+{"commit":"dbbbf02431b0c44a16fe281891dca5ee1737828f","message":"Added some nouns\n"}
+{"commit":"5f1472409bd8784ea4edb8d411f4105dcfd98d94","message":"Updated the pytest-flake8 feedstock."}
+{"commit":"2b3f0124edd0e5cef205f1517d164d158f0a68f8","message":"Added support for most common USB serial adapters, closes #321\n"}
+{"commit":"271aa2ccac5d85e3b8f19427862d1672006a6ff6","message":"Fix relocations with renamed symbols."}
+{"commit":"1fa0fe053caa74260727bfd1b7ac9e6dc2716b53","message":"updates"}
+{"commit":"54955f868495ad2ce83bffa92f63a407acdc6768","message":"[block-freq] Add BlockFrequency::scale that returns a remainder from the division and make the private scale in BlockFrequency more performant.\n\nThis change is the first in a series of changes improving LLVM's Block\nFrequency propogation implementation to not lose probability mass in\nbranchy code when propogating block frequency information from a basic\nblock to its successors. This patch is a simple infrastructure\nimprovement that does not actually modify the block frequency\nalgorithm. The specific changes are:\n\n1. Changes the division algorithm used when scaling block frequencies by\nbranch probabilities to a short division algorithm. This gives us the\nremainder for free as well as provides a nice speed boost. When I\nbenched the old routine and the new routine on a Sandy Bridge iMac with\ndisabled turbo mode performing 8192 iterations on an array of length\n32768, I saw ~600% increase in speed in mean/median performance.\n\n2. Exposes a scale method that returns a remainder. This is important so\nwe can ensure that when we scale a block frequency by some branch\nprobability BP = N/D, the remainder from the division by D can be\nretrieved and propagated to other children to ensure no probability mass\nis lost (more to come on this)."}
+{"commit":"dc48c97f3b9ea20095f46b42f959620fbdce713c","message":"ServerManager: re-organized ServerManager\n"}
+{"commit":"46b7f38523036a4b2266646eff55ba6dc29a5092","message":"2013-09-14T01:30\n"}
+{"commit":"519f711aed79bbd8d599e3871c86260d1a34ebd5","message":"If we have to reset the calculation of the compact encoding, then also reset the\n\"saved register\" index.\n\u003crdar://problem/10430076\u003e\n"}
+{"commit":"219af86cc52ff9782f6bbd9e7f07dcde128a22a7","message":"fix lexicon error"}
+{"commit":"fb20ad0b35bdd59612be315ff2d893cb3ef95948","message":"\n"}
+{"commit":"739ee001ce6c064d074138d868523514e55989bf","message":"more refactoring of nao stack"}
+{"commit":"265eba00710f05569d1f137a0acabedefe95455e","message":" Merge branch '6.2.0-post' into 6.2.1-post (using strategy ours)\n"}
+{"commit":"1c126232357d115e32155bf389da337575f8b764","message":"Bosco: Align WP.com version with version 1.1 uploaded on WP.org.\n\n"}
+{"commit":"7ef7191bf7f4a8deee2a0b25f807f94155f3b5fd","message":"orientation cost"}
+{"commit":"f65b5ec34ec5fe879efd4d6a7d3b2b8a5dd05547","message":"2014-03-20T15:00\n"}
+{"commit":"f8928551a083ceee338a5f7c3038ddd229d223ca","message":"Updated the metomi-rose feedstock."}
+{"commit":"16c1e48233c8b0026f6f2b30a50875bcfdc14707","message":"2013-09-07T21:50\n"}
+{"commit":"b5fdc19504e2a8f5af923e6fb925c7b22b69356e","message":"add verb"}
+{"commit":"323ee561ac79b45223a92b20cb9b8288c5f836ff","message":"Merge \"Make Exception.format_message aware of Messages\""}
+{"commit":"6b3c6808a91ee91ea12559f334cfd96cbf17a9e0","message":"o Added doco."}
+{"commit":"6067f0a97956ea294bb83bc8c85cde8e94e9f885","message":"file PH_lwflsfc__020_016_23.data was initially added on branch ecco-branch.\n"}
+{"commit":"eccb06fc7e10ea9d66dd5f6d02ffe7176bfde4c5","message":"Updated the flex-swagger feedstock."}
+{"commit":"221b525cf55553838d24b34d8f2315d536640853","message":""}
+{"commit":"c0897d309786d85fa15fe3bb34c69ad513f0ef0c","message":"Updated the hpp-fcl feedstock."}
+{"commit":"ae75fcb85b466243a8ad60adb074e2f3380c6e6e","message":"[KE]\nDon't use fastcall functions"}
+{"commit":"c5faa79f3ea9952b4ac8ecff352615285cc8f724","message":"Tagged by Jenkins Task SVNTagging. Build:jenkins-YAKINDU_SCT2_CI-1132."}
+{"commit":"0321be8a75fbf261b884275c15fd06aa4bf08dd3","message":"Merge \"xenapi: tidy ups to some spawn related methods\""}
+{"commit":"7e714a434760bef45f04ce876adc63680bdb4e71","message":"deps: update dependency jeepney to v0.8.0 (#597)\n\n[![Mend Renovate](https://app.renovatebot.com/images/banner.svg)](https://renovatebot.com)\n\nThis PR contains the following updates:\n\n| Package | Change | Age | Adoption | Passing | Confidence |\n|---|---|---|---|---|---|\n| [jeepney](https://gitlab.com/takluyver/jeepney) | `==0.7.1` -\u003e `==0.8.0` | [![age](https://badges.renovateapi.com/packages/pypi/jeepney/0.8.0/age-slim)](https://docs.renovatebot.com/merge-confidence/) | [![adoption](https://badges.renovateapi.com/packages/pypi/jeepney/0.8.0/adoption-slim)](https://docs.renovatebot.com/merge-confidence/) | [![passing](https://badges.renovateapi.com/packages/pypi/jeepney/0.8.0/compatibility-slim/0.7.1)](https://docs.renovatebot.com/merge-confidence/) | [![confidence](https://badges.renovateapi.com/packages/pypi/jeepney/0.8.0/confidence-slim/0.7.1)](https://docs.renovatebot.com/merge-confidence/) |\n\n---\n\n### Configuration\n\n📅 **Schedule**: Branch creation - At any time (no schedule defined), Automerge - At any time (no schedule defined).\n\n🚦 **Automerge**: Disabled by config. Please merge this manually once you are satisfied.\n\n♻ **Rebasing**: Renovate will not automatically rebase this PR, because other commits have been found.\n\n🔕 **Ignore**: Close this PR and you won't be reminded about this update again.\n\n---\n\n - [ ] \u003c!-- rebase-check --\u003eIf you want to rebase/retry this PR, click this checkbox. ⚠ **Warning**: custom changes will be lost.\n\n---\n\nThis PR has been generated by [Mend Renovate](https://www.mend.io/free-developer-tools/renovate/). View repository job log [here](https://app.renovatebot.com/dashboard#github/googleapis/java-recommendations-ai).\n\u003c!--renovate-debug:eyJjcmVhdGVkSW5WZXIiOiIzMi4yMDguMCIsInVwZGF0ZWRJblZlciI6IjMyLjIwOC4wIn0=--\u003e\n"}
+{"commit":"6f523756393f36d70ed72020d56b13c84317a870","message":"Updated the cheetah3 feedstock."}
+{"commit":"12d28f567163a68373296759decfdc5c12a56b89","message":"Sanity checks in oEmbed XML handling.\n\n"}
+{"commit":"2677fb41470b4f2c9f6b335eda3164a1ffe3dc94","message":"file standalone_scenario.gif.svn-base was initially added on branch testing.\n"}
+{"commit":"f5665ecee2e524c55208e10f85a85b97f484a5fe","message":"Switched two more files to PSEH"}
+{"commit":"b0190ecd2062fe1f2db5c5bf1b2de9076bc19007","message":"Fix the behavior when hand-calling a function times out on one thread,\nbut by the time we go to halt, it has already stopped by hitting the \nfunction end breakpoint.  That wasn't being shown to the threads so the\nFunction call thread plan didn't know its job was done.\n\n\u003crdar://problem/16515785\u003e\n"}
+{"commit":"c9fc627476a2480cf525131b74ebb0d555c85839","message":"our beautiful gardens"}
+{"commit":"9ee0ddcf79d6a7b5cbb8fb320301e54aa937e1f7","message":"Updated the r-stapler feedstock."}
+{"commit":"42f09dfa70aed3cf28320151a557e5792446d939","message":"Updated the ocaml feedstock."}
+{"commit":"2d810c927f89ad32b0e6e1d66f3131ecc7873937","message":"gitfiti\n"}
+{"commit":"65667eb96cb5bb4d7c8a0b7efa492751ba776d72","message":"Latest Cygwin snapshots change the name of pty master devices from \n'ttyX' to 'ptyX', so allow for both when generating the id field for \nutmp entries.\n"}
+{"commit":"b63dee2d57717ef91627316b1ade21919792d073","message":"Add a tool to instrument the type safety checks.\n"}
+{"commit":"e92f020d7ca52679e64199ebc34aaa941d28bb13","message":"removed json_decode from print"}
+{"commit":"e8320725e28f485258174f7918b65588bca2ef28","message":""}
+{"commit":"783dda5bb690a44b61a6a405c2c6e85fe495b755","message":"Sketch: Simplify header.php conditional for custom header image/featured content\n"}
+{"commit":"989f905f6b7f4cd93633f13ddd380e82c197a567","message":""}
+{"commit":"7d2a175861360117a3b08b564d3463052d0fc4d7","message":"-modernize AC calls - #2871"}
+{"commit":"279cf1a6ffed466aeca1b79320984cf819ae0d56","message":"made time-to-string conversion thread-safe.\nIf logging is available, report string-to-time conversion errors in no-throw functions"}
+{"commit":"68c9c0cfb9fbe13546aa2e5c74cc7315213f1a97","message":"UK analy queue mappings"}
+{"commit":"3f926f362075859e0396a5fb91e8a33a49ca7214","message":"Kompilering på Ubuntu"}
+{"commit":"e8abec7d85f842b0dd8790995861886b8381aa34","message":"Updated the boto3 feedstock."}
+{"commit":"763e6d0c17b07b6ae2fca7c3b16e4b9faaab20a2","message":"* a STATESPACE configuration for safe nets\n\n"}
+{"commit":"4fc7d5b25f063a0e3a1b61be0eea3a7c5e9bf104","message":"Updated svn:ignore\n"}
+{"commit":"b775e84e9de426940e81b7536f16a121386695ec","message":"Updated the conda-forge-pinning feedstock."}
+{"commit":"2a0f1f5d3b7fe08227cd72a434eccedd6add8a72","message":"Added DCIF"}
+{"commit":"abe194589e608a171d0e910283f690e8af4ce774","message":"Updated the r-multipanelfigure feedstock."}
+{"commit":"955744be8dfa21afd3ceaf72b9c40ffa22f3c53b","message":"G729 codec project folder"}
+{"commit":"819407ec3a7c60e5c51b997e3ccb923d95baf9ee","message":"For member pointer conversions potentially involving derived-to-base\nconversions, make sure that the (possibly) derived type is complete\nbefore looking for base classes.\n\nFinishes the fix for PR8801.\n"}
+{"commit":"93d65aa51df5e81352027c5299aa544460583ff3","message":"- Potencial mcy (de pares) para simular agua\n\n\n"}
+{"commit":"3bc374b23fc77bf3f3cfe713b29c29f5c88e4839","message":"2014-03-10T02:30\n"}
+{"commit":"ccc33c51ed5de53e3681fa5a8a065bfb8927fa46","message":"Comment out WLOG producing too many messages.  Should just be for debugging.\n\n"}
+{"commit":"89bc3beb215b9d58d6b28043b88d88477c80d1fb","message":"Fix for issue 187: CodenameOne designer border image setting\n"}
+{"commit":"7d9a7cf63d4d5813b503e0cbddd73c3e9fd3756a","message":"Updated the great-expectations feedstock."}
+{"commit":"b10956d67cbf5fda7dd2c4e384dc158e30269f20","message":"+cognoms"}
+{"commit":"180c55421b7438fc37941a2514b2cf1929e1ab4d","message":"More work on the FullExpr class."}
+{"commit":"d8e459324010612c4523be5dee8b9749192bba5c","message":"fix missing semicolon"}
+{"commit":"ab78cd6d2241a6d9746e8bf9b4877feebc00d633","message":""}
+{"commit":"8433b72fd5112812abcf39ca58ab6d05aea92cfe","message":"Updated the histoprint feedstock."}
+{"commit":"1499293c3ea663c309e6b457ee05263c81c708cf","message":"More work on bitrate control algorithm"}
+{"commit":"acf6d82649c79a275fdf2e1e3fff2f849abfbef5","message":"new dir for maryX"}
+{"commit":"7461db872cf47591869354c7e3cc773569e1f8e5","message":"add libs.epics package again\n"}
+{"commit":"2a9cd137f38b60edc0839116b32a5f49bbf71f56","message":"[PECOFF][Writer] Remove duplicated code by moving it to parent class."}
+{"commit":"ba5455236f0a8a9d3a510b48ea9f90754add4afa","message":"Updated the pypy3.5 feedstock."}
+{"commit":"61f725672f1268a80ca7a7260a830ed6aea63837","message":"remove obsolete sentence"}
+{"commit":"2dd9d1be120873df9a2cfe98cca70faee76c68e0","message":"Release of version 1.9 of the Trac Scrum burndown plugin.\nSee http://stuq.nl/weblog/2008-11-04/scrum-burndown-plugin-19-released for more information.\n\nThe Scrum burndown plugin is currently compatible and tested with Trac 0.10.5, Trac 0.11.1, Python 2.4 and Python 2.5.\n\nIssues fixed:\nFixed #3498 Incompatible with Genshi 0.5\nFixed #1743 No support for 0.11 version on trac\nFixed #2330 How to enable ScrumBurndownPlugin in 0.11b1\nFixed #1590 printing to stderr causes svn post-commit hook to crash\nFixed #1510 Porting to Trac 0.11 and Genshi templates\nFixed #2936 problem installing plugin\nFixed #1668 Environment Not Found\nFixed #1472 URL Not Found when click Burndown menu\nFixed #3017 Trac 0.11 - Burndown Chart does not show tickets with status 'accepted'\n\n"}
+{"commit":"0acd03a0ef2fe1cad4f7335ec14d0e20d8516e61","message":"-need to wait for namestore process to terminate"}
+{"commit":"0dbc9bfd94852c4d02a0a6ab38fac38d2b4d9d16","message":"Revert \"Reland r206934 with a hopefully fixed test\"\n\nThis reverts commit r207155.\nThe test was still failing."}
+{"commit":"634550de13c861570bd8206e104ba3a30778681d","message":"Updated the xrootd feedstock."}
+{"commit":"3c5e088f03f04a6ed6211c02bc0630c01575fc6f","message":"libvortex:\n* [new] adding more API to the thread pool to allow configure the exclusive\n  thread pool behaviour and the number of threads available. API added:\n\n   - vortex_thread_pool_set_num\n   - vortex_thread_pool_set_exclusive_pool\n\n* [new] adding initial support to create the array module definition, for the\n  C stub, for the xml-rpc-gen tool. Header definition is now complete. Body\n  definition partially defined.\n\n"}
+{"commit":"0a99b03a810364560d5282fbcd6f9d784028a97c","message":"merge\n"}
+{"commit":"6a104b6f0dbd130e82f697409410657e699b7e20","message":"INTEGRATION: CWS hr38 (1.6.120); FILE MERGED\n2006/09/11 13:31:48 hr 1.6.120.1: #i69179#: clean up stripped files; remove obsolete files\n"}
+{"commit":"e04ee5defbb7f80233ac486333872c4ca477164e","message":"Fixes resin stacking \u0026 allows lasers to pass through resin\n"}
+{"commit":"a082b1f9a58b825b4bf198c51e745c7abc334011","message":"rule for reported speech\n"}
+{"commit":"cd4aa1bfd16ed4a82f026d6c442138f31a905627","message":"Merge commit '4f6e7a72934257b5709e74bf03d737f89be0c963' as 'dtk_modules/thin'\n"}
+{"commit":"e0414c459f1364b3b9c2e51f3bb7ffb1004a3c75","message":"Merge branch 'master' of github.com:jackparmer/streambed\n"}
+{"commit":"3abffac50388b1dd15c4255cca696864b866ae79","message":"Updated the boto3 feedstock."}
+{"commit":"9b9cf4004ad8d738e5f313bb43f83acb818817af","message":"Updated the r-subplex feedstock."}
+{"commit":"1b8bb325638f94699e84b79b899daf6a39d0f590","message":"am faa5ce6e: am 6b795f79: am 39a2ebfb: am f324bdb8: Merge \"Re-use state sets in TintManager\" into lmp-mr1-ub-dev\n\n* commit 'faa5ce6ed85e43d7c59c06db4bb4e42d9dcb0dc3':\n"}
+{"commit":"5cf30506d1cd6c3cd21ed2e2f9985549e366d271","message":"Some required adjusts (caused by r74349)."}
+{"commit":"0cc5c3d11ec61b81fc35d1b9ba52743b47031c89","message":"[maven-release-plugin] prepare for next development iteration"}
+{"commit":"20e2ad5fc02e46631bdfd58ab582904fa7ba7344","message":"updated location file"}
+{"commit":"8d7074cf9ae0b442e2f38ebc63f010d99627d11b","message":"Use a Twine to concatenate the name instead of going through std::string.\n"}
+{"commit":"136eabcd190e8e3bb122952201f630e09f14b1f3","message":"Don't pass address spaces to EmitULEB128IntValue."}
+{"commit":"72316cc143c4557abafeae88853d3db1bef4ed5d","message":"fix PNG print view, fixes #1450, re #1458\n"}
+{"commit":"96751a1b85ca931d0aebc08f22af71aa248f1436","message":"triggering build with pending triggers: 0; pending removals: 1\n\n    additions:\n    A\tk8s-dev/building/unclaimed/unimaginative-crocodile\n\n    removals:\n    D\tk8s-dev/building/unclaimed/blathering-flower\n"}
+{"commit":"0f1d0733a7aab8810ac63a85af2d32742ad8aca4","message":"Remove Silex .git repo"}
+{"commit":"dd20e74473ec695a54d8e77aca70183d5ee0ac12","message":""}
+{"commit":"f5e5e1270d7186ccbca50a8515145d01c5cf2689","message":"am 9ee14249: am 07130d40: Merge remote-tracking branch \\'goog/ub-now-lunchbox\\' into lunchbox-release am: 524ed6adda am: 3f39cc45d8 am: 6120e6096a am: d9ba2b56db am: 8dc63a93c6\nam: b897ea777e\n\n* commit 'b897ea777eb4b889122a5f2f9604f36ef6ee182f':\n"}
+{"commit":"b9d74af88e450c572ec7ea4d129f32dbcd419a3c","message":"deps: update dependency gcp-releasetool to v1.8.8 (#242)\n\n[![Mend Renovate](https://app.renovatebot.com/images/banner.svg)](https://renovatebot.com)\n\nThis PR contains the following updates:\n\n| Package | Change | Age | Adoption | Passing | Confidence |\n|---|---|---|---|---|---|\n| gcp-releasetool | `==1.8.7` -\u003e `==1.8.8` | [![age](https://badges.renovateapi.com/packages/pypi/gcp-releasetool/1.8.8/age-slim)](https://docs.renovatebot.com/merge-confidence/) | [![adoption](https://badges.renovateapi.com/packages/pypi/gcp-releasetool/1.8.8/adoption-slim)](https://docs.renovatebot.com/merge-confidence/) | [![passing](https://badges.renovateapi.com/packages/pypi/gcp-releasetool/1.8.8/compatibility-slim/1.8.7)](https://docs.renovatebot.com/merge-confidence/) | [![confidence](https://badges.renovateapi.com/packages/pypi/gcp-releasetool/1.8.8/confidence-slim/1.8.7)](https://docs.renovatebot.com/merge-confidence/) |\n\n---\n\n### Configuration\n\n📅 **Schedule**: Branch creation - At any time (no schedule defined), Automerge - At any time (no schedule defined).\n\n🚦 **Automerge**: Disabled by config. Please merge this manually once you are satisfied.\n\n♻ **Rebasing**: Renovate will not automatically rebase this PR, because other commits have been found.\n\n🔕 **Ignore**: Close this PR and you won't be reminded about this update again.\n\n---\n\n - [ ] \u003c!-- rebase-check --\u003eIf you want to rebase/retry this PR, click this checkbox. ⚠ **Warning**: custom changes will be lost.\n\n---\n\nThis PR has been generated by [Mend Renovate](https://www.mend.io/free-developer-tools/renovate/). View repository job log [here](https://app.renovatebot.com/dashboard#github/googleapis/java-vpcaccess).\n\u003c!--renovate-debug:eyJjcmVhdGVkSW5WZXIiOiIzMi4yMDQuNSIsInVwZGF0ZWRJblZlciI6IjMyLjIwNC41In0=--\u003e\n"}
+{"commit":"dbe42c856fe8dd541088c2600c520d641ec43b68","message":"Updated the vega feedstock."}
+{"commit":"f6118db74c15fa1b5cf2430279c276360ff149b9","message":"Removed duplicate of the noun \"cirkus\"."}
+{"commit":"348969f829478ba07d1c5660793b42d0a6098dec","message":"Import tests.support so the path gets fixed up."}
+{"commit":"add7380532667d0d4acaaff72103aa4d94b509f8","message":"New centrality files. (A. Toia)\n\n"}
+{"commit":"a9c248c29812e6800d79d7f13014958bb251185d","message":"Blissful Blog: Move the ID, `postarea` on archive template  so that we can append subsequent IS posts correctly. See #2667\n"}
+{"commit":"1359cb52e5d321f1d18fae4523ea989984741be4","message":", fixes #11573:\nThanks and kudos to Cinc for 2 nice patches!:\n- better support of custom themes (fixes #12113)\n- with {{{ [ticket-custom] }}} option {{{ project = select }}}, custom queries show project list as drop-down now\n- additionally: show version drop-down in ticket-change form as ordered list now"}
+{"commit":"9a3e1fbf098ec07db68f2f57db6147129726fd6d","message":""}
+{"commit":"b96d7e68b348917b80d9ac770b64740c69ee8ab6","message":"Updated the compas feedstock."}
+{"commit":"562e4ff67f8df834bf9265ff6ee189e13333d29c","message":"2013-06-25T21:10\n"}
+{"commit":"5b53afb83187cda36992234e6bdb8ca3dd003256","message":"space fix\n\n"}
+{"commit":"6ec001db06a5171437ce94245224802768591b8a","message":"Updated the kneed feedstock."}
+{"commit":"6af245edcdd294a4759e97b84d3fcb51d6427f73","message":"[twgit] Init hotfix 'hotfix-10.4.2'.\n"}
+{"commit":"916bec73cd9f43c5a77c1af4446c97649267a370","message":"Set svn:ignore\n\n--HG--\nextra : convert_revision : svn%3A99687598-2e92-11dd-8019-fe7b9d601d1b/trunk%402328\n"}
+{"commit":"45a04cf8ccc6544c16eea2a8c9544b8420642bf2","message":"\n"}
+{"commit":"b7aae00f598c1d9b23f95198362d3482e5b53b0c","message":"remove shadowing warnings in binfilter - sw_sw3npool.cxx\n"}
+{"commit":"665b5ac284c5ec0e4f9226145dc1ae5d739f3fcb","message":"Generator package in DMLText deleted."}
+{"commit":"378320c3b46fffb57a6130066c3e989f662ea0be","message":"default_delete needs a static_assert against void types.  I had previously thought that sizeof(void) would take care of this.  I was wrong."}
+{"commit":"a1cbeedd972d6d1542fb8a4e91eddd38feb36f59","message":"Layout and CSS improvements"}
+{"commit":"26f8cfa08474589b2b83c09682e4d46f7c1843ef","message":"Auto generated devel build.\nThis build contains all changes up to and including  change 30341\n"}
+{"commit":"28166f3b157dbf3b3a58a46d05571e3dbd752355","message":"update make clean"}
+{"commit":"c58bdd295817cb99848a5741b7104803e26dcb9a","message":"Fix dependencies now that the ARC migrator depends on the static analyzer.\n\nThanks for pointing this out, Stephen. I think this is right now -- I\nattempted to try all four valid combinations with both the autoconf and\nCMake builds.\n\nSee also LLVM changes to the configure script."}
+{"commit":"7592898bb43932b2ba3d2046bfa52f75688b2431","message":"triggering build with pending triggers: 0; pending removals: 1\n\n    additions:\n    A\tk8s-dev/building/unclaimed/belated-tiger\n\n    removals:\n    D\tk8s-dev/building/unclaimed/indiscreet-hotdog\n"}
+{"commit":"47081a647f3354bb1ad041c71b3a51a441a79ab7","message":"core-admin:\n* [fix] Making VortexBase64.{encode,decode} to return the same object \n  if received a hash or a list.\n"}
+{"commit":"6020a7f57000138d73f988416a02efe23ad0c2d0","message":"file XMLDTDDescription.java was initially added on branch testing.\n"}
+{"commit":"b3492fc5a11e2289cd2b83413d69144158687ac1","message":"finished gridbagsizer"}
+{"commit":"62718af43eea24aae98a1d0f7b2006da21c96bed","message":"Semicolon: Add Masonry and ImagesLoaded libraries.\n\nThese should have been checked in with #23534, but someone wasn't paying attention.\n\n"}
+{"commit":"966916d41c48b943c9f9c8ed1ba1bcbff1aa15e9","message":"triggering build with pending triggers: 0; pending removals: 10\n\n    additions:\n    A\tk8s-dev/destroy/unclaimed/straightforward-crusher\n\n    removals:\n    D\tk8s-dev/destroy/unclaimed/clever-snakes\n"}
+{"commit":"e0f3cd2184bc7e4d2548eb25f707a22a0210e1c6","message":"branch to reorganize snap script\n\n"}
+{"commit":"8fe55663056f530efafcf078b1cef08314296b9d","message":"removed some unnecessary code"}
+{"commit":"2bced062703d1eadeeda096cb9f80caa43d6d1c1","message":"Updated the r-rpivottable feedstock."}
+{"commit":"b59701486b183f0cffb700d1b7db85c00af27298","message":"Set Subversion properties."}
+{"commit":"1f9c0edcea731567cf6ddb2b9d8db9b211bb7b99","message":"Initial stub for the Meta template\n"}
+{"commit":"b974634f36353162952886c3ba352778b054feeb","message":"2013-08-30T15:00\n"}
+{"commit":"258c8f7682a0b93febd0e7124ee5798e8cfb6ccc","message":"Reverting r193835 due to weirdness with Go...\n\nApologies for the noise - we're seeing some Go failures with cgo\ninteracting with Clang's debug info due to this change."}
+{"commit":"5783becfbad8f98ec6c5a30a03f514e7535d1b57","message":"Merge revision 944 changes:\n- Linux: Fix compile errors."}
+{"commit":"646839fb8d94b70da0ed345fd072d0e5a86ceb0c","message":"up doc\n"}
+{"commit":"a5f0d93545cf7abfd70d7344afc20e77ab3b0bad","message":"Updated the molmod feedstock."}
+{"commit":"900b6af47c91d71f99b8ab5b7bf667ec7f052cac","message":"[Allocator] Add Deallocate support to the AllocatorBase CRTP class,\nalong with templated overloads much like we have for Allocate. These\nwill facilitate switching the Deallocate interface of all the Allocator\nclasses to accept the size by pre-filling it from the type size where we\ncan do so. I plan to convert several uses to the template variants in\nsubsequent patches prior to adding the Size parameter.\n\nNo functionality changed, WIP."}
+{"commit":"c3020f1a03138cc8a6836e3d6abaa57faa538bc3","message":"TEst commit.\n"}
+{"commit":"83494a19472d0d5ea23cd75a637dd56d128f0cf7","message":"New version of Pinnacle - 1.0.3"}
+{"commit":"f661e455714501122f6ddbe409b6795b77292117","message":"Updated the yq feedstock."}
+{"commit":"6495e4bcd35b44cf46e5d8a5410a085d5f3dfb63","message":"Added tag first-time-compiler-compiles-itself for changeset 0e97abb4eaa8\n"}
+{"commit":"27889cc0aac1df5512abd7a4e445644da40444ae","message":"[mips][msa] Tidy up\n\nlowerMSABinaryIntr, lowerMSABinaryImmIntr, lowerMSABranchIntr,\nand lowerMSAUnaryIntr were trivially small functions. Inlined them into\ntheir callers.\n\nlowerMSASplat now takes its callers SDLoc instead of making a new one.\n\nNo functional change.\n"}
+{"commit":"e5c97a20535abdda56f6e280fcb23b0dcefbe4fb","message":"\n"}
+{"commit":"7c8c84e0503b719106d2d3a2a441e9277505f66c","message":"2013-09-28T18:40\n"}
+{"commit":"ff4a272443f83f8f381010c1b6aab8e950dc3d0e","message":"triggering build with pending triggers: 0; pending removals: 4\n\n    additions:\n    A\tk8s-dev/destroy/unclaimed/superstitious-dinosaurs\n\n    removals:\n    D\tk8s-dev/destroy/unclaimed/superstitious-dinosaurs\n"}
+{"commit":"150d1c202e725b66d3ca4d0c474e12ab4efc6d96","message":"am ae55367e: am 4f869c1c: am 7634c954: am e6440690: am 0a0b1797: am 4822b351: am 24a20484: am edef8836: am c25d8adf: Merge \"Skip TimaKeyStore in KeyStoreTest\" into kitkat-cts-dev automerge: 977acac\n\n* commit 'ae55367e2ce74cdddee15ee556092f9377f51ca2':\n"}
+{"commit":"dcc73317cbefd9d17b95723f5541e26bd2f5b728","message":"asan: fix android build\nandroid does not have dlvsym\n"}
+{"commit":"5f9b43d176b20b33875c465c84422819be98c603","message":""}
+{"commit":"705a43c6b8a3a12d38620236bb1da29874aa655b","message":"INTEGRATION: CWS ooo19126 (1.3.128); FILE MERGED\n2005/09/05 10:37:26 rt 1.3.128.1: #i54170# Change license header: remove SISSL\n"}
+{"commit":"33a9c0198a31bda94077faa3b463691fab0a1d3c","message":"Fisst Full Release of SM1000A Package"}
+{"commit":"a23d6c923f7ef8cf9df4ac104291434fbf5f0a17","message":"\n"}
+{"commit":"823801e6dd1a323e2fb2aecc4fc7bcb36d143301","message":"Updated the r-readr feedstock."}
+{"commit":"74fcca692b62a2dfa5410c9c9323343d3f7e9797","message":"Merge branch 'dev' of github.com:dwpdigitaltech/digital-debt into dev\n"}
+{"commit":"51d9eada5d91033515c7d28e034fb4b625a08880","message":"* sizeof(fairnessAssumption_t) replaced by configure script check\n* astyle\n\n"}
+{"commit":"38c1d2361e90dcb8272e81c55af3d071cf2d3afc","message":"2014-10-26T18:40\n"}
+{"commit":"894ba40aa9f43b19c807fd4ff9d8d70792a171e6","message":"\n\ngit-svn-id: http://k-framework.googlecode.com/svn/trunk@2688 82a86efa-2583-11df-8ea0-49ba94de29ab\n"}
+{"commit":"9b63408323feeb8bca8a46c65ee134028cf195be","message":"Update the arguments to gs. From http://trac-hacks.org/ticket/2564"}
+{"commit":"19e896b9af842b2b6d423922438ab163ad02e606","message":"2013-12-19T01:10\n"}
+{"commit":"f4fa7b4b7ebbe4041529b4ced95829b947b03a7e","message":"Added tag jdk-9+152 for changeset a20f2cf90762\n"}
+{"commit":"a5b23c9f7bfbc176b95ca16914d5e1dc46249279","message":"more write(). Nope, no giggles"}
+{"commit":"5bc6e9b7473b301fdc11807fa72632750f42d97a","message":"Merge branches 'w/7.9/bugfix/S3C-3686-fix-tests' and 'q/1312/7.4/bugfix/S3C-3686-fix-tests' into tmp/octopus/q/7.9\n"}
+{"commit":"0e5f75c76bf2452289dc4de4e3718d11e279dae6","message":"Bumped Xcode project versions for lldb-72 and debugserver-143.\n\n"}
+{"commit":"353b33ea67518feffe396bfe967e8825fc4b226c","message":"trunk-\u003e1.0: merged coverager\n * [184] fix tplcov\n * [176] leaked by outfilename (efree by zend_mm tho) \n * [175] remove double Content-Language \n * [174] avoid double slash \n * [173] make dir ended with dir sep \n * [172] DIRECTORY_SEPARATOR for coverager config example \n"}
+{"commit":"de79977594002a1bc3b7f207978d81f96f84b943","message":""}
+{"commit":"2bf3aaa80f865d618be600ae55a2e78fe8b6e6f9","message":"Bit pack DIE structures better.\n\n16 bits are sufficient to store attributes, tags and forms."}
+{"commit":"ae65935bf23aa29235342d6504ad995fde0be72a","message":"Updated the boto3-stubs feedstock."}
+{"commit":"a6f0158655ee45e8115d127d7e31719ec12c3b45","message":"Updated the r-hdf5r feedstock."}
+{"commit":"8005f2c19f6a71056aad969d21d18842b34f19fa","message":"Updated the h5utils feedstock."}
+{"commit":"f5579399053cab27a6da5313610d2cd9a26374af","message":"Updated the folly feedstock."}
+{"commit":"e862ae496a1277a4a632848d439f143689bf88f3","message":""}
+{"commit":"c235521c312b3b0dec77f2071f75d51b6356abb3","message":"fix typo"}
+{"commit":"6d853f1a5936291e9b3a0e7f1930832e2c27baaa","message":"Update issue 4048\nLabels: ReadyForRelease\n\n1. No use to set \u003cscript\u003e and \u003cstyle\u003e to not to show up as it doesn't show up\n2. If we ever change the $background check to look for other elements than 'BODY' then we don't have to change this function anymore."}
+{"commit":"148d8514746dab9a92234dde4ff85a955ee4ac72","message":"More corrections/additions\n"}
+{"commit":"7cfe451c202051ed909a9b919b36650ed6427d4f","message":"Fix typos."}
+{"commit":"1d3080c1e62ccd72614d4af5d8a072f44768b046","message":"triggering build with pending triggers: 0; pending removals: 1\n\n    additions:\n    A\tk8s-dev/destroy/unclaimed/horrendous-oatmeal\n\n    removals:\n    D\tk8s-dev/destroy/unclaimed/unimaginative-manic\n"}
+{"commit":"b26cfc50ee1058e196f9c1a0b06223bf483c88c5","message":"Updated the tilt feedstock."}
+{"commit":"4c2716ff66c1890a72176262b2a9436e6c3ffc76","message":"shortcuts model changes\n"}
+{"commit":"19b305d09380d8c748a0ef4ac94a94a5e8997260","message":"[Bot] Update notebook blog posts\n"}
+{"commit":"eb5d105b14c3cb5b3cf17284ae9ae53c353d4b2a","message":"Fix misuse of python subprocess module (caused \"leaking\" processes and garbling the terminal)\n- fixed cleanup of Popen objects by pushing spawn logic into test Base and out of test cases\n- connect subprocess stdin to PIPE (rather than the parent's STDIN) to fix silent terminal issue\n\nTested on Linux and Mac OS X\n\n"}
+{"commit":"4476670e6475f6f30f27e092e095e1785d3f0f63","message":"2013-10-19T21:20\n"}
+{"commit":"dcf36018d1bcec7db625a091ffb0914ab4b600db","message":"Merge remote-tracking branches 'asoc/fix/adsp', 'asoc/fix/cs41l51', 'asoc/fix/dpcm', 'asoc/fix/es8328', 'asoc/fix/fsl-asrc', 'asoc/fix/max98090', 'asoc/fix/rcar', 'asoc/fix/rockchip' and 'asoc/fix/rt5645' into asoc-linus\n\n[ upstream commit: 643aa2c595d1869aa150e0ba5f2a3f18fd6820e6 ]\n"}
+{"commit":"03cc45c1d236fedd9e1b75111d1120866e3cd0ed","message":"updated check_explanations from faildetail.txt svn#4463"}
+{"commit":"829978418364023eec2d4a2f33f28d3009d59f94","message":"a few minor tweaks and REAME changes"}
+{"commit":"b8b38e899110c10dba3f87519c22729c8632f832","message":"Edit IDLE's NEWS.txt to be consistent with py3k HEAD\n"}
+{"commit":"efc4e56fa32fb172ce084468fef4760a576df48a","message":"some updates"}
+{"commit":"266906b549b6fbd782c107c5f14d1e79c791c782","message":"Merge pull request #92 from Redsmin/dependabot/npm_and_yarn/hawk-3.1.3\n\n"}
+{"commit":"2887a26a6d33e8648bcdf668218eae7510e59324","message":"Updated the importlib_metadata feedstock."}
+{"commit":"b8ea748d3cf68c00dbffee6ba48ebc1c33b1e940","message":"DIEHash: Refactor ref attribute hashing into smaller functions"}
+{"commit":"ab1f05af8c42afb7782e59b46ae5f10491d34366","message":"* reverted to last release version\n\n"}
+{"commit":"3fbb9ad75d17d76a6782df1f904f4dcae438e0ef","message":"Updated the r-grpreg feedstock."}
+{"commit":"2bc7670e14eae94a5f79f6afbebbe9b5b0bc0918","message":"Update index.html"}
+{"commit":"15861c2b926ef5954414a8d431298f162033268c","message":"Updated the r-spatialeco feedstock."}
+{"commit":"ec3e0b315da3d38216e6bdc11c21665020fcda9c","message":"[MFINDBUGS-119] Update to GMaven 1.3 (to fix maven 3 build)\nAs it tests need some files from find bugs.\nSimply export those files from http://findbugs.googlecode.com/svn/tags/1.2.0-rc3/findbugsTestCases/src/java/ in phase pre-integration-test.\nsome are still failing -\u003e need more investigations !"}
+{"commit":"ca04c4f30ec387dedee125c11fdb0ac8f168872c","message":"reapply r148902:\n\n\"use the new ConstantVector::getSplat method where it makes sense.\"\n\nAlso simplify a bunch of code to use the Builder-\u003egetInt32 instead\nof doing it the hard and ugly way.  Much more progress could be made\nhere, but I don't plan to do it.\n"}
+{"commit":"0d2ab79bf3aabb99fbf6232041ed29da44e177d8","message":"Initial import.\n"}
+{"commit":"397674aac8cff196de3707ca31cb21350ea45a68","message":"compensación fase 1\n"}
+{"commit":"17e1972380831e1eaf0f41ac9c3df10f61944ec6","message":"Committing updates to solar-project.\n"}
+{"commit":"34818e08eb26fbfb1bb20711f6ee2e8afce57c6d","message":"Updated the fastavro feedstock."}
+{"commit":"d6871ade758f6d91112a66d92f4840e6c8fa3d8b","message":"Updated the terraform-provider-oneandone feedstock."}
+{"commit":"1c2aa5a192225b7ba9726c1affeda120a2fc4a09","message":"Simplify flood action generation further.\n"}
+{"commit":"180be3e4489449e9de55aa19b81807e01b993bf5","message":"Debug Info: rename getDebugInfoVersionFromModule to getDebugMetadataVersionFromModule.\n\nSuggested by Eric.\n"}
+{"commit":"46aeac49167fa21a50ac81882afc639343660ca4","message":"add centrality dependent histograms when checking the origin of the particle\n\n"}
+{"commit":"d5dc507a2eec8ecb6c2579fc5f2faf8fe8708a02","message":"2015-03-29T06:50\n"}
+{"commit":"113e18df8043b5759cc83cd8d52a81f670f1f9fb","message":"New Data"}
+{"commit":"7d93e30323267fa8fac56e88834d8b5919b277bb","message":"Add support for assembling \"movq\" when it's correct to do so, while continuing\nto emit \"movd\" across the board to continue supporting a Darwin assembler bug.\nThis is the reincarnation of r133452.\n"}
+{"commit":"856ccb39bf1b9ff5431e9cea7f7a088c3ca4c5af","message":"MC: correct DWARF header for PE/COFF assembly input\n\nThe header contains an offset to the DWARF abbreviations for the CU.  The offset\nmust be section relative for COFF and absolute for others.  The non-assembly\ncode path for the DWARF header generation already had the correct emission for\nthe headers.  This corrects just the assembly path.  Due to the invalid\nrelocation, processing of the debug information would halt previously on the\nfirst assembly input as the associated abbreviations would be out of range as\nthey would have the location increased by image base and the section offset.\n\nThis address PR20332."}
+{"commit":"afe040753a6b099b102a788dc212118caab94481","message":"New Data"}
+{"commit":"ded6ab25e59b9ec6df6ba420f904415b4e84cbed","message":"Updated the python-snap feedstock."}
+{"commit":"9223897428df8fc1a480a23c862c51289afe8f75","message":"Added AVX conversion code."}
+{"commit":"4d37940b130c3e6cda66941fe000740efb0d74d1","message":"make_clickable() now faster and supports more link positions, from mdawaffe and myself.  fixes #3228"}
+{"commit":"7e43f030cfcd3d34330dae141cf81e11a55e0743","message":"Added network manager detection to airmon-ng."}
+{"commit":"e3fa10042554e1afa36958853eccb5bee2cc897c","message":"added some code for hostlist management"}
+{"commit":"8e0d19ff04ca9ca5f8a8590c6cf0e0e4944c8bae","message":"A bit of cleanup in the TestingGuide doc - dg.exp files no longer exist\n"}
+{"commit":"485d526621701342e4cc2269952569e82861f25d","message":"Updated the sid-dev feedstock."}
+{"commit":"23fe92b2e76ab513adcf9d5c89120637e3d67234","message":"Merge branch 'SusanaDevelopment' of https://github.com/googleinterns/step148-2020 into SusanaDevelopment\n"}
+{"commit":"415bee81faafd9c9458bb1850967e711b855ae9c","message":"Updated the cudatoolkit feedstock."}
+{"commit":"06bb97faf1531b11b04cd3c53d97a89379007068","message":"Fix test typo that was already fixed on trunk"}
+{"commit":"d052076b3dbb0712bc19f4fe9165f3adaf958c8c","message":"Merged revisions 77163 via svnmerge from \nsvn+ssh://pythondev@svn.python.org/python/branches/py3k\n\n................\n  r77163 | benjamin.peterson | 2009-12-30 13:52:54 -0600 (Wed, 30 Dec 2009) | 16 lines\n  \n  Merged revisions 77160 via svnmerge from \n  svn+ssh://pythondev@svn.python.org/python/trunk\n  \n  ................\n    r77160 | benjamin.peterson | 2009-12-30 13:44:23 -0600 (Wed, 30 Dec 2009) | 9 lines\n    \n    Merged revisions 77158 via svnmerge from \n    svn+ssh://pythondev@svn.python.org/sandbox/trunk/2to3/lib2to3\n    \n    ........\n      r77158 | benjamin.peterson | 2009-12-30 13:41:03 -0600 (Wed, 30 Dec 2009) | 1 line\n      \n      clean up logging's global state after the test finishes\n    ........\n  ................\n................\n"}
+{"commit":"aad02569293c568b1f69330dc0b9d7aee14e177d","message":"Wiki update."}
+{"commit":"956cce3ad9825a9849fd89a047c9d5fe8581040b","message":"he\n"}
+{"commit":"d0d8aaf626bc9c194fe3624e0c2678716f5ebaae","message":""}
+{"commit":"e1973bba96bffa3563b59945f03cf4d03a9db15a","message":"Reflow comments and fix 80-col violation.\n"}
+{"commit":"0b6788c61c8bc705a08f04c9a6f3ccf612a25758","message":"[ms-abi] 64-bit fixes for r196549\n\nIn order to address latent bugs that were easier to expose in 64-bit \nmode, we move the application of __declspec(align) to before the layout \nof vbases rather than after.\n\n"}
+{"commit":"a0a57f41cf77fc3a2d20bfda81e52d5ff7673bf9","message":"Updated alignment object\n\n"}
+{"commit":"70734ab7395bc33047ea73eb4e27636e14e36dea","message":"Updated the r-desolve feedstock."}
+{"commit":"22afb2e1d0301e6146f2f05c53cbff323b0d326d","message":"Updated the ibis-omniscidb feedstock."}
+{"commit":"6ebe4b77a406c80229b931105e86ca91ba34943e","message":"some rlx for aor\n\n"}
+{"commit":"b0e62d40a66c3b8d51c09b81ee7a45d3e451d70b","message":"fixing bug in AnalysisBoth.C macro. Now also MC Truth and raw yields histograms are normalized to y window.\n\n"}
+{"commit":"165d1e7c985135be738558cf715747eb209766e2","message":"Updated the sourmash-minimal feedstock."}
+{"commit":"9814f0654f7385e4fb5e947773109b2c6d17d608","message":"Updated the meshcut feedstock."}
+{"commit":"4cb7322bca980ce67a8531f025a9218d46ef2a52","message":"Updated the ligo-scald feedstock."}
+{"commit":"740fefc67841b2d22ca34c7b2d47bcae0f5faedc","message":"Remove unused variable."}
+{"commit":"3113a6fdb6e49b83c5f81ef2fdada1da7ea5a575","message":"Merge branch 'master' of github.com:grke/burp\n"}
+{"commit":"288a5abfd66c2f80a30d9dfe890988d2bdf9a1bf","message":"add around 100 more guids for ksguid.a "}
+{"commit":"75241bdd7767be86c262dea96123fe6a63d61004","message":"[maven-release-plugin] prepare release chronos-jmeter-maven-plugin-1.0-beta-2"}
+{"commit":"cb0936be4dc9cb204d6ad8529dfbfec9404007b8","message":"[Bot] Update notebook blog posts\n"}
+{"commit":"f15f6a5bb4b87364c3ce152498fecef9860f42b6","message":"\n"}
+{"commit":"08a6bae90d41aba1000897980bf22f73dfb0748d","message":"RC4 (/home/wv)"}
+{"commit":"88e291cefef64f3b1fd409427cf9a85d9ade692b","message":"Clean up BuiltinBug class.\n"}
+{"commit":"d9fa103fbe363f286515268373410c1537900c7d","message":"awful merge time"}
+{"commit":"657cf7938835e0e202f9236c64108d5f901530ac","message":"Updated the holoviews feedstock."}
+{"commit":"7c15496c00bdef79f8bdeb54b26736ba94441681","message":"Remove a stray (old) macro name left around (I guess)"}
+{"commit":"3841df12403c46793334f9e024bde8b729b28302","message":"Final Update for now. DLLs will come later. (Too tired)"}
+{"commit":"76c51a4b83120f7ce449f753490552312dbc7059","message":"Add ability to search backwards through command\nhistory for a particular substring, using ctrl-r key.\n\n"}
+{"commit":"4a7a973e864b4ac86e18fbdee046a805beacc24a","message":"\n\ngit-svn-id: https://magja.googlecode.com/svn/trunk@175 b53afa6a-2257-11df-8f40-0d449d17a094\n"}
+{"commit":"ec4f76904298854311ad263768fd413b0a02148b","message":"Edited wiki page through web user interface."}
+{"commit":"8a5f51f41f7866631c73b89d6b2d3da72301ca97","message":"Updated the pytype feedstock."}
+{"commit":"351a02bfe4e0b283ff861bc8de8741237be2b13f","message":"[CMAKE]\n- Update some more base addresses. Thanks to Roel for his help."}
+{"commit":"5c608ce3e5a548e81e200341b556af6c8a481963","message":"Merge \"Skip ipv6 tests on system without ipv6 support\""}
+{"commit":"7705ca8c3c99d47d05b597b12d270d68a33c3204","message":"scan-build: When using Xcode 4.6, use build settings for doing proper build interposition."}
+{"commit":"db3c7cec647d73d88d0660eebd9600e5891c265c","message":"In r169695, the address space limit for tests was replaced with a data\nsegment limit. Now, as a complement, add a stack space limit.\n\nOtherwise, tests may grow undesirable large at inifinite\nrecursion. (Seen at r176838,\ntest/Assembler/2010-02-05-FunctionLocalMetadataBecomesNull.ll)"}
+{"commit":"d2fdd60fb146dc6f5a0c3b08262b5712c1f660a4","message":"[-feature] wwsympa::do_review_family(): i18n'ized date.\n"}
+{"commit":"318ecd6526d30e62215e5b0ff976dc1fe6b9f1c6","message":"New theme: kanagata - 1.0"}
+{"commit":"3b71955a669f8ecf193ed5643859aa750a48108f","message":"New Data"}
+{"commit":"d633e6b641f1ecfe54f30adc3c49b2efe14c560b","message":"-check RV"}
+{"commit":"112c9a1585b0c3a3c2ca370ac9106b2cd1a053ed","message":"Updated the r-dtwclust feedstock."}
+{"commit":"ba5232bdffdad7657809a6e1472d4e6cbf823438","message":"Updated the yatiml feedstock."}
+{"commit":"44c587f25f7ac607346026e18de7ddd2fb2790c0","message":"Daily site refresh for 2016-01-30\n"}
+{"commit":"ff777acb3e83d0b0f692dcf33743da860135bd5c","message":"Add ability for MCInstPrinters to add comments for instructions.\nEnhance the x86 backend to show the hex values of immediates in\ncomments when they are large.  For example:\n\n        movl    $1072693248, 4(%esp)    ## imm = 0x3FF00000\n\n"}
+{"commit":"0a52314e0084d4fed21320f9df9e40f97cf96ed2","message":"[dev] overall simplification:\n- store pid files in piddir, and ignore configuration variables foo_pidfile\n- store error files in piddir, instead of tmpdir\n- better documentation for Sympa::Tools::Daemon functions\n"}
+{"commit":"804c9a329fd9f653cc3e8826a6505e967f4099a6","message":"[MBUILDHELPER-56]\n  - improved IT with checks.\n"}
+{"commit":"45bc5f839b473325d90aceeb3a0dd54c721b06a6","message":"triggering build with pending triggers: 0; pending removals: 1\n\n    additions:\n    A\tk8s-dev/destroy/unclaimed/comforting-volleyball\n\n    removals:\n    D\tk8s-dev/destroy/unclaimed/comforting-volleyball\n"}
+{"commit":"9ecfb4d1b207fb9b1f98790f32c83b11c5115b2b","message":"some multiwords from deadbeef"}
+{"commit":"0b832c7a23e4ea37ae377b6c6fd079ef7310fe1e","message":"added trunk\n"}
+{"commit":"75e6b90a893731de0102f51f7621f3cbd20d3191","message":"Updated the quetz feedstock."}
+{"commit":"5d2c365c325440bd7725c799fbade3fa44b9bbef","message":"Updated the ensmallen feedstock."}
+{"commit":"2c55e5d64e00d1db3ed58dfa1d56276cee6469f7","message":"INTEGRATION: CWS impresstables2 (1.5.104); FILE MERGED\n2008/02/13 09:17:45 cl 1.5.104.1: merged svtools in and stripped\n"}
+{"commit":"ae5de9bb553b6b9c0242de027429de4c799a01aa","message":"Updated the conda-forge-repodata-patches feedstock."}
+{"commit":"d4f44d4d794f1c03214702fa2efd1749d9bf2af7","message":"Corrections to Swedish tsx-file."}
+{"commit":"6248eb1e77086ea263c2fb32c0f33427af125cce","message":"Port _picklemodule.c from the cpy_merge branch to Py3k.\nRemove write_file(), read_file(), readline_file() since PyFile_Check()\ndoesn't exist anymore.\nMake nescessary changes to conform to PEP-3123.\n"}
+{"commit":"7d7623d3b58adfe5567e55a4d1849c7383392c03","message":"am 94db7c36: am 99401496: am 9a3f4999: am a7c9d15e: am b614ef1e: am cb902fff: Merge \"A few other removals for the 64 bit blacklist.\"\n\n* commit '94db7c36be945e417993414d9ac6bc15f04b53ed':\n"}
+{"commit":"7e1025cb0dd4e91d998a1190bc9afba264420ab4","message":"hopefully last fix for S60cron"}
+{"commit":"4e19c66d6edf23f0d6770e04ace43da61ce010b9","message":"+1 word"}
+{"commit":"2044db904745fa768d409db23ed1e24fe484b259","message":"updating session data"}
+{"commit":"42a2f3686d1f02a6746d25c8f1d8eaec0ff7af7a","message":"am 30eb76e5: am 7eade36a: am 4dccb65d: Merge \"BackgroundManager: Use the right drawable cache with activity theme\" into lmp-dev\n\n* commit '30eb76e57d47d609267d51a4df519ee72ade21b0':\n"}
+{"commit":"67247f64b0827a22d0bcf775595020fe7b296d46","message":"Added some debugging output to pre-alloc splitting."}
+{"commit":"d427e0c0b0b778d08731b6c8f1cd6feb676705c7","message":"added pixgrid interface to interpolate atmosphere tables and LD coeffs (thanks to Steven)"}
+{"commit":"68851c679e8a89972fda5d0ce102c16bc16e7e74","message":"just updating\n\n\nM    test_sac_29_5_ft_clay.py\n\n"}
+{"commit":"46841151ef2ff6f8d73f020d05ba03bd0c9808b6","message":"file CommentShape.html was initially added on branch testing.\n"}
+{"commit":"17b8eb866803ebb70b33de302cbdfaca3ad83511","message":"Updated the rb-jekyll-commonmark feedstock."}
+{"commit":"7cc06d6b97629034d77b5975eade65c4908cf00f","message":"IRgen: Lift BitFieldInfo to CGBitFieldInfo at namespace level."}
+{"commit":"7c0fe002a77040821e3ef8528474748d8e32d518","message":"am 4c828d18: am 694e516f: am 5a333fb1: am 1746db62: am 04704e37: am 8edeef21: Create GregorianCalendar via a delegate.\n\n* commit '4c828d18fcb205169a46b4abb101fb664e41ef37':\n"}
+{"commit":"749c816b1db445234fe4bc79eaab5b677f9b8f08","message":"Updated the huggingface_hub feedstock."}
+{"commit":"79cb24362049f88bcdd04635cbd3136f3c98b7f6","message":"connected gemini with the rest of the universe\n"}
+{"commit":"f5e8d8f99fc796bfb146786a2c6602cc948ab20f","message":"working on updated sacramento simulation\nM    veglev/re_sac_clay_29_3d_n.py\nA  + veglev/sac_clay_29_3d.py\nM    veglev/Seep2DTranslator.py\nM    veglev/re_sac_clay_29_3d_p.py\n\n"}
+{"commit":"42dd12043e9748f10dd2d6eda0fd5d3924af4155","message":"Merge branch 'master' of github.com:KSP-CKAN/CKAN-meta\n"}
+{"commit":"855a517e52103f422f86ec7e1828c57efe903019","message":"2013-12-21T07:10\n"}
+{"commit":"757db8f49644d7e722afb926ca7f9eab5ab5443e","message":"Added support for unpredictable ADC/SBC instructions on ARM, and also fixed some corner cases involving the PC register as an operand for these instructions."}
+{"commit":"3a1f99c7f4926300eea69b6d7fc1dd3dc3c53453","message":"AA: backport r36719"}
+{"commit":"cb7fc459d0beb054c9e42111573607d1579a6b14","message":"test case for r112238.\n"}
+{"commit":"cee5b401d5343cd6a008ace8dc163c11cb0d41c8","message":"am e9c88c91: am d1006b0f: Merge \"Add mcc/mnc to SubInfoRecord\" into lmp-dev\n\n* commit 'e9c88c91a9a3daa6b074b68adfbac31167397aae':\n"}
+{"commit":"548f363db00d6b5cdaf028e86ed54e444e641f84","message":"2013-10-22T23:30\n"}
+{"commit":"6085b27da9b0bcb374d987d8e930ddb394eeb918","message":"[maven-release-plugin]  copy for tag netbeans-platform-app-archetype-1.16"}
+{"commit":"f8eebcaec7fea633853c665644e12699653ba0f3","message":"triggering build with pending triggers: 0; pending removals: 5\n\n    additions:\n    A\tk8s-dev/destroy/unclaimed/annoying-exorcism\n\n    removals:\n    D\tk8s-dev/destroy/unclaimed/hypercritical-spike\n"}
+{"commit":"c4169ecd43f222b502cf550843465e5e69b4ffa1","message":"Merge \"puppetize installation of gerrit third party plugins\""}
+{"commit":"d8ffcda51f4a74a48123dea912578e904eb244d6","message":"Updated the petsc4py feedstock."}
+{"commit":"3c0ac20516a1e5ada744c40faaf19878bdfc922b","message":"making it compile on precise too"}
+{"commit":"94ac2824a6fd9e0fe2556ff3854123ee27893dc6","message":"Updated the jedi-language-server feedstock."}
+{"commit":"dcb5b38c0f4edf4478550045a4f33324c36ceace","message":"Updated the intake-sql feedstock."}
+{"commit":"2a83e8c9b2f59343e86fd5b5f1e258edb1dc9ea2","message":"HUAEHUAEHUAEHUAEHUAE"}
+{"commit":"417b8fe1b311bfac2a8c490e2ae763ae226bfba3","message":"aufgelaufene Änderungen"}
+{"commit":"c7b678f158a3bab30dd8f17bad4a7c8192eea81f","message":"changing LogEntryId to d1:NonEmptyString from d1:Identifier\n\n"}
+{"commit":"d16e6b57bb58cfe87220de85cc6a6acc3ee53bd0","message":"Updated the ipypublish feedstock."}
+{"commit":"210729c0f0883a36603fb545dc5ac62c524ac76e","message":"xml-rpc-gen:\n* [fix] Fixed marshalling error at the server side component source code generation,\n  causing to trying marshall an array as an struct. (Bug reported by Vicent AE Scott,\n  and pointed its solution).\n\n* [fix] Improved marshalling error reporting at the server side component produced\n  by the tool.\n\n* [fix] Updating exarg code.\n"}
+{"commit":"4fbae5869216be74f89c2b7873c9d430e564097a","message":"Port netstat-nat to -ng\n"}
+{"commit":"24c06e0fb10ad2dbf9b03a0ae5a7d3f6e7aa2332","message":"Updated the flask-jsonpify feedstock."}
+{"commit":"08cd7a5a13e296076d8c07602f7222abe007cf24","message":"Performance enhancements\n"}
+{"commit":"c92d43ef3b4cf98c6b1a3d542080052d91305572","message":"Updated the mypy-boto3-logs feedstock."}
+{"commit":"635fab22d56e49ffde7aabe929b2192d1edb0eb1","message":"Part of Reset() moved to base class.\n\n"}
+{"commit":"2e3e9aac74a6d103af4347a210148f55c5b12bb0","message":"Merge branch '5.3.1-post' into 5.3.2-post\n"}
+{"commit":"1ee7eef7ab3cd50e6dff1c27b08980d72673509e","message":"example config files updated"}
+{"commit":"6c6de1423af2a62edf2de8980ec6737eae865588","message":"fix @parameter expression when default-value should be used"}
+{"commit":"3024653830f656c0a46c74b2c57cf5ee329442e6","message":"DB object was being casted to dict() in API code. This did not work as intended and logic has been updated to reflect a more accurate way of getting information out of DB objects."}
+{"commit":"1c9b8ec4d3b62221db825d889f63392c47108c55","message":"Updated the pyinstaller-hooks-contrib feedstock."}
+{"commit":"34fe9560eaa095289530de8b1df953764e7cd6b3","message":"Starting to implement itranslate4.eu API"}
+{"commit":"2e04fd76692a1f8f8d85add3038b7ce4dc84330b","message":"some updates"}
+{"commit":"79aaa6e57f4956eb84af8efd9285a26e59c9b5a2","message":""}
+{"commit":"463cba134ec9ea8349045c9bd8c4e4fb6be8d17a","message":""}
+{"commit":"83cb56374779c59f36387b2d3c68cea2d823a5a8","message":"added starts to Project pages and services\n"}
+{"commit":"60f2a6426c647e02517d068b6921eb40d30910d9","message":"Updated the mkdocs-material feedstock."}
+{"commit":"673ca08031ad481c0cf400feed63f55c738d13d4","message":"One line I forgot to remove.\n"}
+{"commit":"38deee3c128b741e4c742e027f0ed673b346e4ca","message":"include college and dept for non-ai folks\n"}
+{"commit":"8c2023be116b6995fd3da9da1973088185492aaf","message":"adding track matching histograms\n\n"}
+{"commit":"bbab606c29b3b8413047ba72bcb3628418ddc4ad","message":"am 7dc146c8: am 5c7c8feb: am 6fa22ded: Merge \"Prevent ActionBar views from starting ActionMode\" into lmp-dev\n\n* commit '7dc146c8cc5fdff5e285d4aa3b95cf4804015e30':\n"}
+{"commit":"c9ea0d964f6e9fc9d158b68dd72e928f579f6101","message":"a few more trivial updates.  This fixes PerformInsertVectorEltInMemory to not\npass a completely incorrect SrcValue, which would result in a miscompile with\ncombiner-aa.\n"}
+{"commit":"d7b8d921a3b5a7bb80512731f4d3b27dad64c810","message":"a few NP and a couple more rules"}
+{"commit":"47a04841dea13ddd31e46344fec4c30198448c18","message":"Fix the ASan dll_thunk path"}
+{"commit":"31c12def8678000922b17c091583bbb95a7c0873","message":"Merge remote-tracking branch 'weierophinney/feature/render-listener' into develop\n"}
+{"commit":"e1781a29be170b1e3063aaa3d4549b25c828a2b9","message":"Set svn:propedit to exclude AST and class files.\n\n"}
+{"commit":"a87c03ea125ebe7344bca4dfadcc9594d2cf215f","message":"New theme: NewwMag - 1.0"}
+{"commit":"4112fdb264a36b527ef779231fde777e82c97e96","message":"Merge branch 'master' of github.com:Connexions/simulations\n"}
+{"commit":"c4fffe716b510bdcf620678063efb98afa5366d7","message":"-fix doxygen issues"}
+{"commit":"8a379fe9389d06a162664aa8d3eefd9279a1dbb3","message":"Need stdint.h man.\n"}
+{"commit":"939e3be93cd2dd8500851dc271517472d42d5dda","message":""}
+{"commit":"2ad5d8f825a76b0225f6e46b2105f1a0c72230fe","message":"Merging r182387:\n------------------------------------------------------------------------\nr182387 | jholewinski | 2013-05-21 07:37:16 -0700 (Tue, 21 May 2013) | 7 lines\n\nDrop @llvm.annotation and @llvm.ptr.annotation intrinsics during codegen.\n\nThe intrinsic calls are dropped, but the annotated value is propagated.\n\nFixes PR 15253\n\nOriginal patch by Zeng Bin!\n------------------------------------------------------------------------\n"}
+{"commit":"4e9aeb72c513c6859d008b6eb05122ae17f49637","message":"Updated the ruamel.yaml feedstock."}
+{"commit":"087b14ba752278ed1005a12b9259c7593ac970ce","message":"Only generate documentation for the old libtheora api until we figure \nout how to separate the two.\n"}
+{"commit":"df6ed7f680d900d5ba39ddc9445e19014af503de","message":"triggering build with pending triggers: 0; pending removals: 1\n\n    additions:\n    A\tk8s-dev/building/unclaimed/impossible-spike\n\n    removals:\n    D\tk8s-dev/building/unclaimed/bottled-quilt\n"}
+{"commit":"479ecb39849618426554fedf9afb930ac71af9c8","message":"fixed mime-type properties for png images\n\nsvn path=/app/trunk/; revision=27\n"}
+{"commit":"857da702a9a55e3227e7a40cddf7f2160e41a610","message":"fix\n"}
+{"commit":"0cd272772a4b37549d0b8657441b50cd8ac9e693","message":"fix CONFIG_ALL\n"}
+{"commit":"0f7c9eef8c68af00505a8f93f07b277ac2d0f4ed","message":"Compiles and links now, but does nothing... T_T"}
+{"commit":"812ac5749608baf280fc1c17493472277d42572c","message":"Fixed typo in variable name."}
+{"commit":"6d56f098b114120d4f052fba6389ef1f57d1c9f9","message":"Merge r1990 and r1992 to x86_64 branch"}
+{"commit":"f0ecd26ee91d7b45a377610032b7bb4ead428cd2","message":"Musabekova Jamalieva future verb\n"}
+{"commit":"7a242bfd208c42cf874bfb892e085ad9648a29d4","message":"Updated the r-rsvgtipsdevice feedstock."}
+{"commit":"19f0e02e2e60cd73a80ee2deba236b4cc2bd7d37","message":""}
+{"commit":"eae5401e75af8db6a8e84454fc268b3d063fa792","message":"Changed paradigm for the Swedish adjective \"noggrann\"."}
+{"commit":"b1c005cff57a545daa407b878eadd7428ed7cafc","message":"[packages_10.03.2] hd-idle: merge r30722"}
+{"commit":"e650cbf41a67f675073eb806f14a0730dc0cf92c","message":"Updated the keyring feedstock."}
+{"commit":"7e0dc07e93a1aa0d24aa06d07781a152dbf57a77","message":"Updated the trimesh feedstock."}
+{"commit":"ed82ba298938ed0b366df61a77f7bfd97737d0d0","message":"Ignore libmpencoders.a.\n"}
+{"commit":"5b6324b8cd8e03b306e29659a616b7d17b6038dc","message":"Fixed a layout bug that caused elements to not appear in edge cases where scrollable Y returns false (tensile disabled) due to padding being too big.\nAdded ability to get a picture synchronously from facebook\nFixed potential null pointer exception in action listeners\nFixed major bug in StringUtil's tokenization feature\n"}
+{"commit":"b9098cbfba492ed0a02aa689998dc83827d86438","message":"Add a README.txt file to the trees.\n"}
+{"commit":"a4616bc6e0b031c75639ffffa402a288b3a152bf","message":"Upgrading to Cedar-14\n"}
+{"commit":"a197a403355a93eb934e545422983e1cae370722","message":"put/post enabled again for job submission"}
+{"commit":"02f1eb07a20e5bb674256a1154d6b4e455024b4e","message":"Updated the r-ordinal feedstock."}
+{"commit":"021b86097d4d462bf2b23a32b6aa59876a569803","message":" "}
+{"commit":"6cb7f13cf8fc05a139bc1fa7a1be59c824b59877","message":"[Mips] Pass a combination of +soft-float and -mips16-hard-float flags to\nthe backend if hard float ABI is selected under -mips16 mode."}
+{"commit":"163c048aa6d06fc857e0042c70a10b04f418e0b5","message":"2014-11-10T08:50\n"}
+{"commit":"42d67be7e2038c4d110f900051594c58f679a2a4","message":"Isola: Tweaks to entry format links; add aside post format content template; tweaks to display of header/navigation\n"}
+{"commit":"0de7fb3a56c8982f574b3fac00ea4c4d7ce743d5","message":"setting ignores\n"}
+{"commit":"bf03a4fcc203d4c9b2150b14adf6f344785d69a1","message":" Merge branch '7.3.x' into master (using strategy ours)\n"}
+{"commit":"89af63f8b514f9737b1e4640a02b180a0327ca83","message":"Update artifactIds and other pom configuration muckski\n"}
+{"commit":"ed03ffa581d8d3ef17084880995e8f1765fd2a5f","message":"Updated the types-pillow feedstock."}
+{"commit":"19faed179f5f6a97a2fca05d23058419a980800a","message":"Redirect on file extensions specified by user (Fixes #11204).\n\nAdded an option `[pdfredirector] extensions` for specifying a comma-separated list of file extensions that should be redirected on. The default is `pdf`, preserving the previous behavior."}
+{"commit":"2c82672a7b98dddd1eae325074ceba73d143bb40","message":"Updated the r-estimatr feedstock."}
+{"commit":"958d92be5ea11d9ccc05b38a69f7ab4066349601","message":"Restructuring the project to be more C# like.\n"}
+{"commit":"f3aa66cdf82bd6323166fb595cc090bbecb0625a","message":"-add missing option"}
+{"commit":"afddc348f5189c1a68a367e919baabc4bf72d12a","message":"\n\ngit-svn-id: https://svn.pengutronix.de/svn/ptxdist/trunks/ptxdist-0.10-trunk@4601 33e552b5-05e3-0310-8538-816dae2090ed\n"}
+{"commit":"aa3be287d84c378c4a03ad3d0783a534b862bb23","message":"Merge remote-tracking branches 'asoc/fix/cs42l51', 'asoc/fix/cs42l52', 'asoc/fix/cs42l73', 'asoc/fix/rcar', 'asoc/fix/spear' and 'asoc/fix/tegra' into asoc-linus\n\n[ upstream commit: ebec909345bbb1e2d06cd0d94f65664edcc0f208 ]\n"}
+{"commit":"2a9b7f03560a4fc692be0eeb75df21fd28292252","message":"Added bunch of unit tests"}
+{"commit":"3eb1b87f8a09b6d47ce4972465ab8af167aaafb5","message":"GROOVY-3996\nCorrected the initialization order for static fields in enums. The order was wrong when such a FieldNode was not backed by a PropertyNode, (say when field was defined with a visibility modifier)."}
+{"commit":"9c6d6a20a0bfb870ac7ed63b8c2bdd125c8f7278","message":"Updated the r-ggpp feedstock."}
+{"commit":"6d5f785fd29439cf45cf0a4e7ccc54751642de92","message":"propset adjusted\n\n"}
+{"commit":"c475f455fcc113002e788bc1c0dd659ede817e26","message":"\n"}
+{"commit":"ce7968e53c68311748cd613767cd935016a14e11","message":"2013-07-06T12:30\n"}
+{"commit":"13e767e5ad26aa71da7b25b0e88606ceb331f0a6","message":"[Package i386 DEB][Build latest] Package build process trigger\n"}
+{"commit":"e6b036c45278e139b365a6e9e239ad7753744c63","message":"Edited wiki page PhpWsdl through web user interface."}
+{"commit":"e8ca59ef018287e159a7004e676c2cc2c577b4c8","message":"Merge \"Remove improper NotFound except block in list servers\""}
+{"commit":"45f16124da327bf3c572fc3cefaec23b57b3ea6a","message":"abstract rendundat code in net.cc"}
+{"commit":"0caef42e1a9e1ca00b4d12abc23e9d8f75aa8cad","message":"Capoverso: Fix current page item highlight\n"}
+{"commit":"b80bd4e78f15e91fdc24f7a6deb663683899df66","message":"Dozentenstundenplanansicht role insert - 2. Teil"}
+{"commit":"43a23108facc892e5cd8551c575e83ed3bc48ae6","message":"Force relearn after setting IPv6 address.\n"}
+{"commit":"aab46e396c84d0bac383e804766109af20a74244","message":"Merge remote-tracking branch 'refs/remotes/xenotomb/master'\n"}
+{"commit":"8e108938925010b9ed7b8a222315a17db6ecb30a","message":"Test commit\n"}
+{"commit":"edc91e867313b8078f8b309d6df4f7ee1c742a11","message":"Mirroring from Micro.blog."}
+{"commit":"4363cf5032321bca72065e3af3f544560b72dfcc","message":"auto refresh GitHub Pages"}
+{"commit":"fc7127f1e4f0840097a81518b5274814c8bc22da","message":"2015-05-09T17:00\n"}
+{"commit":"eb38535b27a63068f8c2c2e152df38612f4d90d9","message":"auto refresh GitHub Pages"}
+{"commit":"5e62fafd2d0e03e397c94894ac9e1edc371575e6","message":"auto refresh GitHub Pages"}
+{"commit":"49ac5e3c9010fa26c5004dab938edffc63d8158e","message":"o.c.core.all.feature: updated version"}
+{"commit":"7fbce2f1c2f8d508cf42522ea07f410a41979ae7","message":"Updating _posts/2018-01-19-a-health-check-response-format-for-http-apis.markdown via Laneworks CMS Publish"}
+{"commit":"bf6e2d269e509a3766e8d3a4fd5c132b32a69241","message":"Hacked Time 2x\n"}
+{"commit":"8a753ad3257ed2cc21d20ef39a406330b01e3113","message":"Update branch to 2.1 r276."}
+{"commit":"7a4eb214026a386da2ecbc7aa89388564b6003d9","message":"Merge branch 'master' of https://github.com/farhat-lab/gentb-site\n"}
+{"commit":"5ff2bbe66d67f7b8e86d629774007c38ab32d7be","message":"Merge pull request #7555 from kbrock/vim_performance_scope_4b\n\nVim performance scope 4b(transferred from ManageIQ/manageiq@76d76880cf7fc11289923214b3e0a6bb85dae43d)\n"}
+{"commit":"2ddd179ada45ca7d1c6b74219c88f05955f04546","message":"Merge branch 'next' of https://github.com/blackberry/GamePlay into next\n"}
+{"commit":"7116e41036b100515ba6b39cbfb5c05ed72be02d","message":"auto refresh GitHub Pages"}
+{"commit":"187c5e18a8fc085f33c12c0b148d0bf450f1d032","message":"SAVEPOINT\n"}
+{"commit":"752c6932380f5938973ec479e2826ec8c1c092e7","message":"Merge branch 'production' into staging\n"}
+{"commit":"84add9bbd148c5d56c48f187a2be215ed399f38c","message":"do ci bindata\n"}
+{"commit":"5f1b1f0e0b6c4d2258d3eecf4f629b734c686c03","message":"Hacked Time\n"}
+{"commit":"029f9ef4e6949bc682c1e5ab3afc89c6e8418f26","message":"Merge branch 'api' of github.com:tekconf/tekconf into api\n"}
+{"commit":"e2747141e8e9c26b27902519c10d3b19dd15c632","message":"2014-05-19T15:10\n"}
+{"commit":"2ea8d256d293c9240345b53805df3dd46b925598","message":"WinP\n"}
+{"commit":"f89ccd43339fd57ad6e6d0264a81ff12d230d278","message":"Merge branch 'master' of https://github.com/kpourdeilami/PalmNote\n"}
+{"commit":"e19db9ffe9c61bea175d3ffe52ebf6ce40debfbd","message":"Merge branch 'origin/v0.3.0'\n"}
+{"commit":"416c00e36b71008a2e205db57e12e90e39b628b5","message":"Merge branch 'master' of https://github.com/myDeBe/jq-bootgrid\n"}
+{"commit":"5d2625989951b222e3f1094d94333d1edeb8e6c7","message":"Merge pull request #32 from Iosnowore-Kun/Release\n\nMerge pull request #31 from Iosnowore-Kun/master"}
+{"commit":"3e65eeab38de340a4216d794cf01abaecfca6b27","message":"Merge branch 'master' of https://github.com/epimodels/Zeke\n"}
+{"commit":"e98d2783453e285ac37bbd29b56dbd01892c530d","message":"Add contributing guidelines\n"}
+{"commit":"c694de72498d306760bf10a8b5d7577ef137deb9","message":"2015-04-18T11:40\n"}
+{"commit":"339b4b0be1c78d1980b248644d06fbeb620299f6","message":"Merge branch 'continual_merge' of github.com:TimelyDataflow/differential-dataflow into continual_merge\n"}
+{"commit":"bbf44bf9d3f130e2aa9b863a93f9365a36a2f9db","message":"Hacked Time 2x\n"}
+{"commit":"fe690030c06fcf1ea1eb5a0a03fcf8129df6a8fb","message":"charm.ReadActionsYaml now uses a transform rather than in-place map editor to strip map[interface{}]interface{} values into usable map[string]interface{}s.  A few tests have been added and other minor fixes applied.\n"}
+{"commit":"8b2908fc718d11ad8056bf109ebf8fb9db80041c","message":"Merge pull request #6 from ricepeterm/clean-scripts\n\nserver replaced by library.transmartfoundation.org"}
+{"commit":"53163f1a67a612bd52d5136aefb56cbf3dac0fa5","message":"Hacked Time\n"}
+{"commit":"64bf07caa2bb952675f22c0e3353c6f04907f5e5","message":"2014-07-07T04:40\n"}
+{"commit":"bb7873a8aeadd699ed077448b9152894b3a418ae","message":"2014-05-20T09:10\n"}
+{"commit":"407c32729fbdb098464d9216e85cede2a5653e1f","message":"upgrade Node.js version\n"}
+{"commit":"816e189ee055a79c93e7640f9057442ee9fb5c31","message":"Fix assert in PhysicalMemory object\n"}
+{"commit":"3612635d021e88facf4c5217f919f1a380a3af40","message":"Merge branch 'master' of https://github.com/ControlSystemStudio/cs-studio\n"}
+{"commit":"620079ea25d3cfc7ce8a9f45e0d8a6cfe9080092","message":"Added tag version1 for changeset 8cdd4213f030\n"}
+{"commit":"90d3867f8ce9b061efe56813d61171691d5098cc","message":"Merge remote-tracking branch 'refs/remotes/origin/master' into dev\n"}
+{"commit":"4b3675dfac9ef1a392c782e1908f115eff5d2361","message":"Updating _posts/2017-10-10-connecting-service-level-agreement-to-api-monitoring.markdown via Laneworks CMS Publish"}
+{"commit":"dc04988759731ee6eec43eea771452dfcd85bf65","message":"auto refresh GitHub Pages"}
+{"commit":"f7a821e301021c668dbee3a6e55dfbbd46139454","message":"Set theme jekyll-theme-merlot"}
+{"commit":"de94338def5ea121ecea41d777cb51dbd1edf8a8","message":"2014-05-06T06:30\n"}
+{"commit":"6936353bfb8df8cde9e930558961b030c648a88b","message":"Merge pull request #11027 from kbrock/test_not_archived\n\ntest archived/orphaned scopes(transferred from ManageIQ/manageiq@1a948222f004d3be5f7cbf8fd174bbc4634c41e0)\n"}
+{"commit":"5e5360138aabd16edd239b545ee55bf76cb5048c","message":"Merge branch 'develop' of github.com:bac/juju-gui into develop\n"}
+{"commit":"210ac2f28723187e900f2a255445cc01fc2e7be2","message":"Merge branch 'master' into CodeCleanup"}
+{"commit":"4e87b4eb96192204e487a7608a306807c9213e27","message":"Merge branch 'master' into deepen\n"}
+{"commit":"b7a53e17d6f577feaf81c8ab522a85241322ac9f","message":"Merge pull request #263 from jasonheecs/patch-1\n\nFix popstate event event variable"}
+{"commit":"e3434fa1789e8e2913265da2d938933d535c7918","message":"Pull bugzilla-8630 into release branch\n\n[ upstream commit: de9bde9adb36fd85f94e523ed87efc7d9b23e807 ]\n"}
+{"commit":"1dfe1c9d4ef1b4314665a021b17a59b035f6c9fc","message":"Merge branch '4.0.1'\n\n# Conflicts:\n#\tbuild.gradle\n"}
+{"commit":"8796fdab26bf879f390e5bc70c1f45a8edd22aa2","message":"2014-05-21T10:10\n"}
+{"commit":"edcc7956e98b3b2889e48b5dc3c83a1c8312c67b","message":"Merge pull request #2947 from LLK/master\n\nMerge Master back into develop after 5/2 Release"}
+{"commit":"9b37884ca5017b64fba05753244ec2d7f50a3e99","message":"o.c.nsls2.product.feature.core: added missing adapter plugin for channels\n"}
+{"commit":"69ae3980d703af244c40e01a873a4d2a564867c3","message":"Merge pull request #685 from jrafanie/upgrade_default_value_for_step_1\n\nUpdate default_value_for: Protected methods don't respond on ruby 2.0(transferred from ManageIQ/manageiq@05a274d96f4087e803d65666b6e2ca4e26f680f4)\n"}
+{"commit":"1aa5ab0cf56319ee19d9768b7c33d5e3a9aa0fbd","message":"Merge branch 'master' of https://github.com/uqfoundation/pathos\n"}
+{"commit":"f0b7b5e2c1a3d5c33e1ab57fa2de2177b1d500fb","message":"Fix conflict again since I'm not very good at using git\n"}
+{"commit":"2bfba1b447c812924beb4925b21874bad247f048","message":"Merge branch 'master' into dev"}
+{"commit":"0a4928a9fa3ed02588a15a5038a01744b674ca4a","message":"Added tag release-0.0.1 for changeset aeb2eae91368\n"}
+{"commit":"88545f8a200d1f50dd4d3a62f80db94ccd880d27","message":"2014-08-06T19:00\n"}
+{"commit":"8b1139f2a4860003054273979ee692668995d5aa","message":"Merge branch 'third_robot_monitor' of https://github.com/Nishida-Lab/TC2015 into third_robot_monitor\n"}
+{"commit":"36a3fc9b1b3b69ccec3878e32d3e51536f20b5f6","message":"Merge remote-tracking branch 'origin/inception' into inception\n\n# Conflicts:\n#\t.travis.yml\n"}
+{"commit":"df282a0b21baf4db26658f0cd14908f9214de3b0","message":"YEAH\n"}
+{"commit":"cafda46eb1c7345d66ac6b013a135b09a5ea8c20","message":"Publish page-10 index"}
+{"commit":"9a6c7be83d6eb2bfbd070275f7c72814a876f100","message":"Merge branch 'internal-master' into develop\n"}
+{"commit":"3a8c3df0922d5c4aec4c8e5220ab8a3d18bcaa0b","message":"Merge branch 'aufs3.6/01modular' into aufs3.6/30stdalone\n"}
+{"commit":"afabcbd0e5477c0286913c45574a58bd31633d20","message":"YEAH\n"}
+{"commit":"1c59c76617724e8107fd2ded2f11e2a8e629f625","message":"Merge pull request #421 from insanehong/hive refs/heads/issue/icon-font"}
+{"commit":"ed52e09b60e581a54086bc3db213731f1efd41f5","message":"deleted argument of CvMat.GetDataStream\n"}
+{"commit":"b737e5ed3b33c22a3e1faf500758839ea883b618","message":"Merge remote branch 'aufs3-standalone/aufs3.5/00base' into aufs3.5/10static\n"}
+{"commit":"b95f4f8c5f601c095b6afcf8c3b1244641dcf80b","message":"YEAH\n"}
+{"commit":"ff388cada8cd47589217c94b13d9db5019cc6109","message":"Publish page-6 index"}
+{"commit":"ebd20e6bae6dd7a30de91cee00dc0ae52b35fd9b","message":"Mirroring from Micro.blog."}
+{"commit":"947e534e6aaab24136b4e7fe945c0738448c2991","message":"Mirroring from Micro.blog."}
+{"commit":"cc6b896ff029f553a912f57a12933734893859d2","message":"Merge branch 'master' into stable\n"}
+{"commit":"9bb147332046d41aa1b6325c54dc847727e074cf","message":"Mirroring from Micro.blog."}
+{"commit":"0d37b6cff1498a6edd472f8e5b586f63300ce109","message":"Mirroring from Micro.blog."}
+{"commit":"fa5fc2045904b6b561a2fd2d6bda09d6bda3280b","message":"Merge pull request zendframework/zf2#5532 into master\n"}
+{"commit":"e6e61d4aa3a35d6cd3bdd0e6011fff90509855f1","message":"Mirroring from Micro.blog."}
+{"commit":"a965c0a7186b773d09b37e54d2d9652383f31a82","message":"Mirroring from Micro.blog."}
+{"commit":"5c3986224536a5a0a9e4f0c74a3ad499e0397eb6","message":"Mirroring from Micro.blog."}
+{"commit":"87b560b0a40334c73c83fd677850d78a38359197","message":"Mirroring from Micro.blog."}
+{"commit":"9ecdb0686a9cbad87b061f025efb6714326f3196","message":"Graph Data 2016-01-14T00:01\n"}
+{"commit":"3a9a79b21ca68ed8e8257df7c2c1f2dc8daf3a8a","message":"Merge master.kernel.org:/pub/scm/linux/kernel/git/davem/net-2.6\n\n[ upstream commit: 79ffeeb9e66da8c60de8c8ab676658bcbc47c1f7 ]\n"}
+{"commit":"32ec6e7fe6089993811a400c8a7446bce9980368","message":"merge in ics-release history after reset to master\n"}
+{"commit":"e1b815ca38113db6d7e006a26ab3ddeabc5b5e92","message":"Merge branch 'production'\n"}
+{"commit":"f2042de7931b94674d461c11f9e8cff6263bba1c","message":"Mirroring from Micro.blog."}
+{"commit":"5c1fa018dc3d937ea281c419b42fe070badc3fc1","message":"Mirroring from Micro.blog."}
+{"commit":"348f62c712f29bbc12b057d70f5f7b60d5a5add6","message":"Merge branch 'master' of github.com:getlantern/lantern\n"}
+{"commit":"b80b4b0a9211abf562c2bb8ed6bc7c3be5177646","message":"Merge remote-tracking branch 'upstream/master'\n"}
+{"commit":"b9f25347940110b14ca8344686882580917991d5","message":"Mirroring from Micro.blog."}
+{"commit":"d9761e5758a140c9699795c5daf20f119beaa4e0","message":"Merge commit 'ars/master'\n"}
+{"commit":"e8b2f4442f74b3a2a19ba96dc2cad27be6293146","message":"Updating journey/technology/environment-saved-variables.html via Laneworks CMS Publish"}
+{"commit":"7b8a28994759d119ff67830d119d9fc0d7477349","message":"Mirroring from Micro.blog."}
+{"commit":"1de8fb0e6fd395b38a971eeddd4fb346fb1c24b9","message":"trigger new build for jruby-head"}
+{"commit":"f34fbc627a20ef6aa8b8dde773c16ace486a0e0a","message":"Mirroring from Micro.blog."}
+{"commit":"16648642935c6262de55d57de00fbab90c7498b5","message":"Merge tag 'writeback-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/wfg/linux\n\nPull writeback fixes from Wu Fengguang:\n \"Two writeback fixes\n\n   - fix negative (setpoint - dirty) in 32bit archs\n\n   - use down_read_trylock() in writeback_inodes_sb(_nr)_if_idle()\"\n\n* tag 'writeback-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/wfg/linux:\n  Negative (setpoint-dirty) in bdi_position_ratio()\n  vfs: re-implement writeback_inodes_sb(_nr)_if_idle() and rename them\n\n[ upstream commit: de1a2262b006220dae2561a299a6ea128c46f4fe ]\n"}
+{"commit":"e756bcbd3f32b4b6fdd09e64c6e5705e56d0dce6","message":"Merge branch 'master' of https://github.com/modflowpy/flopy\n"}
+{"commit":"36ed687833da22aa8796decf33ac1b5509bf1fa3","message":"Mirroring from Micro.blog."}
+{"commit":"e4eeb18e1c147c618c10d77fa7329648e032796c","message":"Merge git://git.kernel.org/pub/scm/linux/kernel/git/davem/net\n\nPull networking fixes from David Miller:\n \"Mostly these are fixes for fallout due to merge window changes, as\n  well as cures for problems that have been with us for a much longer\n  period of time\"\n\n 1) Johannes Berg noticed two major deficiencies in our genetlink\n    registration.  Some genetlink protocols we passing in constant\n    counts for their ops array rather than something like\n    ARRAY_SIZE(ops) or similar.  Also, some genetlink protocols were\n    using fixed IDs for their multicast groups.\n\n    We have to retain these fixed IDs to keep existing userland tools\n    working, but reserve them so that other multicast groups used by\n    other protocols can not possibly conflict.\n\n    In dealing with these two problems, we actually now use less state\n    management for genetlink operations and multicast groups.\n\n 2) When configuring interface hardware timestamping, fix several\n    drivers that simply do not validate that the hwtstamp_config value\n    is one the driver actually supports.  From Ben Hutchings.\n\n 3) Invalid memory references in mwifiex driver, from Amitkumar Karwar.\n\n 4) In dev_forward_skb(), set the skb-\u003eprotocol in the right order\n    relative to skb_scrub_packet().  From Alexei Starovoitov.\n\n 5) Bridge erroneously fails to use the proper wrapper functions to make\n    calls to netdev_ops-\u003endo_vlan_rx_{add,kill}_vid.  Fix from Toshiaki\n    Makita.\n\n 6) When detaching a bridge port, make sure to flush all VLAN IDs to\n    prevent them from leaking, also from Toshiaki Makita.\n\n 7) Put in a compromise for TCP Small Queues so that deep queued devices\n    that delay TX reclaim non-trivially don't have such a performance\n    decrease.  One particularly problematic area is 802.11 AMPDU in\n    wireless.  From Eric Dumazet.\n\n 8) Fix crashes in tcp_fastopen_cache_get(), we can see NULL socket dsts\n    here.  Fix from Eric Dumzaet, reported by Dave Jones.\n\n 9) Fix use after free in ipv6 SIT driver, from Willem de Bruijn.\n\n10) When computing mergeable buffer sizes, virtio-net fails to take the\n    virtio-net header into account.  From Michael Dalton.\n\n11) Fix seqlock deadlock in ip4_datagram_connect() wrt.  statistic\n    bumping, this one has been with us for a while.  From Eric Dumazet.\n\n12) Fix NULL deref in the new TIPC fragmentation handling, from Erik\n    Hugne.\n\n13) 6lowpan bit used for traffic classification was wrong, from Jukka\n    Rissanen.\n\n14) macvlan has the same issue as normal vlans did wrt.  propagating LRO\n    disabling down to the real device, fix it the same way.  From Michal\n    Kubecek.\n\n15) CPSW driver needs to soft reset all slaves during suspend, from\n    Daniel Mack.\n\n16) Fix small frame pacing in FQ packet scheduler, from Eric Dumazet.\n\n17) The xen-netfront RX buffer refill timer isn't properly scheduled on\n    partial RX allocation success, from Ma JieYue.\n\n18) When ipv6 ping protocol support was added, the AF_INET6 protocol\n    initialization cleanup path on failure was borked a little.  Fix\n    from Vlad Yasevich.\n\n19) If a socket disconnects during a read/recvmsg/recvfrom/etc that\n    blocks we can do the wrong thing with the msg_name we write back to\n    userspace.  From Hannes Frederic Sowa.  There is another fix in the\n    works from Hannes which will prevent future problems of this nature.\n\n20) Fix route leak in VTI tunnel transmit, from Fan Du.\n\n* git://git.kernel.org/pub/scm/linux/kernel/git/davem/net: (106 commits)\n  genetlink: make multicast groups const, prevent abuse\n  genetlink: pass family to functions using groups\n  genetlink: add and use genl_set_err()\n  genetlink: remove family pointer from genl_multicast_group\n  genetlink: remove genl_unregister_mc_group()\n  hsr: don't call genl_unregister_mc_group()\n  quota/genetlink: use proper genetlink multicast APIs\n  drop_monitor/genetlink: use proper genetlink multicast APIs\n  genetlink: only pass array to genl_register_family_with_ops()\n  tcp: don't update snd_nxt, when a socket is switched from repair mode\n  atm: idt77252: fix dev refcnt leak\n  xfrm: Release dst if this dst is improper for vti tunnel\n  netlink: fix documentation typo in netlink_set_err()\n  be2net: Delete secondary unicast MAC addresses during be_close\n  be2net: Fix unconditional enabling of Rx interface options\n  net, virtio_net: replace the magic value\n  ping: prevent NULL pointer dereference on write to msg_name\n  bnx2x: Prevent \"timeout waiting for state X\"\n  bnx2x: prevent CFC attention\n  bnx2x: Prevent panic during DMAE timeout\n  ...\n\n[ upstream commit: 1ee2dcc2245340cf4ac94b99c4d00efbeba61824 ]\n"}
+{"commit":"395eb20979e30cbface81dac8c812f82a5a41963","message":"Mirroring from Micro.blog."}
+{"commit":"d5b7176c647c7fc1cf54cab88e3e03c27562ec67","message":"Merge branch 'x86-pat-for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/linux-2.6-tip\n\n* 'x86-pat-for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/linux-2.6-tip:\n  x86: pat: Remove ioremap_default()\n  x86: pat: Clean up req_type special case for reserve_memtype()\n  x86: Relegate CONFIG_PAT and CONFIG_MTRR configurability to EMBEDDED\n\n[ upstream commit: b391738bd1c708fe85592410c6a7c9752689481d ]\n"}
+{"commit":"b521111bb805fc4ab85586d983368e3e6ee19db9","message":"Merge branch 'develop' of https://github.com/alimcharaniya/uniformlab-v3 into develop\n"}
+{"commit":"33ddd0e906dd2be8e60ac388c49351a0e089d35e","message":"Merge branch 'omap/hsmmc' into next/drivers\n\n[ upstream commit: 4966eba037bd0841cdb458907f27b71d4dcfd5d4 ]\n"}
+{"commit":"c8fa2a024a158f202e46cc8d1f4239156b5baa0a","message":"Mirroring from Micro.blog."}
+{"commit":"ffdc2c1750104dd67af1f1a0b3cb199760d599f8","message":"am 20db55e8: (-s ours) am 346b6a42: am 18a4aa89: am c8d2abd8: Import translations. DO NOT MERGE\n\n* commit '20db55e836a97f04c73e4bf9ea4e0290a8ab6ed8':\n  Import translations. DO NOT MERGE\n"}
+{"commit":"b1adb19e2e187e51546e0435aba59ba8fa38c5f5","message":"Graph Data 2015-02-11T00:01\n"}
+{"commit":"316cd6bd55c9d101ff25f023d7170a208cc388ea","message":"Mirroring from Micro.blog."}
+{"commit":"9fa319e3b0e7efe077686ace3b8be9e0d474a6f9","message":"Merge pull request zendframework/zf2#3531 from samsonasik/dev.fixvarname\n\n[2.1] Fix variable Name and Resource on Oracle Driver Test"}
+{"commit":"09e5eec674c9f92ed8e3d882475c4bcf59998d88","message":"Updating _data/curated.json via Laneworks Publish"}
+{"commit":"a080760ba0b393c9a88649de64023555e56a5f70","message":"Autoload upgrade doesn't require re-run of script\n"}
+{"commit":"4f44d424663d207ce432710ec8e39e316931b8c7","message":"Merge\n"}
+{"commit":"fa2558a129173aa4861469ea967f7ff8b87b3fec","message":"gitfiti\n"}
+{"commit":"61b82450dd08280d3ddae3c27bfb07874c6ca576","message":"Merge branch 'master' of https://github.com/opencadc/caom2ui\n"}
+{"commit":"074a2c034c42f660ea6e342ba11cecfe22171511","message":"Mirroring from Micro.blog."}
+{"commit":"89e8c44caef63a7278afe287e8f2ab4eef76270f","message":"adding todays new workshops\n"}
+{"commit":"4022171dab7e892bd6df51ac3c7e98d2b9aba06c","message":"Merge pull request #9216 from jfrazelle/typo-steam\n\nFix steam where it should be stream."}
+{"commit":"a86f21e3ad7c44436724c9a7ce62441ac805bdb3","message":"Initial commit\n"}
+{"commit":"36c0316f3e9b001ff3d7e76bfcf8bd9e0722448f","message":"BS-794: update Default Issuer submit call to use new APIStore api.\n"}
+{"commit":"e6ece43f95d90c7dfbdd4db1e04cf335fbf4d4ba","message":"Added tag NSPR_4_10_3_RTM for changeset 2e98d46b54b9\n"}
+{"commit":"889b42c44cecc96bc9f56790ec03b58b1bad97c5","message":"Mirroring from Micro.blog."}
+{"commit":"8a641932bc95d358704afd02e6dbfc8d9572ae58","message":"Merge remote-tracking branch 'upstream/master' into SB-221\n"}
+{"commit":"1eb5313e6c25bf5d46b4727c88ec30ac9f4b699b","message":"Merge pull request zendframework/zf2#26 from ezimuel/feature/db-clean\n\nMerging docblock additions from ezimuel"}
+{"commit":"1fe8aa583f6034bd2d8d9b59517e5cd4e699f163","message":"Mirroring from Micro.blog."}
+{"commit":"056f5651e2b97fc5b5f19160b4317c139435f2f8","message":"Merge\n"}
+{"commit":"b30c2db71421b8517ba6f38bedba3aef5a1b00a4","message":"Fix clobber target\n"}
+{"commit":"8cdd800ef2d8f0f969fab07f6f2f3e00d194e2f2","message":"Merge branch 'exception' into directedgraph\n"}
+{"commit":"b118105fe55fcdea26d9408aae272fc105d14059","message":"am 6406421c: am c247b3e5: am 8c8e0937: Don\\'t show Converting to MMS\n\nMerge commit '6406421cee1f9cf4ca68a9227e91b04824731fc5'\n\n* commit '6406421cee1f9cf4ca68a9227e91b04824731fc5':\n  Don't show Converting to MMS\n"}
+{"commit":"dddf590f508c575af394eed64e75851fa309f229","message":"Mirroring from Micro.blog."}
+{"commit":"aab56f420fc1e17be09da6ac94b6c280ee5239c1","message":"Merge \"Merge \"platform: msm_shared: Check SDCC version before enabling sh400 mode\"\""}
+{"commit":"c308f6ba4f4404221690aec43913f9d59e6b3d7d","message":"Merge branch 'for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/jikos/hid\n\n* 'for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/jikos/hid: (34 commits)\n  HID: roccat: Update sysfs attribute doc\n  HID: roccat: don't use #pragma pack\n  HID: roccat: Add support for Roccat Kone[+] v2\n  HID: roccat: reduce number of functions in kone and pyra drivers\n  HID: roccat: declare meaning of pack pragma usage in driver headers\n  HID: roccat: use class for char device for sysfs attribute creation\n  sysfs: Introducing binary attributes for struct class\n  HID: hidraw: add compatibility ioctl() for 32-bit applications.\n  HID: hid-picolcd: Fix memory leak in picolcd_debug_out_report()\n  HID: picolcd: fix misuse of logical operation in place of bitop\n  HID: usbhid: base runtime PM on modern API\n  HID: replace offsets values with their corresponding BTN_* defines\n  HID: hid-mosart: support suspend/resume\n  HID: hid-mosart: ignore buttons report\n  HID: hid-picolcd: don't use flush_scheduled_work()\n  HID: simplify an index check in hid_lookup_collection\n  HID: Hoist assigns from ifs\n  HID: Remove superfluous __inline__\n  HID: Use vzalloc for vmalloc/memset(,0...)\n  HID: Add and use hid_\u003clevel\u003e: dev_\u003clevel\u003e equivalents\n  ...\n\n[ upstream commit: facc7a96d443d84060a8679c3fcc51d20d4981c3 ]\n"}
+{"commit":"9a4a12a482d921151e7f1b6d990d348550c136de","message":"Mirroring from Micro.blog."}
+{"commit":"dcd1b6158e3dbb122ae0784752d7d652d3c25d24","message":"Mirroring from Micro.blog."}
+{"commit":"98f89ea651dbd0918674a195e5bdb957bbc61366","message":"Mirroring from Micro.blog."}
+{"commit":"e334d3ab54469987b3f17eaaed8e8a8bdc0d0472","message":"Mirroring from Micro.blog."}
+{"commit":"83940e7b7c536dd6252033ac2c7216cb8e6ae9c1","message":"Mirroring from Micro.blog."}
+{"commit":"33c6ed2263dabab0e58affc56fb59d976ddd79b6","message":"show max youtube results fo videos in playlists\n"}
+{"commit":"510fa471d14f01ba9256210d31a631e39637af67","message":"Merge branch 'master' into develop"}
+{"commit":"1762e38d0a07a83a40fb5aaab046863a197a43e6","message":"Mirroring from Micro.blog."}
+{"commit":"96061021150c0c7f00d830f344b099725817bae5","message":"LeeL Blog - Site Update"}
+{"commit":"54965c2ff2e5fce5a9aab69a349815c7811c6d9f","message":"Mirroring from Micro.blog."}
+{"commit":"f5bdd252c0809a25d9367ab4e6a19c54ba8df7b2","message":"Merge pull request #1 from fraser-lab/master\n\nMerge pull request #12 from rwtibble/master"}
+{"commit":"10d4f91b8758c282dbfa5da1b3906dae96f8208a","message":"Mirroring from Micro.blog."}
+{"commit":"e7f7362c2eac7da830566b629adcf2d8674b61cb","message":"Merge pull request #9 from jvrunion/master\n\nMerge pull request #8 from jvrunion/gh-pages"}
+{"commit":"23a3474838932c3a2e3e61b82abdc3c2f2f28756","message":"Mirroring from Micro.blog."}
+{"commit":"c650f6a484548b56d0cbff27e681345baec147e4","message":"Mirroring from Micro.blog."}
+{"commit":"92f79e4bd0d352c236e48916ab2735f17de70430","message":"Graph Data 2015-11-03T00:01\n"}
+{"commit":"4103e5d5d1941ddd41517bd8a2cf000a6fd32008","message":"Mirroring from Micro.blog."}
+{"commit":"779596c951972ba2c1b4584b7f18d64c3db9bd9e","message":"Mirroring from Micro.blog."}
+{"commit":"b3ff84a3215d7fd159300a41de02bbd05aadea89","message":"Mirroring from Micro.blog."}
+{"commit":"1e321963c08f84e37d1ba838b6dfac23b2775039","message":"Mirroring from Micro.blog."}
+{"commit":"ea4cdd12b787d78ab1a882f23472496030d327dd","message":"functioning fact interpolation\n"}
+{"commit":"9731078ef13185ac15f155697131c581ff441fce","message":"Mirroring from Micro.blog."}
+{"commit":"01c2ccee40ba9e5ee2b890b44e6ff3b3b85c2e7b","message":"gitfiti\n"}
+{"commit":"909c585f8efb75f177f851c9bff2c24ed9416ec1","message":"Mirroring from Micro.blog."}
+{"commit":"7ecb5fda65b790124d98feca424bf772a4ef3935","message":"Merge branch 'kk_2.7_rb1.11' of git://codeaurora.org/platform/external/skia into cm-11.0\n"}
+{"commit":"e6362ee62a55ccef785032b0803af33b700cd31a","message":"Merge branch 'filter' into cache\n"}
+{"commit":"1b115fb6d6b08ec1434ea9b3daf6b6fba6e7e219","message":"Merge branch 'beta' into andrea-work\n"}
+{"commit":"d59d0fcbe54568c371bf0a6aff2f3ea42792ec1f","message":"2012-11-11T07:00\n"}
+{"commit":"60acb59089c1e73f74da900d98dc48924a2fabc4","message":"am 7a396c39: am 18f95189: Reconcile with jb-mr1-release - do not merge\n\n* commit '7a396c3972de860a4a5874cd3ff1b6b88a610cc2':\n"}
+{"commit":"fd2ae9f0f7c2d43b23cc8e8a7ed8df86e4949819","message":"Graph Data 2016-01-01T00:01\n"}
+{"commit":"69c2ed2f07355a2a312c1935ab08b4cf43f0651b","message":"Updating _data/curated.json via Laneworks Publish"}
+{"commit":"9aee20d168317c8051b38ab88920f69496f877a8","message":"Mirroring from Micro.blog."}
+{"commit":"15db5e7a23d5dc2e88c2ec144668ee401da9dc2e","message":"Mirroring from Micro.blog."}
+{"commit":"3296dd2d19d6cbe5e42d7f2a6582921f2cabad16","message":"Mirroring from Micro.blog."}
+{"commit":"e90f7e72da6e090f4cf39c5c90ce860f1c00cd90","message":"Merge\n"}
+{"commit":"d9a1a475941ec016366d19e742c0437bdd236095","message":" 2013-12-03T07:39:48\n"}
+{"commit":"f850da25abfce7b39c425e353a885623335e5e91","message":" 2013-12-09T22:02:50\n"}
+{"commit":"bb85627410c27828ebe66e6856cb278853d67c6b","message":" Commit: 48/66 (max: 74) for Date: 04 Nov 13 07:53 UTC\n"}
+{"commit":"e64e67742d07299e6b48757629ff274b1b540016","message":" Commit: 17/68 (max: 74) for Date: 16 Mar 14 16:25 UTC\n"}
+{"commit":"9241bc26ff24118716309528a6e2297901119f48","message":" 2013-10-20T22:49:04\n"}
+{"commit":"986838ccb3bb39ae2c8300f6ad163058dff24066","message":" 2013-12-15T16:02:31\n"}
+{"commit":"8c8221e938b009f9327c64de368488a138894693","message":"Merge branch 'master' of github.com:richard-jones/app-template\n"}
+{"commit":"f45ed588454df0b3d721355dd7a55b666c5ac6a7","message":"Merge branch 'master' into null_safety\n\n# Conflicts:\n#\ttest/cmd_run_test.dart\n"}
+{"commit":"899a8aec589073560d7fee42b85baff711f529dd","message":"2016-02-04T10:10\n"}
+{"commit":"482f81d459c3fcb78d9044ae2e9af5c197ed9a50","message":"Merge branch 'alpha5' of github.com:openforis/collect into alpha5\n"}
+{"commit":"1b484216bec6fdd2bb71b2662663034f7d757b56","message":"null merge from 2.2\n"}
+{"commit":"b8039d9f3743a1694a256522789cd88fe9975d0c","message":"Merged in smoldar/oregoncore-4/smoldar/2546_clever_trapssql-edited-online-with--1423354838645 (pull request #81)\n\n2546_clever_traps.sql edited online with Bitbucket\n"}
+{"commit":"76dc56656352046ce7ef51ecc940e2ff85e5a8a6","message":"Merge branch 'develop' of https://github.com/telefonicaid/iotagent-node-lib into bug/missingCallbackParameters\n"}
+{"commit":"8a7e39685b72882630cb011b89eae56ba454d4a1","message":"Merge remote-tracking branch 'regulator/fix/wm8350' into regulator-linus\n\n[ upstream commit: f3d17a7e4d9ea9301fd2608c25de7802239e5fbb ]\n"}
+{"commit":"8b2d641ee2bbf8cf54fd122b7f4df1731ef0929f","message":"Merge branch 'os-independent-path' of https://github.com/smarthomeNG/smarthome into os-independent-path\n"}
+{"commit":"c24bce1a2ac548c4ff39aca238a6145e237792d4","message":"Initial commit\n"}
+{"commit":"e37c95ceba8135a9047c986702a841c5a86ec219","message":"Merge branch 'master' of https://github.com/VZoche-Golob/AFTtools\n"}
+{"commit":"9542cd10ca07815ba5b12d8c8ba7ac44c1275a31","message":"Merge branch 'master' of https://github.com/genoma/bootstrap-configuration\n"}
+{"commit":"a75b99efadf3ab7714467680f76e65eddd543550","message":"Merge branch 'master' of git://github.com/zendframework/zf2\n"}
+{"commit":"b98b52955456e58993dd57efb9aebbe9dc0e2942","message":"Merge branch 'hotfix/zendframework/zf2#7108-annotation-listener-type-hint-fixes' into develop\n"}
+{"commit":"09e1abd888e9d5e20d4091b6c41326ac0fd5673c","message":"Merge branch 'dev' into paulo/IOS-2463/xcodegen\n"}
+{"commit":"5bb91bcea6417b32eb0c00b5d6f220a57e49324d","message":"Merge remote-tracking branch 'bb/extraction'\n"}
+{"commit":"80710e18178e66883b9a77fee809a3f08f32e6c0","message":"Merge remote-tracking branch 'origin/master'"}
+{"commit":"0c882a2a9cc96052a719070b8f6c54ad05119bcb","message":"Merge branch 'master' into newui\n"}
+{"commit":"bd2ca58900fea3012de74eb27439b41fa93f4042","message":"Merge branch 'develop' into crypto\n"}
+{"commit":"1af292f5686030a13e94df8a91dd722bf89a567f","message":"Merge branch 'branches/rudder/3.0'\n"}
+{"commit":"5e6b527cc8148f2cab552e39c349ed45fd16cdf6","message":"Merge branch 'cs/zendframework/zf2#6995-zend-servicemanager-psr2-compliance' into develop\n\nClose zendframework/zf2#6995\nForward port zendframework/zf2#6995\n"}
+{"commit":"c3c7cb9afb28bcc6215e1cdbe7585bcaa8655bae","message":"Fixes flour runtimes\n"}
+{"commit":"4ba9d492c4b22b5960e50e1d302278fab0a5d57e","message":"Merge branch 'hotfix/zendframework/zf2#6718-zend-db-depends-on-zend-stdlib' into develop\n\nClose zendframework/zf2#6718\n"}
+{"commit":"b48905605b00723cb67b14a503e228ef47007c6c","message":"2017-01-06T15:50\n"}
+{"commit":"19ecb53ed0d6430b41431f7ba8e39267250b1ee6","message":"removed .pypirc from project\n"}
+{"commit":"5c16261374b6a1b66affe7b0d2ca8309ad6f3899","message":"Merge branch 'stable'\n"}
+{"commit":"6f78bf332c552a66242d4e67feb2bae1955f810e","message":"trigger new build for jruby-head (1345982)"}
+{"commit":"5d8637457a32ba09af1351917f8235dd8ca7068d","message":"Merge branch 'master' of https://github.com/Woseseltops/signbank.git\n"}
+{"commit":"0fa6c150d60333da2b70f04f90f7e28ca5f50e19","message":"Merge branch 'master' into prepend-append-markdown"}
+{"commit":"9164f692468b112bdb4159edef1f5745616ab430","message":"Merge branch 'cs/zendframework/zf2#6918-zend-di-runtimedefinition-hasprocessedclass-return-type' into develop\n\nClose zendframework/zf2#6918\nForward port zendframework/zf2#6918\n"}
+{"commit":"9b562e0c84e690b31a3f379cbd470b537cd234bd","message":"Merge branch 'maint'\n"}
+{"commit":"6590a427c76554aae9ef9bd8b602f56d59ccd8ea","message":"Added a comment\n"}
+{"commit":"e92c7bcd7b4453776d917fccc47f9a06d0d60cb1","message":"Writing: _posts/2017-10-07-amy-s-watching.html"}
+{"commit":"3614ac94fddafd5552f7356cd7478516a95da8a5","message":"Merge remote-tracking branch 'refs/remotes/origin/master' into frontend-branch-1\n"}
+{"commit":"ec207310f4015a235025734fd37be92d841befcb","message":"Bee!"}
+{"commit":"e9b65e5b95dba1064db8686f2ffd8b12e4951e46","message":"Merge remote-tracking branch 'upstream/master' into clm_sdm_fixes\n"}
+{"commit":"57f59163a2d0b25fe674b6cbb774fa82b8924fb1","message":"Merge branch 'development' into feature/11028_scan_log\n"}
+{"commit":"31fca4ec8292f0f13fb1f956bbe4ed1189a0bd47","message":"[jgitflow-maven-plugin] merging 'master' into 'develop'"}
+{"commit":"b4e8818a8412b917bc33ede78e0dfc5c01a23c22","message":"Merge branch 'for-rmk' of git://git.kernel.org/pub/scm/linux/kernel/git/kgene/linux-samsung into devel-stable\n\nConflicts:\n\tarch/arm/mach-s3c64xx/dev-audio.c\n\n[ upstream commit: f9cef506815386df4bd7e463b59e0a0984ce0355 ]\n"}
+{"commit":"b9f334b00ed4ad731eb6c945925e0e95788fd7a2","message":"Merge branch 'master' of https://github.com/dcwbrown/coll\n"}
+{"commit":"8262c2de1e31bf3589a64c7326347f88ac5c63ce","message":"Merge pull request #1338 from h-kataria/replace_prototype_form_observer\n\nReplace prototype form observer(transferred from ManageIQ/manageiq@561ee307d2661fe16241a7c7dbcee339371f76e9)\n"}
+{"commit":"d88ba6045f6cc885d6bce4b1b93f4c969b69cdcd","message":"Merge branch 'master' of github.com:zoggy/stog-rdf\n"}
+{"commit":"3b550f09f17a534cb3c3dc1f6673201c82e69ccf","message":"\n"}
+{"commit":"21601e9ff7a3e8e1d6376d83d013efb16399aa19","message":"README.md update\n"}
+{"commit":"f5ed184531da347606092dd94b154c3400fc1d2e","message":"Merge remote-tracking branch 'origin/master'\n\n# Conflicts:\n#\tspec/devise/models/jira_authenticable_spec.rb\n#\tspec/factories/users.rb\n#\tspec/rails_app/config/initializers/devise.rb\n"}
+{"commit":"2a6fb5bf08ff99c00bf403c6b7f56a1a53ac3aaf","message":"Merge remote-tracking branch 'upstream/release-0.8.0' into dev\n"}
+{"commit":"a1ac3cc2e9a1901b48a4a014a521abcb761c0a74","message":"Lavaproofs the lavaproofing potion\n"}
+{"commit":"97d8b27ceb639bea02f5c61a4f56033ba5fd6a52","message":"Initial commit\n"}
+{"commit":"5586d44cb22290c6ea04b79e352425c72783c76f","message":"2016-11-21T14:00\n"}
+{"commit":"30d6c0bf2932d8e0bdc45e856c63e654d917e683","message":"Initial commit\n"}
+{"commit":"f11f510399b0fc64039a8d58f7d2045e8bedc013","message":"Merge pull request zendframework/zf2#3674 branch 'hotfix/typo'\n"}
+{"commit":"83a3deba99af4041a8f7b6d03ee198bd6fdbbc49","message":"Merge tag '1712' into develop\n\n1712\n"}
+{"commit":"d15782d130061449c5ba1c2d70aacf2ab1f3d13b","message":"Merge tag '2.0.9' into develop\n\n2.0.9 2.0.9\n"}
+{"commit":"59cf044a3854badaeb89069e78e1a733ea55366f","message":"Merge branch 'master' of https://github.com/raphydaphy/Q-OS\n"}
+{"commit":"3b19928b2ea18bbb2d1e9140dd0cdab4d4f2e217","message":"Merge\n"}
+{"commit":"d6d7338fd05b22810c98531b44874779761788fb","message":"2016-11-24T14:40\n"}
+{"commit":"989f40b2cb2eb78e3b4886d2efb9bd81ea4e9de7","message":"fix: merge\n"}
+{"commit":"4b63417f61cca67385ae560abaf4c4fcf2043d9b","message":"Merge branch 'master' of https://git.cern.ch/reps/AliRoot\n"}
+{"commit":"6e507a3e4d818af3f49d3961a98ade837e11b403","message":"Merge pull request #170 in MS2/mothershipv2_services from spike/MS-643-roles-client-and-server to feature/document-management\n\n* commit 'd4dd08da6099360f0ca329217c8642ebaab21d52':\n  defaults and whitespace\n  fix default\n  Fix Build\n  fixed line endings\n  MerchantBOB\n"}
+{"commit":"905b5badac508515ed0ac100cf9ffa5f72e81b43","message":"Merge branch 'hotfix/zendframework/zf2#6896-ibmi-https-flags-in-environment-request' into develop\n\nClose zendframework/zf2#6896\nForward port zendframework/zf2#6896\n"}
+{"commit":"efc0dab9cf7cbca9e2e5b28de9fee0efafa12cfb","message":"Merge branch 'gh-pages'\n"}
+{"commit":"0228077a20bd949c844cdc1b52a84ca738905f11","message":"Initial commit\n"}
+{"commit":"a35e3c0583f6c0508caef89b5a9be8a1c5532a62","message":"Fixes division by 0 in R\u0026D efficiency calculations\n"}
+{"commit":"834cf017bdab9f5648accca6c884fe373479b918","message":"Remove files\n"}
+{"commit":"7e6738e24b6a061e47fa320b36fcb1c0c8b49b23","message":"Merge branch 'master' of https://github.com/3sidedcube/react-native-navigation\n\n* 'master' of https://github.com/3sidedcube/react-native-navigation:\n  Fixed issue with rightButtons getting ignored in preference for empty Screen buttons\n"}
+{"commit":"9784d3ccdf2ab55c2c85ecd09429b26381e419de","message":"2017-02-23T14:30\n"}
+{"commit":"baf07a13aad63a1e94716b30e31729ad524d17fe","message":"Forward port zendframework/zf2#3487\n"}
+{"commit":"743cbaf7aaa8465951c5e7a790a7cc25939d99e8","message":"Merge branch 'master' of github.com:alexmsmartins/WikiModels\n"}
+{"commit":"ed456f734a3264148e92ef7e8516eefada10f08d","message":"2017-12-05T08:20\n"}
+{"commit":"ffa054dbb5a044270e7708bbb2c4cceac768e062","message":"Merge branch 'hotfix/zendframework/zf2#6941-zendframework/zf2#6943-undefined-constant-check-in-test-suite' into develop\n\nClose zendframework/zf2#6941\nClose zendframework/zf2#6943\nForward port zendframework/zf2#6941\nForward port zendframework/zf2#6943\n"}
+{"commit":"21a5dc6c99634c648dcc348924f10ec1ae030c8b","message":"Merge branch 'for-3.0' into for-3.1\n\n[ upstream commit: 2c36c2ce00987a416bf75681742617a0f85335eb ]\n"}
+{"commit":"0638e4405cb4157254c53cf4007b0b87e1a7cfa5","message":"2016-02-01T22:10\n"}
+{"commit":"743b5e415ac5c6144f30108a7de7e624b523f409","message":"Merge branch 'master' of github.com:dv9io0o/chitchat into createTheBase\n"}
+{"commit":"6b915ef651c607a49b368324d1d9142b03265bdd","message":"Adds a bit of docs\n"}
+{"commit":"6523bc7eba1d7cf8d0b578f9062627305ee0aa3c","message":"Test\n"}
+{"commit":"92408d6e197a96ead354c0566543f5b762460e4f","message":"Add files via upload"}
+{"commit":"15f671040f08da626d3b8fb1260afa2c101db975","message":"Created 2016-08-02-hyperion-lightberry-openelec-kodi.md"}
+{"commit":"fc0e6ec5c4c7fe7660d0452005891d4e414ee40a","message":"Merge remote-tracking branch 'origin/master' into zip-artifacts\n\n# Conflicts:\n#\tnetwork/gitlab.go\n"}
+{"commit":"1c2ca33f381c80209b681c68c6f6431e556abe06","message":"2017-12-05T11:10\n"}
+{"commit":"9aab50c59cbadae4c83068b7b5d4393c02b5e29b","message":"Vymazane dump data.\n"}
+{"commit":"9658ddd5456d90c8b7f2abea85359c06fea6cf6b","message":"2017-02-17T03:10\n"}
+{"commit":"2bd4fc71d70add4d3716e7cf54f2f2e1ccaf9f68","message":"Added tag v1.2.0 for changeset e990b935be4e\n"}
+{"commit":"f1d5ec3efa7ec9daa6043191219d7417c2aab5d8","message":"Merge neptunus.(none):/home/msvensson/mysql/mysql-5.0-maint\ninto  neptunus.(none):/home/msvensson/mysql/mysql-5.1-new-maint\n"}
+{"commit":"494ac6bb35c6f04f5c1bd451aa2488b025b4860a","message":"Merge pull request #7 from ioly/master\n\nUpdate my fork"}
+{"commit":"81c7326cb7397e71c85809e2cb78d552ca6b2118","message":"merge complete\n"}
+{"commit":"86aa8b89fc8714054b17ba4d83de3efa8462d217","message":"2018-01-07T19:50\n"}
+{"commit":"712e60b6ce965f06469cfe7a1f85e88862c7948c","message":"Merge commit 'refs/pull/2921/head' of github.com:zendframework/zf2 into hotfix/add-chinese-translations\n"}
+{"commit":"9c961079c3eb7f93df337dbc7f7b3446a2ca6965","message":"Rewriting History!\n"}
+{"commit":"cb787585850f81fccfc792eb61d495ece835c29c","message":"Rewriting History!\n"}
+{"commit":"05646c43f97c6bedac4fcf3ccd21bfc5dc332ba7","message":"Rewriting History!\n"}
+{"commit":"2f98b0c4d1eef87732faf4994b368b57b357bd12","message":"Rewriting History!\n"}
+{"commit":"72665c92cc5b8aadb834b2bb064fb939be3eee38","message":"Rewriting History!\n"}
+{"commit":"f8849b694fb5f2d9a53776558cb666523fb771ab","message":"Merge branch 'master' into MyNewBranch"}
+{"commit":"4567769667b02820736ba99910d33ed98474b57a","message":"Update Class.php"}
+{"commit":"b37ce2636d38dfd8e1d105d4dc025939ac119407","message":"Update CNAME with blog.thehindueplusclub.com"}
+{"commit":"28e813a2424d8fb52a26fcb31a4ae02485738890","message":"add config"}
+{"commit":"ff31e107c21ba21168cc67d137f703b2c194b6d9","message":"This closes #298 on GitHub\n"}
+{"commit":"46957096c2c9ee1367fcb382caa2ad10fd0f4c3a","message":"Set theme jekyll-theme-cayman"}
+{"commit":"134b7cdb23a3520a81413cc1019aac912a85abe7","message":"remove netbeans folders"}
+{"commit":"3ceb9bb761aa93968367fcf03b81399e59e26a79","message":"Rewriting History!\n"}
+{"commit":"085dbf8b4daad5e72faeb11f8646c761cc767e89","message":"This closes #234 on GitHub\n"}
+{"commit":"d44ec52023106e7b7ea7dd1c6cbf061b588081d4","message":"More loose peer dependency\n"}
+{"commit":"fd5d0fdb4434a701a309d3107798bb8b18fc7e3e","message":"Update plugins.sbt"}
+{"commit":"b3e8c35b570ab465b5b257fefd7cc08226ea15ce","message":"Merge pull request #6 from himadriganguly/dependabot/bundler/rake-13.0.1\n\nBump rake from 10.1.1 to 13.0.1"}
+{"commit":"7dd8c0f30bff4e9c0c93311a159cffcd98f92d96","message":"Merge branch 'master' into development\n"}
+{"commit":"1dad2276624bf94072982a11444d934be2a3605a","message":"conflict solved\n"}
+{"commit":"7011eae3e1478bb223716fbc26a38c076bd219f4","message":"2.3.2 Mudanças visuais"}
+{"commit":"1c2c9d6165b3ed7c3d6834abd26e24c8c10cf063","message":"Update configuration file"}
+{"commit":"ff57d620175b4d5c4f191d7319236a03684363a9","message":"Merge remote-tracking branch 'origin/master' into guido_quake\n"}
+{"commit":"3329509fc50dd61e271cfe0380e5382174ab50b2","message":"Merge pull request #23 from isocolsky/ref/createTx\n\nWIP Added signature to tx proposal creation"}
+{"commit":"68ac03bc50c2ea090e42a3a4bc35938e0451db00","message":"Merge branch 'master' of https://github.com/juanknebel/tesis-jaks\n"}
+{"commit":"d1d28f93040f67acf4f8ace969344fb25b5125ab","message":"Removing a head from git\n"}
+{"commit":"68931c6590c861a5cf7b5ed84db9b4faa55674fe","message":"Merge remote-tracking branch 'chico.master/master'\n"}
+{"commit":"802f26d9f3e8902df45e0b7f9ddaf39134b9d07d","message":"merge MainActivity\n"}
+{"commit":"88f9df6a3fe615ded72188895ef688ecd2dfd7c6","message":"Mirroring from Micro.blog."}
+{"commit":"5dd50face651d3a71ad0f3bccb687266ad3d86e5","message":"Merge branch 'master' of github.com:iut-ibk/DynaMind-BasicModules\n"}
+{"commit":"2a4f3e1880fa9494b1383a72672fd7fba6013ed1","message":"Publish page-1 tag"}
+{"commit":"f6461b4eb5a764dbd8443079e748fcd4f69221c7","message":"Update configuration file"}
+{"commit":"046bca7d37f3beaa7551d739dd3a3b383ab9dca4","message":"Moved _posts/2008-01-01-Test-Post.adoc to _posts/2008-01-01-Recycling-Fence-Palings-for-Tree-Borders.adoc"}
+{"commit":"f4d1b75def2942f0afd6bddba1f131fc5344662d","message":"Mirroring from Micro.blog."}
+{"commit":"60dd29937130a2f4aa5d04dbef6467fba2ba7489","message":"Mirroring from Micro.blog."}
+{"commit":"548e997fc0788418920bdca4e0bb44c6f29db299","message":"Publish page-1 tag"}
+{"commit":"780e0ba762f6b4272759b93b1cb202ca6391b41a","message":"Mirroring from Micro.blog."}
+{"commit":"93385dc921ad15fe543882272765da11c5ca47e8","message":"Mirroring from Micro.blog."}
+{"commit":"11f62cab9fb77b9c74e3eb35cfbea3d3165d6f63","message":"Revert \"[BLEEDING] (v1.2) BasicEssentials Revamp\"\n"}
+{"commit":"4af9ae2ac340e577ce54a0d7db73782a38ed9f8b","message":"Mirroring from Micro.blog."}
+{"commit":"66f376000cdba8130d0ce894652a85fcd5c9b7a0","message":"Mirroring from Micro.blog."}
+{"commit":"14a871ba53d009e91749b0deaa0804bbfd7f900a","message":"Merge branch 'master' into dev"}
+{"commit":"a079b5161b70f8ed6f9e638251a5d93abdefef47","message":"Mirroring from Micro.blog."}
+{"commit":"f60dce016cdd0376fb44207b3e8c400de71777fc","message":"am 2f45dbfc: (-s ours) am ace15025: Merge \"Follow up change of I8b38e280 (DO NOT MERGE)\" into gingerbread\n\nMerge commit '2f45dbfc0d393fdb661bb42038137312e0d4b5f2'\n\n* commit '2f45dbfc0d393fdb661bb42038137312e0d4b5f2':\n  Follow up change of I8b38e280 (DO NOT MERGE)\n"}
+{"commit":"6f5714680f928fd379c7eca8b4109ae7a171b450","message":"2013-03-18T18:00\n"}
+{"commit":"d2a87929cf7ab71f6662f46a17ae14aa4f654405","message":"Mirroring from Micro.blog."}
+{"commit":"d5e154388d4de99581b3e7c7e631414ea2da6eab","message":"Mirroring from Micro.blog."}
+{"commit":"8784216a1dccf979f45cbb40d4b23c740999e46d","message":"HTTP 418 I'm a teapot\n"}
+{"commit":"7210e48cd64fd3c75936201c6bd30ef74d03e9c3","message":"Merge branch 'master' into master"}
+{"commit":"cf97dca6a6dd914a24aa68ead35f09ed1be3f95e","message":"Mirroring from Micro.blog."}
+{"commit":"09bd1c78fb7a5360567784bdb0217ae9aecc4b1e","message":"Mirroring from Micro.blog."}
+{"commit":"2aece17c7c13cbc55ba2966355e646ae52000e9b","message":"Add files via upload"}
+{"commit":"d1e14cef41acd5a54ca3a7bf7a7f4c7ac49d903e","message":"Merge branch 'master' of https://github.com/CMPUT301F14T12/OctoAsk\n"}
+{"commit":"299a8f616e64b5203b4a0d0780f8805bab8c9d80","message":"Mirroring from Micro.blog."}
+{"commit":"60a83fd99de15ef1c722ca07ed9c21a9127bc8f2","message":"Mirroring from Micro.blog."}
+{"commit":"52383f05fd81153a9fa63e885df9b2b0d2bb816e","message":"Mirroring from Micro.blog."}
+{"commit":"638ac01c103e1884bef73d6cd6d126f934156b55","message":"Mirroring from Micro.blog."}
+{"commit":"75e44ca7dc62a83d6ab3af740692aa893965ade6","message":"Mirroring from Micro.blog."}
+{"commit":"771b506f851b14a7ac6342740f2753ec67b4af63","message":"Mirroring from Micro.blog."}
+{"commit":"127d53d03e8aa5e9961726425a2355ac65b41908","message":"Revert \"test pr\"\n"}
+{"commit":"da76448c2fb19c644d74b24e04c32567b95928ef","message":"gitfiti\n"}
+{"commit":"8dd40af191ac79379896e405b54c75c6f823331c","message":"Mirroring from Micro.blog."}
+{"commit":"efd0ee877c31a70610dbf70446d8a56e95d50293","message":"2012-12-18T10:10\n"}
+{"commit":"43a849ab29490f4ca9090e44da17803207feafea","message":"Merge branch 'master' of https://github.com/JoshuaKGoldberg/TSLint.MSBuild into settings-refactor\n\n# Conflicts:\n#\tsrc/Folder.ts\n#\tsrc/FolderCollection.ts\n#\tsrc/LintRunner.ts\n#\tsrc/index.ts\n"}
+{"commit":"bc25599d20b03da6ac4a53c0ab748cf8fa144aed","message":"Merge pull request #61095 from dotnet/merges/release/dev17.2-to-release/dev17.3\n\nMerge release/dev17.2 to release/dev17.3"}
+{"commit":"4967f3e4246e16520287dc91830cfdcae4fa95dc","message":"Merge tag 'dm-3.6-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/agk/linux-dm\n\nPull dm fixes from Alasdair G Kergon:\n \"A few fixes for problems discovered during the 3.6 cycle.\n\n  Of particular note, are fixes to the thin target's discard support,\n  which I hope is finally working correctly; and fixes for multipath\n  ioctls and device limits when there are no paths.\"\n\n* tag 'dm-3.6-fixes' of git://git.kernel.org/pub/scm/linux/kernel/git/agk/linux-dm:\n  dm verity: fix overflow check\n  dm thin: fix discard support for data devices\n  dm thin: tidy discard support\n  dm: retain table limits when swapping to new table with no devices\n  dm table: clear add_random unless all devices have it set\n  dm: handle requests beyond end of device instead of using BUG_ON\n  dm mpath: only retry ioctl when no paths if queue_if_no_path set\n  dm thin: do not set discard_zeroes_data\n\n[ upstream commit: c3a086e638e0cf76b26f6053a096354980af9396 ]\n"}
+{"commit":"6aa06c5725566c4fc6df92c81bd0afb53732101c","message":"Merge branch '5.3.2-post' into 5.3.3-post\n"}
+{"commit":"67abe42e246da317cbba55592a1b688b5401e4d3","message":"Merge remote-tracking branch 'refs/remotes/origin/master'\n"}
+{"commit":"f1115d3d0a42c6758aaf348015de08e6a665f85a","message":"Mirroring from Micro.blog."}
+{"commit":"626da0874270e716eee6b1a48f62a12f2c5ff9e7","message":"Mirroring from Micro.blog."}
+{"commit":"5aecdb4414adf46b3dfa7efce54bdf22bcbf7d73","message":"HTTP 418 I'm a teapot\n"}
+{"commit":"f644feeba0ffb2a6abe58c91b18979759e1bdce8","message":"Merge branch 'master' of github.com:waferbaby/usesthis\n"}
+{"commit":"f578de67aaa5a1377395ca7bd297a5fe9e6c8bc8","message":"Pull rationalise-regions into release branch\n\n[ upstream commit: 329058028523a5b36de449f130111b7671a4f269 ]\n"}
+{"commit":"937c515988235540f484c3dd717d9b54c7328ac1","message":"Mirroring from Micro.blog."}
+{"commit":"1e289ba899d5039c938cd7cc3d79e91f2db7e5df","message":"Merge branch 'master' of ssh://github.com/dotcloud/docker\n"}
+{"commit":"de7cb295ed202cb67e78040a9f2b43511d11de50","message":"Mirroring from Micro.blog."}
+{"commit":"12cc96301c979fe0ea239a39e1ac59f5142dd75c","message":"Mirroring from Micro.blog."}
+{"commit":"b600e6e95a332b97b3006b93dbd6d5115d1020a4","message":"Mirroring from Micro.blog."}
+{"commit":"0b937694d069d436d7319adc3d055e0c84592045","message":"Merge \"Merge \"msm: socinfo: Add support for socinfo v9\"\""}
+{"commit":"3e7f9fc8c92646d4c397c41980a75b21402e74b1","message":"Mirroring from Micro.blog."}
+{"commit":"feaee8144f1d25f8b0b6d0807771e0b21e3ff5c6","message":"Merge \"Merge \"Merge \"defconfig: Remove imx135 sensor module to compile\"\"\""}
+{"commit":"7986f9e168652b514b8d3d3912dbaf62e99c3607","message":"Merge branch 'feature/fross-working' of github.com:splunk/splunk-sdk-python into feature/fross-working\n"}
+{"commit":"c8025dc89ab17979c6d6ac4d1b9a87a40ec6882f","message":"Mirroring from Micro.blog."}
+{"commit":"18f51127c34b6912de486a16935af42fff4b46bd","message":"2013-05-08T03:00\n"}
+{"commit":"a353329090f5623c5d688de6c07df51f0f569081","message":"Mirroring from Micro.blog."}
+{"commit":"2780044ec5f16c62e02bd1536730eb92a3b57409","message":"Mirroring from Micro.blog."}
+{"commit":"9f6258457aa142fd1480f2f71088057631cef553","message":"Merge branch 'feature/4251' into develop\n\nClose zendframework/zf2#4251\n"}
+{"commit":"4dbf8a4c8566dff373b7074477370f0e9226f71a","message":"Merge branch 'master' into master"}
+{"commit":"9b91938b42d329f590d281c6467b35cb38253572","message":"Merge branch 'refactor-conn'\n"}
+{"commit":"67a1f17ffafb991f8318ce69c9ebff22a659ede5","message":"Mirroring from Micro.blog."}
+{"commit":"a034d4ab0090dd0c6672b5d17330ab9230863148","message":"Merge pull request #16154 from calavera/remove_steve_from_maintainers\n\nRemove Steve Francia from maintainers."}
+{"commit":"3aad1bfb0bfe695fe75e04c53286a185c14bdd78","message":"Merge branch 'x86-efi-for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip\n\nPull x86 EFI updates from Ingo Molnar:\n \"This patchset makes changes to the bzImage EFI header, so that it can\n  be signed with a secure boot signature tool.  It should not affect\n  anyone who is not using the EFI self-boot feature in any way.\"\n\n* 'x86-efi-for-linus' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip:\n  x86, efi: Fix NumberOfRvaAndSizes field in PE32 header for EFI_STUB\n  x86, efi: Fix .text section overlapping image header for EFI_STUB\n  x86, efi: Fix issue of overlapping .reloc section for EFI_STUB\n\n[ upstream commit: 8ca038dc10eec80f280d9d483f1835ac2763a787 ]\n"}
+{"commit":"d94f6ade011a921fe2bd257137634958ff6bd405","message":"triggering first travis build\n"}
+{"commit":"ec7ed99ccf6d8e538048cc246f0ca9a941606cd4","message":"Merge\n"}
+{"commit":"b3b3271bdd9363628f99eb57d95ab3c85654e1c8","message":"Mirroring from Micro.blog."}
+{"commit":"fe2b65293ac5ee19e7221c2e5719f9a9a32f63e3","message":"Mirroring from Micro.blog."}
+{"commit":"1b05fe430c225172e1151d621f4c46cc7ce6e8d7","message":"Merge branch 'apps' into pending\n"}
+{"commit":"c26a0567f50c29e04988b90a214a89e6a8605fb0","message":"Updating repository initial files."}
+{"commit":"ba494a6a4f4c822f769d072353bccedcec39a0f5","message":"HTTP 418 I'm a teapot\n"}
+{"commit":"12c21a6c8a548e1cd93e69f12b91bf064b43e28e","message":"HTTP 418 I'm a teapot\n"}
+{"commit":"ae8a752fd3c0095b7e9df3d3710b5e28747ed7e6","message":"Mirroring from Micro.blog."}
+{"commit":"d7959b38338d97dabfc0eb9b7250a81bc7677fcd","message":"Mirroring from Micro.blog."}
+{"commit":"9f5cfd08fb688d52ebbe5f0746dc8ea44760d87d","message":"Mirroring from Micro.blog."}
+{"commit":"9785c63567fab7ac4338b9c8480f574b6c1eecb3","message":"Mirroring from Micro.blog."}
+{"commit":"101e3f1ca6090d1944da9bb02447279ef7521659","message":"2013-12-22T17:50\n"}
+{"commit":"ce3d2430d0e5ef51e8b90e2fdf3e84564c868f90","message":"Mirroring from Micro.blog."}
+{"commit":"50a9b756422c47aa0817d4d9e91d62b52184f076","message":"Mirroring from Micro.blog."}
+{"commit":"7ea19a2718a83893496028d010e24b5aace05458","message":"Merge pull request #265 from ReiiYuki/master\n\nMerge pull request #262 from ReiiYuki/wit"}
+{"commit":"1678168543cc3c846930b499c1f2a4a50341e003","message":"Merge remote-tracking branch 'origin/master'\n\n# Conflicts:\n#\tREADME.md\n"}
+{"commit":"a3eda6318d8268b087388d4e55c7619402fc04e9","message":"Mirroring from Micro.blog."}
+{"commit":"a3ca828029502b80fa333ec86912688a591f7f3d","message":"Merge branch 'master' of https://github.com/raviperi/storm\n"}
+{"commit":"29ec9c37181c02f9647a1ac05bc664055996116b","message":"merge in klp-release history after reset to master\n"}
+{"commit":"e62b7727c042cb7845bf302ea94633b29c6484db","message":"Merge branch 'master' of github.com:homer6/google-closure-library\n"}
+{"commit":"7764389f62a869922c94c88302b0f996180a0b9f","message":"Graph Data 2014-08-22T00:01\n"}
+{"commit":"edcbe509b161f928689572b4e54a02ff599f86df","message":"chore: Synced local '.github/' with remote 'sync-files/android/.github/' (#182)\n\n"}
+{"commit":"b0bda91e8c63fc055690b8333a875a3d4c1bdefc","message":"Updating _data/api-commons/dyn/dyn-managed-dns-api-openapi-spec.yaml via Laneworks Publish"}
+{"commit":"31dd077fd8e000a28d4ea6a67584c7169e0546d9","message":"Mirroring from Micro.blog."}
+{"commit":"262cf309a25bd3fbc722e3c02ffdcd031eab5a49","message":"Mirroring from Micro.blog."}
+{"commit":"60d7e5d98b33cf7354ee5fe444e3b9ac8b6d68bb","message":"2014-01-06T17:40\n"}
+{"commit":"6c42cbd8dae3d414fd5287a141a76fa0f6d60377","message":"Mirroring from Micro.blog."}
+{"commit":"426af92dcfafa6105d18e580e44b5f572b97a9fc","message":"Mirroring from Micro.blog."}
+{"commit":"da0b0a24557ac2f582d70da39ad1b38222181dbb","message":"Mirroring from Micro.blog."}
+{"commit":"42040e6d4fbb5b322f3e0202fb438840085b485f","message":"Mirroring from Micro.blog."}
+{"commit":"d8b976e78c7b3673c2b6861142fc9c6139fa588a","message":"2013-07-04T11:00\n"}
+{"commit":"27077206ee2b78d4afbb81aa77da20a9f8eb391e","message":"Mirroring from Micro.blog."}
+{"commit":"e63f4fdb8673b83baaaea50722cd2815d08f9ffd","message":"Graph Data 2015-08-12T00:01\n"}
+{"commit":"c0a94fe0aefa1286dc6f98385650aa3a66df235d","message":"Mirroring from Micro.blog."}
+{"commit":"a8644078968ddcc0eea0378ad8a5bcef376fe938","message":"Merge pull request #5 from ttagit/gh-pages\n\nMerge pull request #4 from ttagit/master"}
+{"commit":"6337cbea4df8f1296bcf0c6a2d546b2f6fa66164","message":"Mirroring from Micro.blog."}
+{"commit":"cf016a160e9a33fc38e45355d328a64f8908505d","message":"Merge pull request zendframework/zf2#4825\n"}
+{"commit":"7560b6f8c35a016f25a937483e56a8650c86de8b","message":"Mirroring from Micro.blog."}
+{"commit":"85c0270c13593e28d9ab7442b2d59b8f222d2462","message":"2013-04-20T14:00\n"}
+{"commit":"bb1eab8cfb6571312c0d1eb282def982e5ce615b","message":"Merge branch 'master' into develop\n"}
+{"commit":"261844374026f7cfaa6b01da28a18acdba4b3d75","message":"Merge branch 'develop' into feature/parentMoves"}
+{"commit":"cbd5dfe7b37cf2c9c917bb3e3be5bbc4cf048c45","message":"Merge\n"}
+{"commit":"b11b9949715a9d3309dc7ce392943505d2ebac74","message":"upgrade Node.js version\n"}
+{"commit":"d0c0a7176714f8e25e36daef1b15b03e0accf30a","message":"Added tag jdk8-b35 for changeset 5285317ebb4e\n"}
+{"commit":"3021db7cb32026358880a4b7da79c04663cecf21","message":"added a wait command to the swahili msg for send unsent\n"}
+{"commit":"4df0214c5cc0dc7ebdf7f367b5f2a1c864622547","message":"merge in honeycomb-mr2-release history after reset to honeycomb-mr2\n"}
+{"commit":"b7e2faeff191a0170ea0318073b0105061ca943a","message":"Mirroring from Micro.blog."}
+{"commit":"b851ed67fec0c93532142245129f73388a6b72c1","message":"Mirroring from Micro.blog."}
+{"commit":"8291d29308e79427ce267e139705901fce8d11ed","message":"Postman updated XenServer"}
+{"commit":"391746a34a4a459ff9777d91bc042785249f9013","message":"Mirroring from Micro.blog."}
+{"commit":"47d52f43d98f8f5c493dd98fd34b2a04f6471207","message":"Mirroring from Micro.blog."}
+{"commit":"367ed6177f962ecf525657c2c5c7761f017003ae","message":"Mirroring from Micro.blog."}
+{"commit":"2286552abef615ca1558c412fc313ec89f6677b5","message":"Add and use CheckResult:setError method.\n"}
+{"commit":"51c41bc2fcbffdf864921c2080af2861486cc19d","message":"Postman updated XenServer"}
+{"commit":"5881f606291ea3a136e21df16d452f136d43c859","message":"Mirroring from Micro.blog."}
+{"commit":"dfbd4d43aba3f9f1f0d6b6a3d5cc0bcb88ff9863","message":"Graph Data 2013-08-23T00:01\n"}
+{"commit":"507e6f52e6416a13b485d6d3bc2d944ecd738769","message":"Merge pull request zendframework/zf2#2172 from Maks3w/remove-unnecesary-check\n\n[Db] Remove unnecessary check never works"}
+{"commit":"9e92c08194d99c6e91867b1680009a711e118d28","message":"Mirroring from Micro.blog."}
+{"commit":"4909c77ae8498301144558e52585578efca09322","message":"Mirroring from Micro.blog."}
+{"commit":"192e781ef1ba7e6e1a21b3b4487524d53038cb4f","message":"Mirroring from Micro.blog."}
