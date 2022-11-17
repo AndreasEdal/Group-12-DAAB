@@ -31,13 +31,7 @@ def getLanguages():
     name = request.args.get("reponame")
     dataByName = df.filter(df.repo_name == name)
 
-
-    # Take the content of the files and split them "vr367305/elaboratokitten"
     dataByName.show() 
-
-    #dataByName.write.save(savedFile, format='json', mode='append')
-
-    #df2 = spark.read.json(savedFile)
 
     languages = dataByName.select("language.name").collect()
 
@@ -79,27 +73,22 @@ def getMostContributions():
 @app.route('/linesOfCode')
 @cross_origin()
 def getLinesOfCode():
-    return
+    return "Total lines of code for REPO is: "
 
 @app.route('/commitFrequency')
 @cross_origin()
 def getCommitFrequency():
-    return
+    return "The total commits for TIMEFRAME one REPO is: "
 
 @app.route('/repoWithMostCommits') 
 @cross_origin()
 def getRepoWithMostCommits():
-    return
+    return "Repository with most commits is: "
 
 @app.route('/repoSize') 
 @cross_origin()
 def getRepoSize():
-    return
-
-@app.route('/highestContributor') 
-@cross_origin()
-def getHighestContributor():
-    return
+    return "Size of REPO is: "
 
 
 if __name__ == '__main__':
