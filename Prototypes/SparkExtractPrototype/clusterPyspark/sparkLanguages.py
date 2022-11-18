@@ -1,6 +1,7 @@
 from pyspark import SparkConf, SparkContext
 from pyspark.sql import SparkSession, Row
-from pyspark.sql.functions import explode, split, to_json, array, col, udf, sum
+from pyspark.sql.functions import explode, split, to_json, array, col, udf, sum, lit
+from pyspark.sql.types import StringType, ArrayType,StructType,StructField
 import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
@@ -18,27 +19,12 @@ spark = SparkSession.builder.appName('streamTest') \
 file = "hdfs://namenode:9000/commitData/repoLanguages.json"
 df = spark.read.json(file)
 
-data = df.select("repo_name", "language")
+data = df.select("repo_name", "language.name")
 
 name = "vr367305/elaboratokitten"
 dataByName = df.filter(df.repo_name == name)
 
+thisWorks = dataByName.withColumn("languages", col("language.name")).drop("language")
 
-# Take the content of the files and split them
-dataByName.show() 
+thisWorks.show(truncate=False)
 
-savedFile = 'hdfs://namenode:9000/commitData/' + name
-
-#dataByName.write.save(savedFile, format='json', mode='append')
-
-#df2 = spark.read.json(savedFile)
-
-languages = dataByName.select("language.name").collect()
-
-languageArray = []
-i = 0
-while (i < len(languages[0])):
-    languageArray.append(languages[0][i])
-    i += 1
-
-print("Languages used in repository ", name, ": ", languageArray)

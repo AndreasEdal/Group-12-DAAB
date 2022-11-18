@@ -20,9 +20,19 @@ df = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "kafka:9092") \
     .option("startingOffsets", "earliest")\
-    .option("subscribe", "repoEvents") \
+    .option("subscribe", "languages") \
     .load()
 #Todo: Change subscribed topic!
 
+data = df.select("repo_name", "language.name")
+languageResult = data.withColumn("languages", col("language.name")).drop("language")
+languageResult.show(truncate=False)
 
 # Create a Kafka write stream containing results
+languageResult.select(to_json(struct([result[x] for x in result.columns])).alias("value")).select("value")\
+    .writeStream\
+    .format('kafka')\
+    .option("kafka.bootstrap.servers", "kafka:9092") \
+    .option("topic", "answerLanguages") \
+    .outputMode("append") \
+    .start().awaitTermination()
