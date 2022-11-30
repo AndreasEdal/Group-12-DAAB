@@ -18,7 +18,7 @@ spark = SparkSession.builder.appName('streamTest') \
 #Create schema for input and output
 schema = StructType([
     StructField("repo_name", StringType()),
-    StructField("language", StructType([
+    StructField("language", ArrayType(StructType[
             StructField("name", StringType()),
             StructField("bytes", IntegerType()),
     ]))
@@ -44,7 +44,7 @@ languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
 #languageResult.show(truncate=False)
 
 # Create a Kafka write stream containing results
-languageResult.select(to_json(col("repo_name"),col("name")).alias("value")).select("value")\
+languageResult.select(to_json().alias("value")).select("value")\
     .writeStream\
     .format('kafka')\
     .option("kafka.bootstrap.servers", "kafka:9092") \
