@@ -1,7 +1,7 @@
 from pyspark import SparkConf, SparkContext
 from pyspark.sql import SparkSession, Row
 from pyspark.sql.types import  StructType, StructField, StringType, LongType, DoubleType, IntegerType, ArrayType
-from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct
+from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct, collect_list
 import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
@@ -18,10 +18,10 @@ spark = SparkSession.builder.appName('streamTest') \
 #Create schema for input and output
 schema = StructType([
     StructField("repo_name", StringType()),
-    StructField("language", StructType([
+    StructField("language", ArrayType(StructType([
             StructField("name", StringType()),
             StructField("bytes", IntegerType()),
-    ]))
+    ])))
 ])
 
 
@@ -36,15 +36,18 @@ df = spark \
 #Todo: Change subscribed topic!
 value_df = df.select(from_json(col("value").cast("string"),schema).alias("value"))
 
-exploded_df = value_df.selectExpr('value.repo_name',"value.language.name")
+select_df = value_df.selectExpr('value.repo_name','value.language')
 
+explode_df = select_df.select("repo_name", explode("language"))
+
+new_df = explode_df.groupBy("repo_name").agg(collect_list("col"))
 
 #data = exploded_df.select("repo_name", "language.name")
-languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
+languageResult = new_df.withColumn("languages", col("collect_list(col)"))#.drop("name")
 #languageResult.show(truncate=False)
 
 # Create a Kafka write stream containing results
-languageResult.select(to_json(col("repo_name"),col("name")).alias("value")).select("value")\
+languageResult.select(to_json(struct(col("repo_name"), col("languages"))).alias("value")).select("value")\
     .writeStream\
     .format('kafka')\
     .option("kafka.bootstrap.servers", "kafka:9092") \
