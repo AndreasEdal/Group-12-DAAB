@@ -18,10 +18,12 @@ spark = SparkSession.builder.appName('streamTest') \
 #Create schema for input and output
 schema = StructType([
     StructField("repo_name", StringType()),
-    StructField("language", ArrayType(StructType[
-            StructField("name", StringType()),
-            StructField("bytes", IntegerType()),
-    ]))
+    StructField("language", ArrayType(
+        StructType([
+           StructField("name", StringType()),
+           StructField("bytes", IntegerType())
+        ])
+    ))
 ])
 
 
@@ -36,15 +38,14 @@ df = spark \
 #Todo: Change subscribed topic!
 value_df = df.select(from_json(col("value").cast("string"),schema).alias("value"))
 
-exploded_df = value_df.selectExpr('value.repo_name',"value.language.name")
-
+exploded_df = value_df.selectExpr('value.repo_name','value.language')
 
 #data = exploded_df.select("repo_name", "language.name")
-languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
+#languageResult = exploded_df.withColumn("languages", col("language")).drop("name")
 #languageResult.show(truncate=False)
 
 # Create a Kafka write stream containing results
-languageResult.select(to_json().alias("value")).select("value")\
+exploded_df.select(to_json(struct(struct(col("repo_name"),col("language")))).alias("value")).select("value")\
     .writeStream\
     .format('kafka')\
     .option("kafka.bootstrap.servers", "kafka:9092") \
