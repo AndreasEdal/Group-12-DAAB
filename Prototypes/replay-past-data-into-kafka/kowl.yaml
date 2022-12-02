@@ -1,0 +1,13 @@
+kafka:
+  brokers:
+    - kafka:9092
+connect:
+  enabled: true
+  clusters:
+    - name: MongoDB Connector
+      url: http://kafka-connect:8083
+#schema-registry: 
+#  enabled: true 
+#  clusters:
+#    - name: Schema Registry
+#      url: http://schema-registry:8081
