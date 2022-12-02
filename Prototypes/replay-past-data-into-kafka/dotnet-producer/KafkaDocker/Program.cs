@@ -10,14 +10,6 @@ var config = new ProducerConfig
 {
     BootstrapServers = "kafka:9092",
 };
-/*
-string[]  files = {"/App/commitMessage.json", "App/programmingLanguages.json","authorAndCommitMessage.json"};
-string[] topics = { "commits", "languages","author" };
-for (int i = 0; i < files.Length; i++)
-{
-    
-}
-*/
 using var producer = new ProducerBuilder<Null, string>(config).Build();
 try
 {
@@ -37,7 +29,7 @@ catch (Exception e)
     Console.WriteLine(e.ToString());
 }
 
-//return;
+return;
 
 
 var avroSerializerConfig = new AvroSerializerConfig
