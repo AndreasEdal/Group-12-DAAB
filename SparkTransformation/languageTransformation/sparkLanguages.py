@@ -1,7 +1,7 @@
 from pyspark import SparkConf, SparkContext
 from pyspark.sql import SparkSession, Row
 from pyspark.sql.types import  StructType, StructField, StringType, LongType, DoubleType, IntegerType, ArrayType
-from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct
+from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct, expr
 import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
@@ -21,10 +21,11 @@ schema = StructType([
     StructField("language", ArrayType(
         StructType([
            StructField("name", StringType()),
-           StructField("bytes", IntegerType())
+           StructField("bytes", StringType())
         ])
     ))
 ])
+
 
 
 # Create a read stream from Kafka and a topic
@@ -41,6 +42,7 @@ df = spark \
 value_df = df.select(from_json(col("value").cast("string"),schema).alias("value"))
 
 exploded_df = value_df.selectExpr('value.repo_name','value.language.name')
+
 
 #data = exploded_df.select("repo_name", "language.name")
 languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
