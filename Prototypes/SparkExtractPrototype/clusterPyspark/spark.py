@@ -21,7 +21,7 @@ df = spark.read.json(file)
 data = df.select("author.name", "commit", "message")
 
 name = "cph"
-dataByName = df.filter(df.author["name"] == name)
+dataByName = df.filter(df.author["name"] == name) 
 
 
 # Take the content of the files and split them
