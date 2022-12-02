@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:7.2.1
+    image: confluentinc/cp-zookeeper:7.3.0
     ports:
       - 2181:2181
     restart: unless-stopped
@@ -12,7 +12,8 @@ services:
       shared_network:
 
   kafka:
-    image: confluentinc/cp-kafka:7.2.1
+    image: confluentinc/cp-kafka:7.3.0
+    container_name: kafka
     ports:
       - 9092:9092
     environment:
@@ -30,19 +31,108 @@ services:
     networks:
       shared_network:
 
+  #kowl:
+  #  image: quay.io/cloudhut/kowl:master # We use the master tag as we want to use the latest features e.g. creation of topics.
+  #  ports:
+  #    - 8080:8080
+  #  restart: unless-stopped
+  #  depends_on:
+  #    - zookeeper
+  #    - kafka
+  #    - schema-registry
+  #  environment:
+  #    KAFKA_BROKERS: kafka:9092
+  #    SCHEMA_REGISTRY_HOST_NAME: schema-registry:8081
+  #    CONNECT_ENABLED: 
+  #  networks:
+  #    shared_network:
+
   kowl:
-    image: quay.io/cloudhut/kowl:master # We use the master tag as we want to use the latest features e.g. creation of topics.
+    image: quay.io/cloudhut/kowl:master
     ports:
-      - 8080:8080
-    restart: unless-stopped
-    depends_on:
-      - zookeeper
-      - kafka
+      - "8080:8080"
+    volumes:
+    - ./kowl.yaml:/etc/kowl/config.yaml
+    entrypoint: ./kowl --config.filepath=/etc/kowl/config.yaml
+    networks:
+      shared_network:
+
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.3.0
+    ports:
+      - "8081:8081"
     environment:
-      KAFKA_BROKERS: kafka:9092
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:9092
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
+    networks:
+      shared_network:
+
+  kafka-connect:
+    container_name: kafka-connect
+    hostname: kafka-connect
+    build:
+      context: ./kafka-connect
+    ports:
+      - 8083:8083
+    environment:
+      CONNECT_BOOTSTRAP_SERVERS: "kafka:9092"
+      CONNECT_REST_PORT: 8083
+      CONNECT_REST_ADVERTISED_HOST_NAME: kafka-connect
+      CONNECT_GROUP_ID: kafka-connect
+      CONNECT_CONFIG_STORAGE_TOPIC: _connect-configs
+      CONNECT_OFFSET_STORAGE_TOPIC: _connect-offsets
+      CONNECT_STATUS_STORAGE_TOPIC: _connect-status
+      CONNECT_KEY_CONVERTER: org.apache.kafka.connect.storage.StringConverter
+      CONNECT_VALUE_CONVERTER: io.confluent.connect.avro.AvroConverter
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: 'http://0.0.0.0:8081' #You need the schema registry if you want to convert values by schemas. In many cases string conversion works fine.
+      CONNECT_LOG4J_APPENDER_STDOUT_LAYOUT_CONVERSIONPATTERN: "[%d] %p %X{connector.context}%m (%c:%L)%n"
+      CONNECT_CONFIG_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_OFFSET_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: "1"
+      CONNECT_PLUGIN_PATH: /usr/share/java,/usr/share/confluent-hub-components,/data/connect-jars
+    volumes:
+      - kafka:/data
     networks:
       shared_network:
 
 networks:
   shared_network:
-    name: "shared_network"
+
+volumes:
+  kafka: 
+
+#  schema-registry:
+#    image: confluentinc/cp-schema-registry:5.4.0
+#    hostname: schema-registry
+#    container_name: schema-registry
+#    depends_on:
+#      - zookeeper
+#      - kafka
+#    ports:
+#      - "8081:8081"
+#    environment:
+#      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+#      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: "zookeeper:2181"
+  #control-center:
+  #  image: confluentinc/cp-enterprise-control-center:5.4.0
+  #  hostname: control-center
+  #  container_name: control-center
+  #  depends_on:
+  #    - zookeeper
+  #    - kafka
+  #    - schema-registry
+  #  ports:
+  #    - "9021:9021"
+  #  environment:
+  #    CONTROL_CENTER_BOOTSTRAP_SERVERS: 'kafka:9092'
+  #    CONTROL_CENTER_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+  #    CONTROL_CENTER_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+  #    CONTROL_CENTER_REPLICATION_FACTOR: 1
+  #    CONTROL_CENTER_INTERNAL_TOPICS_PARTITIONS: 1
+  #    CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_PARTITIONS: 1
+  #    CONFLUENT_METRICS_TOPIC_REPLICATION: 1
+  #    PORT: 9021
+  #  networks:
+  #    - shared_network
+
