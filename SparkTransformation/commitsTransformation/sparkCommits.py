@@ -1,6 +1,6 @@
 from pyspark import SparkConf, SparkContext
 from pyspark.sql import SparkSession, Row
-from pyspark.sql.types import  StructType, StructField, StringType, LongType, DoubleType, IntegerType, ArrayType
+from pyspark.sql.types import  StructType, StructField, StringType, BooleanType, DoubleType, IntegerType, ArrayType, TimestampType
 from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct
 import locale
 locale.getdefaultlocale()
@@ -17,13 +17,30 @@ spark = SparkSession.builder.appName('streamTest') \
 
 #Create schema for input and output
 schema = StructType([
-    StructField("repo_name", StringType()),
-    StructField("language", ArrayType(
+    StructField("parent", StringType()),
+    StructField("tree", StringType()),
+    StructField("commit", StringType()),
+    StructField("author", ArrayType(
         StructType([
-           StructField("name", StringType()),
-           StructField("bytes", IntegerType())
+            StructField("name", StringType()),
+            StructField("email", StringType()),
+            StructField("time_sec", IntegerType()),
+            StructField("tz_offset", IntegerType()),
+            StructField("date", TimestampType())
         ])
-    ))
+    )),
+    StructField("commiter", ArrayType(
+        StructType([
+            StructField("name", StringType()),
+            StructField("email", StringType()),
+            StructField("time_sec", IntegerType()),
+            StructField("tz_offset", IntegerType()),
+            StructField("date", TimestampType())
+        ])
+    )),
+    StructField("subject", StringType()),
+    StructField("message", StringType()),
+    StructField("repo_name", StringType())
 ])
 
 
