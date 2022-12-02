@@ -3,6 +3,7 @@ using Confluent.Kafka;
 using Confluent.SchemaRegistry;
 using Confluent.SchemaRegistry.Serdes;
 using KafkaDocker;
+using SolTechnology.Avro;
 
 
 var config = new ProducerConfig
@@ -26,7 +27,7 @@ try
         {
             string? json = await sr.ReadLineAsync();
             //Console.WriteLine(json);
-            var result = await producer.ProduceAsync("test", new Message<Null, string> { Value = json }); 
+            var result = await producer.ProduceAsync("commits_json", new Message<Null, string> { Value = json }); 
             //Console.WriteLine(json);   
         }
     }
@@ -66,9 +67,17 @@ using (var producer2 =
         {
             var json = await sr1.ReadLineAsync();
             //  Console.WriteLine(avroObject);
-            var dynamicObject = JsonConvert.DeserializeObject<Commit>(json);
-            Console.WriteLine(dynamicObject.ToString());
-            var result = await producer2.ProduceAsync("avro_topic", new Message<Null, Commit> { Value = dynamicObject });
+            
+            Commit dynamicObject = JsonConvert.DeserializeObject<Commit>(json);
+            dynamicObject.commit.Trim();
+            dynamicObject.message.Trim();
+            Console.WriteLine(dynamicObject);
+            byte[] avroObject = AvroConvert.Serialize(dynamicObject, CodecType.Snappy);
+            //Commit deserializedObject = AvroConvert.Deserialize(byte[] avroObject, typeof(Commit));
+            var str = System.Text.Encoding.ASCII.GetString(avroObject);
+            //Console.WriteLine(str);
+            var result = await producer2.ProduceAsync("commits_avro", new Message<Null, Commit> { Value = dynamicObject ?? new Commit() });
+            //var result = await producer2.ProduceAsync("avro_topic2", new Message<Null, byte[]> { Value = avroObject });
             
         }
     }
