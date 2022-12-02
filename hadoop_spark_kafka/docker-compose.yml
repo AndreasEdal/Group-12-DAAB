@@ -95,7 +95,16 @@ services:
 
       echo -e 'Creating kafka topics'
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic languages --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic contentCommit --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic commitAndFile --replication-factor 1 --partitions 1
+
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerLanguages --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerSpaceUsed --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerLoC --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerHighestLoC --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerCommitFreq --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerMostCommits --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerFileAge --replication-factor 1 --partitions 1
       echo -e 'Successfully created the follwing topics:'
       kafka-topics --bootstrap-server kafka:9092 --list
       "
