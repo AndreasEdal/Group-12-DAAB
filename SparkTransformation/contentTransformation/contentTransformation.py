@@ -1,7 +1,7 @@
 from pyspark import SparkConf, SparkContext
 from pyspark.sql import SparkSession, Row
-from pyspark.sql.types import  StructType, StructField, StringType, LongType, DoubleType, IntegerType, ArrayType
-from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct, expr
+from pyspark.sql.types import  StructType, StructField, StringType, LongType, DoubleType, IntegerType, ArrayType, BooleanType
+from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct
 import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
@@ -17,15 +17,17 @@ spark = SparkSession.builder.appName('streamTest') \
 
 #Create schema for input and output
 schema = StructType([
-    StructField("repo_name", StringType()),
-    StructField("language", ArrayType(
-        StructType([
-           StructField("name", StringType()),
-           StructField("bytes", StringType())
-        ])
-    ))
+    StructField("id", StringType()),
+    StructField("size", StringType()),
+    StructField("content", StringType()),
+    StructField("binary", BooleanType()),
+    StructField("copies", IntegerType()),
+    StructField("sample_repo_name", StringType()),
+    StructField("sample_ref", StringType()),
+    StructField("sample_path", StringType()),
+    StructField("sample_mode", IntegerType()),
+    StructField("sample_symlink_target", StringType()),
 ])
-
 
 
 # Create a read stream from Kafka and a topic
@@ -34,25 +36,26 @@ df = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "kafka:9092") \
     .option("startingOffsets", "earliest")\
-    .option("subscribe", "languages") \
+    .option("subscribe", "content") \
     .load()
 
     
 #Todo: Change subscribed topic!
 value_df = df.select(from_json(col("value").cast("string"),schema).alias("value"))
 
-exploded_df = value_df.selectExpr('value.repo_name','value.language.name')
+exploded_df = value_df.selectExpr('value.sample_repo_name','value.size').withColumnRenamed('sample_repo_name', 'repo_name')
 
+data_df = exploded_df.withColumn("size", exploded_df["size"].cast(IntegerType()))
 
 #data = exploded_df.select("repo_name", "language.name")
-languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
+#languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
 #languageResult.show(truncate=False)
 
 # Create a Kafka write stream containing results
-languageResult.select(to_json(struct(col("repo_name"),col("languages"))).alias("value")).select("value")\
+data_df.select(to_json(struct(col("repo_name"),col("size"))).alias("value"))\
     .writeStream\
     .format('kafka')\
     .option("kafka.bootstrap.servers", "kafka:9092") \
-    .option("topic", "answerLanguages") \
+    .option("topic", "answerSpaceUsed") \
     .outputMode("append") \
     .start().awaitTermination()
