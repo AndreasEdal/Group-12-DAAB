@@ -1,7 +1,7 @@
 from pyspark import SparkConf, SparkContext
 from pyspark.sql import SparkSession, Row
 from pyspark.sql.types import  StructType, StructField, StringType, BooleanType, DoubleType, IntegerType, ArrayType, TimestampType
-from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct
+from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct, lit
 import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
@@ -50,24 +50,23 @@ df = spark \
     .format("kafka") \
     .option("kafka.bootstrap.servers", "kafka:9092") \
     .option("startingOffsets", "earliest")\
-    .option("subscribe", "languages") \
+    .option("subscribe", "commit") \
     .load()
 
     
 #Todo: Change subscribed topic!
 value_df = df.select(from_json(col("value").cast("string"),schema).alias("value"))
 
-exploded_df = value_df.selectExpr('value.repo_name','value.language.name')
+selected_df = value_df.selectExpr('value.repo_name')
 
-#data = exploded_df.select("repo_name", "language.name")
-languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
-#languageResult.show(truncate=False)
+#Create a new column in the dataframe containing a literal value.
+commit_df = selected_df.withColumn("commitNumber", lit("1"))
 
 # Create a Kafka write stream containing results
-languageResult.select(to_json(struct(col("repo_name"),col("languages"))).alias("value")).select("value")\
+commit_df.select(to_json(struct(col("repo_name"), col("commitNumber"))).alias("value")).select("value")\
     .writeStream\
     .format('kafka')\
     .option("kafka.bootstrap.servers", "kafka:9092") \
-    .option("topic", "answerLanguages") \
+    .option("topic", "answerCommitFreq") \
     .outputMode("append") \
     .start().awaitTermination()
