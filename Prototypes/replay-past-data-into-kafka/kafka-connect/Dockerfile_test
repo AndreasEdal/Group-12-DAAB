@@ -1,0 +1,5 @@
+FROM confluentinc/cp-server-connect-base:7.3.0
+
+RUN confluent-hub install confluentinc/kafka-connect-hdfs3:latest
+
+#https://docs.confluent.io/kafka-connectors/hdfs3-sink/current/overview.html#limitations
