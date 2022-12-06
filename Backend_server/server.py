@@ -78,6 +78,10 @@ def getLinesOfCode():
 @app.route('/commitFrequency')
 @cross_origin()
 def getCommitFrequency():
+    df = spark.read.parquet("hdfs://namenode:9000/data/commit.parquet/")
+
+    df.show()
+
     return "The total commits for TIMEFRAME one REPO is: "
 
 @app.route('/repoWithMostCommits') 
