@@ -46,7 +46,7 @@ var schemaRegistryConfig = new SchemaRegistryConfig
     // schema.registry.url property for redundancy (comma separated list). 
     // The property name is not plural to follow the convention set by
     // the Java implementation.
-    Url = "http://schema-registry:8081"
+    Url = "http://schema-registry:6969"
 };
 
 // Without serializer (manual)
@@ -66,17 +66,18 @@ using (var producer2 =
             var dynamicObject = JsonConvert.DeserializeObject<Commit>(json);
             dynamicObject?.commit.Trim();
             dynamicObject?.message.Trim();
-            Console.WriteLine(dynamicObject);
+           // Console.WriteLine(dynamicObject);
             var avroObject = AvroConvert.Serialize(dynamicObject, CodecType.Snappy);
             //Commit deserializedObject = AvroConvert.Deserialize(avroObject, typeof(Commit));
             //var result = await producer2.ProduceAsync("commits_avro", new Message<Null, Commit> { Value = dynamicObject ?? new Commit() });
-            var result = await producer2.ProduceAsync("commits_avro", new Message<Null, byte[]> { Value = avroObject });
+            var result = await producer2.ProduceAsync("commit", new Message<Null, byte[]> { Value = avroObject });
             
         }
     }
 }
 
 // With serializer (automatic)
+/*
 using (var schemaRegistry = new CachedSchemaRegistryClient(schemaRegistryConfig))
 using (var producer2 =
        new ProducerBuilder<Null, Commit>(config)
@@ -102,6 +103,7 @@ using (var producer2 =
         }
     }
 }
+*/
 
 
 

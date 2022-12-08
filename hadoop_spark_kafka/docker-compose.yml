@@ -96,7 +96,6 @@ services:
       echo -e 'Creating kafka topics'
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic languages --replication-factor 1 --partitions 1
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic content --replication-factor 1 --partitions 1
-      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic commit --replication-factor 1 --partitions 1
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic file --replication-factor 1 --partitions 1
 
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerLanguages --replication-factor 1 --partitions 1
@@ -106,6 +105,11 @@ services:
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerCommitFreq --replication-factor 1 --partitions 1
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerMostCommits --replication-factor 1 --partitions 1
       kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic answerFileAge --replication-factor 1 --partitions 1
+
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic commits_json --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic commits_avro --replication-factor 1 --partitions 1
+      kafka-topics --bootstrap-server kafka:9092 --create --if-not-exists --topic commit --replication-factor 1 --partitions 1
+
       echo -e 'Successfully created the follwing topics:'
       kafka-topics --bootstrap-server kafka:9092 --list
       "
@@ -120,6 +124,15 @@ services:
       - kafka
     environment:
       KAFKA_BROKERS: kafka:9092
+  
+  schema-registry:
+    image: confluentinc/cp-schema-registry:7.3.0
+    ports:
+      - "6969:6969"
+    environment:
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS: kafka:9092
+      SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:6969
 
   spark-master:
     image: bde2020/spark-master:3.3.0-hadoop3.3
@@ -155,6 +168,7 @@ volumes:
   hadoop_datanode1:
   hadoop_datanode2:
   hadoop_datanode3:
+  kafka:
 
 networks:
   default:
