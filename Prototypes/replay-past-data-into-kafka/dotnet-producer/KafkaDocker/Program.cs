@@ -9,6 +9,8 @@ using SolTechnology.Avro;
 var config = new ProducerConfig
 {
     BootstrapServers = "kafka:9092",
+    CompressionType = CompressionType.Snappy,
+    LingerMs = 5
 };
 using var producer = new ProducerBuilder<Null, string>(config).Build();
 try
@@ -29,7 +31,7 @@ catch (Exception e)
     Console.WriteLine(e.ToString());
 }
 
-return;
+
 
 
 var avroSerializerConfig = new AvroSerializerConfig
@@ -47,34 +49,59 @@ var schemaRegistryConfig = new SchemaRegistryConfig
     Url = "http://schema-registry:8081"
 };
 
+// Without serializer (manual)
 using (var schemaRegistry = new CachedSchemaRegistryClient(schemaRegistryConfig))
 using (var producer2 =
-       new ProducerBuilder<Null, Commit>(config)
-           .SetValueSerializer(new AvroSerializer<Commit>(schemaRegistry, avroSerializerConfig))
+       new ProducerBuilder<Null, byte[]>(config)
+         //  .SetValueSerializer(new AvroSerializer<byte[]>(schemaRegistry, avroSerializerConfig))
            .Build())
 {
-    using (StreamReader sr1 = new StreamReader("/App/commitMessage.json"))
+    using (var sr1 = new StreamReader("/App/commitMessage.json"))
     {
         while (!sr1.EndOfStream)
         {
             var json = await sr1.ReadLineAsync();
             //  Console.WriteLine(avroObject);
             
-            Commit dynamicObject = JsonConvert.DeserializeObject<Commit>(json);
-            dynamicObject.commit.Trim();
-            dynamicObject.message.Trim();
+            var dynamicObject = JsonConvert.DeserializeObject<Commit>(json);
+            dynamicObject?.commit.Trim();
+            dynamicObject?.message.Trim();
             Console.WriteLine(dynamicObject);
-            byte[] avroObject = AvroConvert.Serialize(dynamicObject, CodecType.Snappy);
-            //Commit deserializedObject = AvroConvert.Deserialize(byte[] avroObject, typeof(Commit));
-            var str = System.Text.Encoding.ASCII.GetString(avroObject);
-            //Console.WriteLine(str);
-            var result = await producer2.ProduceAsync("commits_avro", new Message<Null, Commit> { Value = dynamicObject ?? new Commit() });
-            //var result = await producer2.ProduceAsync("avro_topic2", new Message<Null, byte[]> { Value = avroObject });
+            var avroObject = AvroConvert.Serialize(dynamicObject, CodecType.Snappy);
+            //Commit deserializedObject = AvroConvert.Deserialize(avroObject, typeof(Commit));
+            //var result = await producer2.ProduceAsync("commits_avro", new Message<Null, Commit> { Value = dynamicObject ?? new Commit() });
+            var result = await producer2.ProduceAsync("commits_avro", new Message<Null, byte[]> { Value = avroObject });
             
         }
     }
 }
 
+// With serializer (automatic)
+using (var schemaRegistry = new CachedSchemaRegistryClient(schemaRegistryConfig))
+using (var producer2 =
+       new ProducerBuilder<Null, Commit>(config)
+           .SetValueSerializer(new AvroSerializer<Commit>(schemaRegistry, avroSerializerConfig))
+           .Build())
+{
+    using (var sr1 = new StreamReader("/App/commitMessage.json"))
+    {
+        while (!sr1.EndOfStream)
+        {
+            var json = await sr1.ReadLineAsync();
+            //  Console.WriteLine(avroObject);
+            
+            var commit = JsonConvert.DeserializeObject<Commit>(json);
+            commit?.commit.Trim();
+            commit?.message.Trim();
+            Console.WriteLine(commit);
+            //byte[] avroObject = AvroConvert.Serialize(commit, CodecType.Snappy);
+            //Commit deserializedObject = AvroConvert.Deserialize(avroObject, typeof(Commit));
+            //var result = await producer2.ProduceAsync("commits_avro", new Message<Null, Commit> { Value = dynamicObject ?? new Commit() });
+            var result = await producer2.ProduceAsync("avro_topic_wrong", new Message<Null, Commit> { Value = commit ?? new Commit() });
+            
+        }
+    }
+}
 
 
 
