@@ -23,27 +23,27 @@ spark = SparkSession.builder.appName('streamTest') \
 @app.route('/codeLanguage')
 @cross_origin()
 def getLanguages():
-    file = "hdfs://namenode:9000/commitData/repoLanguages.json"
-    df = spark.read.json(file)
-
-    data = df.select("repo_name", "language")
-
     name = request.args.get("reponame")
+    df = spark.read.parquet("hdfs://namenode:9000/data/language.parquet/")
+
+    df.show()
+
     dataByName = df.filter(df.repo_name == name)
 
     dataByName.show() 
 
-    languages = dataByName.select("language.name").collect()
+    data = df.select("repo_name", "languages")
+
+    data.show()
+
+    languages = data.select("languages").collect()[0][0]
 
     message = "Code languages used in"+ name+ ": "
 
-    languageArray = []
     i = 0
     print(languages)    
-    while (i < len(languages[0][0])):
-        languageArray.append(languages[0][0][i])
-        print(languageArray[i])
-        message += languageArray[i] + ", "
+    while (i < len(languages)):
+        message += languages[i] + ", "
         i += 1
 
     print(message)
@@ -99,7 +99,18 @@ def getRepoWithMostCommits():
 @app.route('/repoSize') 
 @cross_origin()
 def getRepoSize():
-    return "Size of REPO is: "
+    name = request.args.get("reponame")
+    df = spark.read.parquet("hdfs://namenode:9000/data/repoSize.parquet/")
+
+    dataByName = df.filter(df.repo_name == name)
+    dataByName = dataByName.groupBy("repo_name").sum("size")
+
+    dataByName.show()
+
+    size = dataByName.select("sum(size)").collect()[0][0]
+    
+
+    return "Total bytes of "+ name +" is: " + str(size)
 
 
 if __name__ == '__main__':
