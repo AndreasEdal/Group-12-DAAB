@@ -1,0 +1,1 @@
+@"{""type"": ""record"",""name"": ""Commit"",""namespace"": ""ca.dataedu"",""fields"": [{""name"": ""commit"",""type"": [""null"", ""string""], ""default"": null}, { ""name"": ""message"",""type"": [""null"", ""string""],""default"": null }]}"
