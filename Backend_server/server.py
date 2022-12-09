@@ -26,17 +26,14 @@ def getLanguages():
     name = request.args.get("reponame")
     df = spark.read.parquet("hdfs://namenode:9000/data/language.parquet/")
 
-    df.show()
-
     dataByName = df.filter(df.repo_name == name)
 
-    dataByName.show() 
+    data = dataByName.select("repo_name", "languages")
 
-    data = df.select("repo_name", "languages")
-
-    data.show()
-
+    if (data.select("repo_name").collect() == 0):
+        return "No response found"
     languages = data.select("languages").collect()[0][0]
+    
 
     message = "Code languages used in"+ name+ ": "
 
@@ -55,14 +52,12 @@ def getLanguages():
 def getMostContributions():
     file = "hdfs://namenode:9000/commitData/commitAuthorRepo.json"
     df = spark.read.json(file)
-    df.show()
 
     name = request.args.get("reponame")
 
     dataByName = df.filter(df.repo_name[0] == name)
     #dataByName = dataByName.select("repo_name", "author")
 
-    dataByName.show()
     authors = dataByName.groupBy("author.name").count().orderBy(col('count').desc())
     author = authors.first()
     
@@ -82,12 +77,12 @@ def getCommitFrequency():
     df = spark.read.parquet("hdfs://namenode:9000/data/commit.parquet/")
 
     dataByName = df.filter(df.repo_name == name)
+    if (dataByName.select("repo_name").collect() == 0):
+        return "No response found"
+
     dataByName = dataByName.groupBy("repo_name").count().orderBy(col('count').desc())
 
-    dataByName.show()
-
     count = dataByName.select("count").collect()[0][0]
-    print(count)
 
     return "The total commits for TIMEFRAME one "+ name +" is: " + str(count)
 
@@ -103,12 +98,13 @@ def getRepoSize():
     df = spark.read.parquet("hdfs://namenode:9000/data/repoSize.parquet/")
 
     dataByName = df.filter(df.repo_name == name)
+    if (len(dataByName.select("repo_name").collect()) == 0):
+        return "No response found"
+
     dataByName = dataByName.groupBy("repo_name").sum("size")
 
-    dataByName.show()
 
     size = dataByName.select("sum(size)").collect()[0][0]
-    
 
     return "Total bytes of "+ name +" is: " + str(size)
 
