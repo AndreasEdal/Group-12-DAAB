@@ -1,4 +1,6 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections;
+using System.Diagnostics;
+using Newtonsoft.Json;
 using Confluent.Kafka;
 using Confluent.SchemaRegistry;
 using Confluent.SchemaRegistry.Serdes;
@@ -15,14 +17,12 @@ var config = new ProducerConfig
 using var producer = new ProducerBuilder<Null, string>(config).Build();
 try
 {
-    using (StreamReader sr = new StreamReader("/App/commitMessage.json"))
+    using (StreamReader sr = new StreamReader("/App/commits.json"))
     {
         while (!sr.EndOfStream)
         {
             string? json = await sr.ReadLineAsync();
-            //Console.WriteLine(json);
-            var result = await producer.ProduceAsync("commits_json", new Message<Null, string> { Value = json }); 
-            //Console.WriteLine(json);   
+            var result = await producer.ProduceAsync("commit", new Message<Null, string> { Value = json }); 
         }
     }
 }
@@ -30,9 +30,7 @@ catch (Exception e)
 {
     Console.WriteLine(e.ToString());
 }
-
-
-
+/*
 
 var avroSerializerConfig = new AvroSerializerConfig
 {
@@ -56,16 +54,16 @@ using (var producer2 =
          //  .SetValueSerializer(new AvroSerializer<byte[]>(schemaRegistry, avroSerializerConfig))
            .Build())
 {
-    using (var sr1 = new StreamReader("/App/commitMessage.json"))
+    using (var sr1 = new StreamReader("/App/commits.json"))
     {
         while (!sr1.EndOfStream)
         {
             var json = await sr1.ReadLineAsync();
             //  Console.WriteLine(avroObject);
-            
+            Console.WriteLine(json);
             var dynamicObject = JsonConvert.DeserializeObject<Commit>(json);
-            dynamicObject?.commit.Trim();
-            dynamicObject?.message.Trim();
+            ((IList)dynamicObject?.commiter).Add(dynamicObject?.commiter_date);
+            Console.WriteLine(dynamicObject);
            // Console.WriteLine(dynamicObject);
             var avroObject = AvroConvert.Serialize(dynamicObject, CodecType.Snappy);
             //Commit deserializedObject = AvroConvert.Deserialize(avroObject, typeof(Commit));
@@ -75,7 +73,7 @@ using (var producer2 =
         }
     }
 }
-
+*/
 // With serializer (automatic)
 /*
 using (var schemaRegistry = new CachedSchemaRegistryClient(schemaRegistryConfig))
