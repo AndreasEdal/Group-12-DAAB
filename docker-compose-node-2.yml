@@ -31,18 +31,18 @@ services:
     env_file:
       - ./hadoop_spark_kafka/hadoop-vm.env
 
-  datanode-2:
-    image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
-    container_name: datanode-2
-    restart: always
-    volumes:
-      - hadoop_datanode-2:/hadoop/dfs/data
-    ports:
-      - 9865:9864
-    environment:
-      SERVICE_PRECONDITION: "10.123.252.230:9870"
-    env_file:
-      - ./hadoop_spark_kafka/hadoop-vm.env
+  # datanode-2:
+  #   image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
+  #   container_name: datanode-2
+  #   restart: always
+  #   volumes:
+  #     - hadoop_datanode-2:/hadoop/dfs/data
+  #   ports:
+  #     - 9865:9864
+  #   environment:
+  #     SERVICE_PRECONDITION: "10.123.252.230:9870"
+  #   env_file:
+  #     - ./hadoop_spark_kafka/hadoop-vm.env
 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.2.1
