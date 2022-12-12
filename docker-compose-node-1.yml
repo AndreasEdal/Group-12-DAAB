@@ -42,7 +42,7 @@ services:
     environment:
       SERVICE_PRECONDITION: "namenode:9870"
     env_file:
-      - ./hadoop.env
+      - ./hadoop_spark_kafka/hadoop.env
 
   # kafka:
   #   image: confluentinc/cp-kafka:7.2.1
