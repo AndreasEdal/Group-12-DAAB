@@ -29,7 +29,7 @@ services:
     environment:
       - CLUSTER_NAME=test
     env_file:
-      - ./hadoop_spark_kafka/hadoop.env
+      - ./hadoop_spark_kafka/hadoop-vm.env
 
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
@@ -40,9 +40,9 @@ services:
     ports:
       - 9864:9864
     environment:
-      SERVICE_PRECONDITION: "namenode:9870"
+      SERVICE_PRECONDITION: "10.123.252.230:9870"
     env_file:
-      - ./hadoop_spark_kafka/hadoop.env
+      - ./hadoop_spark_kafka/hadoop-vm.env
 
   # kafka:
   #   image: confluentinc/cp-kafka:7.2.1
