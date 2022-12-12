@@ -82,6 +82,7 @@ services:
 
   commits-transformation:
     image: commits-producer
+    container_name: commits-transformation
     depends_on:
       - kafka
     build: 
