@@ -11,9 +11,9 @@ volumes:
   hadoop_datanode:
   kafka:
 
-networks:
-  default:
-    name: big-data-network
+# networks:
+#   default:
+#     name: big-data-network
 
 services:
 
