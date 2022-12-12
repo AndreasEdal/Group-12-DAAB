@@ -69,7 +69,7 @@ services:
       - INIT_DAEMON_STEP=setup_spark
 
   language-producer:
-    image: commits-producer
+    image: language-producer
     depends_on:
       - kafka
     build: 
