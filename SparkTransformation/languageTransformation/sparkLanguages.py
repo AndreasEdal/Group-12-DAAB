@@ -5,14 +5,19 @@ from pyspark.sql.functions import explode, split, to_json, from_json, array, col
 import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
+import os
+
+spark_master_url = os.environ["DAAB_SPARK_URL"] or "spark-master:7077"
+namenode_url = os.environ["DAAB_NAMENODE_URL"] or "namenode:9000"
+kafka_url = os.environ["DAAB_KAFKA_URL"] or "kafka:9092"
 
 # Limit cores to 1, and tell each executor to use one core = only one executor is used by Spark
 spark = SparkSession.builder.appName('streamTest') \
-    .config('spark.master','spark://spark-master:7077') \
+    .config('spark.master','spark://' + spark_master_url) \
     .config('spark.executor.cores', 1) \
     .config('spark.cores.max',1) \
     .config('spark.executor.memory', '1g') \
-    .config('spark.sql.streaming.checkpointLocation','hdfs://namenode:9000/stream-checkpoint/') \
+    .config('spark.sql.streaming.checkpointLocation','hdfs://' + namenode_url + '/stream-checkpoint/') \
     .getOrCreate()
 
 #Create schema for input and output
@@ -32,7 +37,7 @@ schema = StructType([
 df = spark \
     .readStream \
     .format("kafka") \
-    .option("kafka.bootstrap.servers", "kafka:9092") \
+    .option("kafka.bootstrap.servers", kafka_url) \
     .option("startingOffsets", "earliest")\
     .option("subscribe", "languages") \
     .load()
@@ -52,7 +57,7 @@ languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
 languageResult.select(to_json(struct(col("repo_name"),col("languages"))).alias("value")).select("value")\
     .writeStream\
     .format('kafka')\
-    .option("kafka.bootstrap.servers", "kafka:9092") \
+    .option("kafka.bootstrap.servers", kafka_url) \
     .option("topic", "answerLanguages") \
     .outputMode("append") \
     .start().awaitTermination()
