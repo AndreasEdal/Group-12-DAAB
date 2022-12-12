@@ -65,7 +65,7 @@ public class Commit : ISpecificRecord
             case 3:  this.author = (System.Array)fieldValue; break;
                 // create array 
             case 4:  this.author_name = (System.String)fieldValue; 
-                this.author.Add(string, this.author_name);
+                //this.author.Add(string, this.author_name);
                 break;
                 // add to index 0
             case 5:  this.author_email = (System.String)fieldValue; break;

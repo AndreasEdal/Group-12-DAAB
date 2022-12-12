@@ -1,7 +1,7 @@
 from pyspark import SparkConf, SparkContext
 from pyspark.sql import SparkSession, Row
 from pyspark.sql.types import  StructType, StructField, StringType, LongType, DoubleType, IntegerType, ArrayType, BooleanType
-from pyspark.sql.functions import explode, split, to_json, from_json, array, col, udf, sum, struct
+from pyspark.sql.functions import explode, split, to_json, from_json, to_avro, array, col, udf, sum, struct
 from confluent_kafka import Consumer, KafkaException, KafkaError
 import avro.schema
 import avro.io
@@ -10,6 +10,14 @@ import sys
 import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
+
+spark = SparkSession.builder.appName('streamTest') \
+    .config('spark.master','spark://spark-master:7077') \
+    .config('spark.executor.cores', 1) \
+    .config('spark.cores.max',1) \
+    .config('spark.executor.memory', '1g') \
+    .config('spark.sql.streaming.checkpointLocation','hdfs://namenode:9000/stream-checkpoint/') \
+    .getOrCreate()
 
 # https://mtpatter.github.io/python-kafka-avro/python-kafka-avro-01.html
 schemaAvro = {
@@ -99,7 +107,7 @@ if __name__ == "__main__":
             reader = avro.io.DatumReader(schema)
             try:
                 decoded_msg = reader.read(decoder)
-                print(decoded_msg)
+                #print(decoded_msg)
                 sys.stdout.flush()
             except AssertionError:
                 continue
@@ -112,34 +120,31 @@ if __name__ == "__main__":
 
 
 
-# Limit cores to 1, and tell each executor to use one core = only one executor is used by Spark
-spark = SparkSession.builder.appName('streamTest') \
-    .config('spark.master','spark://spark-master:7077') \
-    .config('spark.executor.cores', 1) \
-    .config('spark.cores.max',1) \
-    .config('spark.executor.memory', '1g') \
-    .config('spark.sql.streaming.checkpointLocation','hdfs://namenode:9000/stream-checkpoint/') \
-    .getOrCreate()
+    # Limit cores to 1, and tell each executor to use one core = only one executor is used by Spark
+    spark = SparkSession.builder.appName('streamTest') \
+        .config('spark.master','spark://spark-master:7077') \
+        .config('spark.executor.cores', 1) \
+        .config('spark.cores.max',1) \
+        .config('spark.executor.memory', '1g') \
+        .config('spark.sql.streaming.checkpointLocation','hdfs://namenode:9000/stream-checkpoint/') \
+        .getOrCreate()
 
 
 
-#   #Todo: Change subscribed topic!
-#   value_df = df.select(from_json(col("value").cast("string"),schema).alias("value"))
-#   
-#   exploded_df = value_df.selectExpr('value.sample_repo_name','value.size').withColumnRenamed('sample_repo_name', 'repo_name')
-#   
-#   data_df = exploded_df.withColumn("size", exploded_df["size"].cast(IntegerType()))
-#   
-#   #data = exploded_df.select("repo_name", "language.name")
-#   #languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
-#   #languageResult.show(truncate=False)
-#   
-#   # Create a Kafka write stream containing results
-#   data_df.select(to_json(struct(col("repo_name"),col("size"))).alias("value"))\
-#       .writeStream\
-#       .format('kafka')\
-#       .option("kafka.bootstrap.servers", "kafka:9092") \
-#       .option("topic", "answerAvroSpaceUsed") \
-#       .outputMode("append") \
-#       .start().awaitTermination()
-#   
+    #   #Todo: Change subscribed topic!
+    #   value_df = decoded_msg.select(from_json(col("value").cast("string"),schema).alias("value"))
+    #     
+    exploded_df = decoded_msg.selectExpr('value.sample_repo_name','value.size').withColumnRenamed('sample_repo_name', 'repo_name')
+    #   
+    data_df = exploded_df.withColumn("size", exploded_df["size"].cast(IntegerType()))
+    #   
+    #   
+    # Create a Kafka write stream containing results
+    data_df.select(to_avro(struct(col("repo_name"),col("size")), schema).alias("value"))\
+        .writeStream\
+        .format('kafka')\
+        .option("kafka.bootstrap.servers", "kafka:9092") \
+        .option("topic", "answerSpaceUsed") \
+        .outputMode("append") \
+        .start().awaitTermination()
+    #   
