@@ -11,9 +11,10 @@ volumes:
   hadoop_datanode:
   kafka:
 
-# networks:
-#   default:
-#     name: big-data-network
+networks:
+  default:
+    name: big-data-network
+  namenode-private:
 
 services:
   namenode:
@@ -30,6 +31,8 @@ services:
       - CLUSTER_NAME=test
     env_file:
       - ./hadoop_spark_kafka/hadoop-vm.env
+    networks:
+      - namenode-private
 
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
