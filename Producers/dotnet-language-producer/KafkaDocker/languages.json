@@ -98,3 +98,4 @@
 {"repo_name":"savonet/dlfcn-win32","language":[{"name":"C","bytes":"15566"}]}
 {"repo_name":"dfoxfranke/earworm","language":[{"name":"C","bytes":"72041"}]}
 {"repo_name":"fffaraz/XOREncryption","language":[{"name":"C","bytes":"1516"}]}
+{"repo_name":"facebook/react","language":[{"name":"C","bytes":"5227"},{"name":"C++","bytes":"44290"},{"name":"CSS","bytes":"64972"},{"name":"CoffeeScript","bytes":"17390"},{"name":"HTML","bytes":"120058"},{"name":"JavaScript","bytes":"6256474"},{"name":"Makefile","bytes":"189"},{"name":"Python","bytes":"259"},{"name":"Shell","bytes":"2306"},{"name":"TypeScript","bytes":"21454"}]}

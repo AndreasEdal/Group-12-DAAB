@@ -30,8 +30,8 @@ def getLanguages():
 
     data = dataByName.select("repo_name", "languages")
 
-    if (data.select("repo_name").collect() == 0):
-        return "No response found"
+    if (len(data.select("repo_name").collect()) == 0):
+        return "Could not find a matching result for repository: " + name
     languages = data.select("languages").collect()[0][0]
     
 
@@ -77,7 +77,7 @@ def getCommitFrequency():
     df = spark.read.parquet("hdfs://namenode:9000/data/commit.parquet/")
 
     dataByName = df.filter(df.repo_name == name)
-    if (dataByName.select("repo_name").collect() == 0):
+    if (len(dataByName.select("repo_name").collect()) == 0):
         return "No response found"
 
     dataByName = dataByName.groupBy("repo_name").count().orderBy(col('count').desc())
