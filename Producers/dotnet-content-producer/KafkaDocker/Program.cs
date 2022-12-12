@@ -28,5 +28,6 @@ try
 catch (Exception e)
 {
     Console.WriteLine(e.ToString());
+    Environment.ExitCode = -1;
     throw;
 }
