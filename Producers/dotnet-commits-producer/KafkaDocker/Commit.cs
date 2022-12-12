@@ -11,7 +11,7 @@ public class Commit : ISpecificRecord
     public string parent;
     public string tree;
     public string commit;
-    public Array author; 
+    public  Array author; 
     public string author_name; 
     public string author_email;
     public string author_time_sec;
@@ -63,8 +63,13 @@ public class Commit : ISpecificRecord
             case 1:  this.tree = (System.String)fieldValue; break;
             case 2:  this.commit = (System.String)fieldValue; break;
             case 3:  this.author = (System.Array)fieldValue; break;
-            case 4:  this.author_name = (System.String)fieldValue; break;
+                // create array 
+            case 4:  this.author_name = (System.String)fieldValue; 
+                this.author.Add(string, this.author_name);
+                break;
+                // add to index 0
             case 5:  this.author_email = (System.String)fieldValue; break;
+                // add to index 1
             case 6:  this.author_time_sec = (System.String)fieldValue; break;
             case 7:  this.author_tz_offset = (System.String)fieldValue; break;
             case 8:  this.author_date = (System.String)fieldValue; break;
