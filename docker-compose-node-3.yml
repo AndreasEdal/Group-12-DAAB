@@ -1,10 +1,10 @@
 version: "2.2"
 
-# IP address: 10.123.252.230
+# IP address: 10.123.252.206
 
-# Node 1: 10.123.252.206
-# Node 2: 10.123.252.230
-# Node 3: 10.123.252.197
+# Node 1: 10.123.252.230
+# Node 2: 10.123.252.197
+# Node 3: 10.123.252.206
 
 volumes:
   hadoop_namenode:
@@ -26,7 +26,7 @@ services:
     ports:
       - 9864:9864
     environment:
-      SERVICE_PRECONDITION: "10.123.252.206:9870"
+      SERVICE_PRECONDITION: "10.123.252.230:9870"
     env_file:
       - ./hadoop_spark_kafka/hadoop.env
 
