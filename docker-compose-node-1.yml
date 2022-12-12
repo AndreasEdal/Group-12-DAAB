@@ -86,7 +86,7 @@ services:
       - kafka
     build: 
       context: ./SparkTransformation/commitsTransformation
-    restart: unless-stopped
+    restart: on-failure
     environment:
       - DAAB_SPARK_URL=10.123.252.206:7077
       - DAAB_NAMENODE_URL=10.123.252.230:9000
