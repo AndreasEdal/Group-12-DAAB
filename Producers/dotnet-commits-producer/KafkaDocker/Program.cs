@@ -7,10 +7,12 @@ using Confluent.SchemaRegistry.Serdes;
 using KafkaDocker;
 using SolTechnology.Avro;
 
+var bootstrapServers = Environment.GetEnvironmentVariable("DAAB_KAFKA_URL") ?? "kafka:9092";
+Console.WriteLine($"Using '{bootstrapServers}' as bootstrap server");
 
 var config = new ProducerConfig
 {
-    BootstrapServers = "kafka:9092",
+    BootstrapServers = bootstrapServers,
     CompressionType = CompressionType.Snappy,
     LingerMs = 5
 };

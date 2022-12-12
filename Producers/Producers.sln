@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaDocker", "dotnet-commits-producer\KafkaDocker\KafkaDocker.csproj", "{DA33FD5B-2EBA-4443-8C4A-1A6BF5B14EEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaDocker", "dotnet-language-producer\KafkaDocker\KafkaDocker.csproj", "{54CE2B2B-0BAB-421B-B442-CA5B5ADDDBCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaDocker", "dotnet-content-producer\KafkaDocker\KafkaDocker.csproj", "{C1AD102A-4B02-4C15-8560-AD3A1619461A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA33FD5B-2EBA-4443-8C4A-1A6BF5B14EEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA33FD5B-2EBA-4443-8C4A-1A6BF5B14EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA33FD5B-2EBA-4443-8C4A-1A6BF5B14EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA33FD5B-2EBA-4443-8C4A-1A6BF5B14EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54CE2B2B-0BAB-421B-B442-CA5B5ADDDBCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54CE2B2B-0BAB-421B-B442-CA5B5ADDDBCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54CE2B2B-0BAB-421B-B442-CA5B5ADDDBCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54CE2B2B-0BAB-421B-B442-CA5B5ADDDBCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1AD102A-4B02-4C15-8560-AD3A1619461A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1AD102A-4B02-4C15-8560-AD3A1619461A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1AD102A-4B02-4C15-8560-AD3A1619461A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1AD102A-4B02-4C15-8560-AD3A1619461A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
