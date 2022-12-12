@@ -11,6 +11,10 @@ spark_master_url = os.environ["DAAB_SPARK_URL"] or "spark-master:7077"
 namenode_url = os.environ["DAAB_NAMENODE_URL"] or "namenode:9000"
 kafka_url = os.environ["DAAB_KAFKA_URL"] or "kafka:9092"
 
+print("spark_master_url: " + spark_master_url)
+print("namenode_url: " + namenode_url)
+print("kafka_url: " + kafka_url)
+
 # Limit cores to 1, and tell each executor to use one core = only one executor is used by Spark
 spark = SparkSession.builder.appName('streamTest') \
     .config('spark.master','spark://' + spark_master_url) \
