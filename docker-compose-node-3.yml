@@ -48,15 +48,15 @@ services:
       KAFKA_PARTITION_ASSIGNMENT_STRATEGY: org.apache.kafka.clients.consumer.RoundRobinAssignor
     restart: unless-stopped
 
-  kowl:
-    image: quay.io/cloudhut/kowl:master # We use the master tag as we want to use the latest features e.g. creation of topics.
-    ports:
-      - 8000:8080
-    restart: unless-stopped
-    depends_on:
-      - kafka
-    environment:
-      KAFKA_BROKERS: 10.123.252.206:9092
+  # kowl:
+  #   image: quay.io/cloudhut/kowl:master # We use the master tag as we want to use the latest features e.g. creation of topics.
+  #   ports:
+  #     - 8000:8080
+  #   restart: unless-stopped
+  #   depends_on:
+  #     - kafka
+  #   environment:
+  #     KAFKA_BROKERS: 10.123.252.206:9092
 
   # spark-master:
   #   image: bde2020/spark-master:3.3.0-hadoop3.3
