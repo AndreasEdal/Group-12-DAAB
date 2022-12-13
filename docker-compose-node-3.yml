@@ -78,17 +78,7 @@ services:
     restart: unless-stopped
     environment:
       - INIT_DAEMON_STEP=setup_spark
-
-  # language-producer:
-  #   image: language-producer
-  #   depends_on:
-  #     - kafka
-  #   build: 
-  #     context: ./Producers/dotnet-language-producer/KafkaDocker
-  #   restart: on-failure
-  #   environment:
-  #     - DAAB_KAFKA_URL="10.123.252.230:9092,10.123.252.197:9092,10.123.252.206:9092"
-
+      
   language-transformation:
     image: language-transformation
     container_name: language-transformation

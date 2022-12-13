@@ -1,0 +1,48 @@
+version: "2.2"
+
+# IP address: 10.123.252.206
+
+# Node 1: 10.123.252.230
+# Node 2: 10.123.252.197
+# Node 3: 10.123.252.206
+
+volumes:
+  hadoop_namenode:
+  hadoop_datanode:
+  kafka:
+
+networks:
+  default:
+    name: big-data-network
+
+services:
+
+  language-producer:
+    image: language-producer
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
+    build: 
+      context: ./Producers/dotnet-language-producer/KafkaDocker
+    restart: on-failure
+    environment:
+      - DAAB_KAFKA_URL="10.123.252.230:9092,10.123.252.197:9092,10.123.252.206:9092"
+  
+  content-producer:
+    image: content-producer
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
+    build: 
+      context: ./Producers/dotnet-content-producer/KafkaDocker
+    restart: on-failure
+    environment:
+      - DAAB_KAFKA_URL="10.123.252.230:9092,10.123.252.197:9092,10.123.252.206:9092"
+
+  commits-producer:
+    image: commits-producer
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
+    build: 
+      context: ./Producers/dotnet-commits-producer/KafkaDocker
+    restart: on-failure
+    environment:
+      - DAAB_KAFKA_URL="10.123.252.230:9092,10.123.252.197:9092,10.123.252.206:9092"
