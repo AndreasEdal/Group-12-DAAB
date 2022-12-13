@@ -109,7 +109,7 @@ services:
       - 8081:8081
     restart: unless-stopped
     environment:
-      - "SPARK_MASTER=spark://10.123.252.206:7077" # Node 3
+      - "SPARK_MASTER=spark://10.123.252.230:7077" # Node 3
       - SPARK_LOCAL_HOSTNAME=spark-worker-1
 
   spark-worker-2:
@@ -122,7 +122,7 @@ services:
       - 8082:8081
     restart: unless-stopped
     environment:
-      - "SPARK_MASTER=spark://10.123.252.206:7077"
+      - "SPARK_MASTER=spark://10.123.252.230:7077"
 
   spark-worker-3:
     image: bde2020/spark-worker:3.3.0-hadoop3.3
@@ -134,7 +134,7 @@ services:
       - 8083:8081
     restart: unless-stopped
     environment:
-      - "SPARK_MASTER=spark://10.123.252.206:7077" # Node 3
+      - "SPARK_MASTER=spark://10.123.252.230:7077" # Node 3
 
   spark-worker-4:
     image: bde2020/spark-worker:3.3.0-hadoop3.3
@@ -146,7 +146,7 @@ services:
       - 8084:8081
     restart: unless-stopped
     environment:
-      - "SPARK_MASTER=spark://10.123.252.206:7077" # Node 3
+      - "SPARK_MASTER=spark://10.123.252.230:7077" # Node 3
 
   spark-worker-5:
     image: bde2020/spark-worker:3.3.0-hadoop3.3
@@ -158,5 +158,5 @@ services:
       - 8085:8081
     restart: unless-stopped
     environment:
-      - "SPARK_MASTER=spark://10.123.252.206:7077" # Node 3
+      - "SPARK_MASTER=spark://10.123.252.230:7077" # Node 3
 
