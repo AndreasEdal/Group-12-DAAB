@@ -1,0 +1,11 @@
+127.0.0.1       localhost
+::1     localhost ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+10.123.252.230  datanode-1
+10.123.252.230  namenode
+10.123.252.197  datanode-2
+10.123.252.206  datanode-3

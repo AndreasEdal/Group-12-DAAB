@@ -19,12 +19,14 @@ networks:
 services:
   namenode:
     image: bde2020/hadoop-namenode:2.0.0-hadoop3.2.1-java8
-    container_name: namenode
+    #container_name: namenode
+    hostname: namenode
     restart: always
     ports:
       - 9870:9870
       - 9000:9000
     volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
       - ./stream-in:/stream-in
       - hadoop_namenode:/hadoop/dfs/name
     environment:
@@ -36,16 +38,17 @@ services:
 
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
-    container_name: datanode
-    #hostname: "10.123.252.230"
+    container_name: datanode-1
+    hostname: datanode-1
     restart: always
     volumes:
       - hadoop_datanode:/hadoop/dfs/data
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     ports:
       - 9864:9864
       - 9866:9866
     environment:
-      SERVICE_PRECONDITION: "10.123.252.230:9870"
+      SERVICE_PRECONDITION: "namenode:9870"
     env_file:
       - ./hadoop_spark_kafka/hadoop-vm.env
 
@@ -95,5 +98,5 @@ services:
     restart: on-failure
     environment:
       - DAAB_SPARK_URL=10.123.252.206:7077
-      - DAAB_NAMENODE_URL=10.123.252.230:9000
+      - DAAB_NAMENODE_URL=namenode:9000
       - DAAB_KAFKA_URL="10.123.252.230:9092,10.123.252.197:9092,10.123.252.206:9092"

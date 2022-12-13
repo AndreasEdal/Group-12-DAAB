@@ -19,15 +19,17 @@ services:
 
   datanode:
     image: bde2020/hadoop-datanode:2.0.0-hadoop3.2.1-java8
-    container_name: datanode
+    container_name: datanode-3
+    hostname: datanode-3
     restart: always
     volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
       - hadoop_datanode:/hadoop/dfs/data
     ports:
       - 9864:9864
       - 9866:9866
     environment:
-      SERVICE_PRECONDITION: "10.123.252.230:9870"
+      SERVICE_PRECONDITION: "namenode:9870"
     env_file:
       - ./hadoop_spark_kafka/hadoop-vm.env
 
