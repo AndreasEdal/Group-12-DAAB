@@ -16,7 +16,7 @@ print("namenode_url: " + namenode_url)
 print("kafka_url: " + kafka_url)
 
 # Limit cores to 1, and tell each executor to use one core = only one executor is used by Spark
-spark = SparkSession.builder.appName('streamTest') \
+spark = SparkSession.builder.appName('language-transformation') \
     .config('spark.master','spark://' + spark_master_url) \
     .config('spark.executor.cores', 1) \
     .config('spark.cores.max',1) \
