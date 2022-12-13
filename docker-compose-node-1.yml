@@ -104,4 +104,4 @@ services:
     environment:
       - DAAB_SPARK_URL=10.123.252.206:7077
       - DAAB_NAMENODE_URL=namenode:9000
-      - DAAB_KAFKA_URL="kafka-1:9092,kafka-2:9092,kafka-3:9092"
+      - DAAB_KAFKA_URL=kafka-1:9092,kafka-2:9092,kafka-3:9092
