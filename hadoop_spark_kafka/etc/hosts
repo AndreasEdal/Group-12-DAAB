@@ -6,6 +6,9 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
 10.123.252.230  namenode
+10.123.252.230  spark-master
+10.123.252.230  zookeeper
+
 10.123.252.230  datanode-1
 10.123.252.197  datanode-2
 10.123.252.206  datanode-3
@@ -14,11 +17,8 @@ ff02::2 ip6-allrouters
 10.123.252.197  kafka-2
 10.123.252.206  kafka-3
 
-10.123.252.230  spark-worker-1
+10.123.252.197  spark-worker-1
 10.123.252.197  spark-worker-2
 10.123.252.197  spark-worker-3
-10.123.252.206  spark-worker-4
-10.123.252.230  spark-worker-5
-10.123.252.206  spark-master
-
-10.123.252.197  zookeeper
+10.123.252.197  spark-worker-4
+10.123.252.197  spark-worker-5
