@@ -116,7 +116,7 @@ services:
   spark-worker:
     image: bde2020/spark-worker:3.3.0-hadoop3.3
     container_name: spark-worker-2
-    hostname: spark-worker-2
+    #hostname: spark-worker-2
     volumes:
       - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     ports:
