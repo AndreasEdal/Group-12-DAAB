@@ -119,7 +119,7 @@ services:
     volumes:
       - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     ports:
-      - 8081:8081
+      - 8082:8081
     restart: unless-stopped
     environment:
       - "SPARK_MASTER=spark://10.123.252.206:7077"
@@ -131,7 +131,7 @@ services:
     volumes:
       - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     ports:
-      - 8082:8081
+      - 8083:8081
     restart: unless-stopped
     environment:
       - "SPARK_MASTER=spark://10.123.252.206:7077" # Node 3
@@ -143,7 +143,7 @@ services:
     volumes:
       - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     ports:
-      - 8081:8081
+      - 8084:8081
     restart: unless-stopped
     environment:
       - "SPARK_MASTER=spark://10.123.252.206:7077" # Node 3
@@ -155,7 +155,7 @@ services:
     volumes:
       - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     ports:
-      - 8082:8081
+      - 8085:8081
     restart: unless-stopped
     environment:
       - "SPARK_MASTER=spark://10.123.252.206:7077" # Node 3
