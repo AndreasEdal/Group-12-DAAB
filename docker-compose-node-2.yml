@@ -67,8 +67,6 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_PARTITION_ASSIGNMENT_STRATEGY: org.apache.kafka.clients.consumer.RoundRobinAssignor
     restart: unless-stopped
-    depends_on:
-      - zookeeper
 
   init-kafka:
     image: confluentinc/cp-kafka:7.2.1
