@@ -40,6 +40,8 @@ services:
       - 9092:9092
     expose:
       - '9092'
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     environment:
       KAFKA_ZOOKEEPER_CONNECT: 10.123.252.197:2181 # Node 2
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "EXTERNAL:PLAINTEXT"
@@ -55,6 +57,8 @@ services:
     image: quay.io/cloudhut/kowl:master # We use the master tag as we want to use the latest features e.g. creation of topics.
     ports:
       - 8000:8080
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     restart: unless-stopped
     depends_on:
       - kafka
@@ -67,6 +71,8 @@ services:
     ports:
       - 8080:8080
       - 7077:7077
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     restart: unless-stopped
     environment:
       - INIT_DAEMON_STEP=setup_spark

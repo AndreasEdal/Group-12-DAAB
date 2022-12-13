@@ -96,6 +96,8 @@ services:
     build: 
       context: ./SparkTransformation/commitsTransformation
     restart: on-failure
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     environment:
       - DAAB_SPARK_URL=10.123.252.206:7077
       - DAAB_NAMENODE_URL=namenode:9000
