@@ -16,6 +16,9 @@ ff02::2 ip6-allrouters
 
 10.123.252.230  spark-worker-1
 10.123.252.197  spark-worker-2
+10.123.252.197  spark-worker-3
+10.123.252.206  spark-worker-4
+10.123.252.230  spark-worker-5
 10.123.252.206  spark-master
 
 10.123.252.197  zookeeper
