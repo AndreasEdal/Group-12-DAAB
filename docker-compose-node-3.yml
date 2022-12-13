@@ -79,7 +79,7 @@ services:
     environment:
       - INIT_DAEMON_STEP=setup_spark
       - SPARK_LOCAL_HOSTNAME=spark-master
-      - SPARK_MASTER_IP=spark-master
+      - SPARK_MASTER_HOST=spark-master
 
   # language-producer:
   #   image: language-producer
