@@ -19,8 +19,6 @@ services:
   commits-transformation:
     image: commits-transformation
     container_name: commits-transformation
-    depends_on:
-      - kafka
     build: 
       context: ./SparkTransformation/commitsTransformation
     restart: on-failure
@@ -34,8 +32,6 @@ services:
   contents-transformation:
     image: contents-transformation
     container_name: contents-transformation
-    depends_on:
-      - kafka
     build: 
       context: ./SparkTransformation/contentTransformation
     restart: on-failure
@@ -49,8 +45,6 @@ services:
   language-transformation:
     image: language-transformation
     container_name: language-transformation
-    depends_on:
-      - kafka
     ports:
       - 4040:4040
     build: 
