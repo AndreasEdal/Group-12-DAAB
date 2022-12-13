@@ -89,7 +89,11 @@ services:
     volumes:
       - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     ports:
-      - 8081:8081
+      - 8081:8081 # WebUI
+      #- 15003:15003 # Blockmanager+
+      - 7005:7005 # Executor
+      - 7006:7006 # Executor
+      #- 7006:7006 # Executor
     restart: unless-stopped
     environment:
       - "SPARK_MASTER=spark://10.123.252.206:7077" # Node 3

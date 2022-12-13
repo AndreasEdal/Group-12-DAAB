@@ -73,6 +73,7 @@ services:
     ports:
       - 8080:8080
       - 7077:7077
+      - 6066:6066
     volumes:
       - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     restart: unless-stopped
