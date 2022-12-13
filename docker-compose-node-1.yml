@@ -60,6 +60,8 @@ services:
       - 9092:9092
     expose:
       - '9092'
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     environment:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181 # Node 2
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "EXTERNAL:PLAINTEXT"
