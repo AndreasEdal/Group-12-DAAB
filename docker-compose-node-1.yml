@@ -108,3 +108,18 @@ services:
       - DAAB_SPARK_URL=spark-master:7077
       - DAAB_NAMENODE_URL=namenode:9000
       - DAAB_KAFKA_URL=kafka-1:9092,kafka-2:9092,kafka-3:9092
+
+  commits-connector:
+    image: commits-connector
+    container_name: commits-connector
+    depends_on:
+      - kafka
+    build: 
+      context: ./Connectors/CommitConnector
+    restart: on-failure
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
+    environment:
+      - DAAB_SPARK_URL=spark-master:7077
+      - DAAB_NAMENODE_URL=namenode:9000
+      - DAAB_KAFKA_URL=kafka-1:9092,kafka-2:9092,kafka-3:9092
