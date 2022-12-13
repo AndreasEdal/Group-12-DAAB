@@ -50,7 +50,7 @@ services:
     image: language-transformation
     container_name: language-transformation
     ports:
-      - 4041:4040
+      - 4042:4040
     build: 
       context: ./SparkTransformation/languageTransformation
     restart: on-failure
