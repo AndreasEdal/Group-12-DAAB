@@ -35,7 +35,8 @@ services:
 
   kafka:
     image: confluentinc/cp-kafka:7.2.1
-    container_name: kafka
+    container_name: kafka-3
+    hostname: kafka-3
     ports:
       - 9092:9092
     expose:
@@ -43,10 +44,10 @@ services:
     volumes:
       - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
     environment:
-      KAFKA_ZOOKEEPER_CONNECT: 10.123.252.197:2181 # Node 2
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181 # Node 2
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "EXTERNAL:PLAINTEXT"
       KAFKA_LISTENERS: EXTERNAL://:9092
-      KAFKA_ADVERTISED_LISTENERS: "EXTERNAL://10.123.252.206:9092"
+      KAFKA_ADVERTISED_LISTENERS: "EXTERNAL://kafka-3:9092"
       KAFKA_INTER_BROKER_LISTENER_NAME: EXTERNAL
       KAFKA_BROKER_ID: 2
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
