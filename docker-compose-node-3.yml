@@ -69,7 +69,7 @@ services:
   spark-master:
     image: bde2020/spark-master:3.3.0-hadoop3.3
     container_name: spark-master
-    hostname: spark-master
+    #hostname: spark-master
     ports:
       - 8080:8080
       - 7077:7077
@@ -78,8 +78,6 @@ services:
     restart: unless-stopped
     environment:
       - INIT_DAEMON_STEP=setup_spark
-      - SPARK_LOCAL_HOSTNAME=spark-master
-      - SPARK_MASTER_HOST=spark-master
 
   # language-producer:
   #   image: language-producer
