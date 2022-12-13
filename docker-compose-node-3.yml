@@ -78,12 +78,14 @@ services:
     restart: unless-stopped
     environment:
       - INIT_DAEMON_STEP=setup_spark
-      
+
   language-transformation:
     image: language-transformation
     container_name: language-transformation
     depends_on:
       - kafka
+    ports:
+      - 4040:4040
     build: 
       context: ./SparkTransformation/languageTransformation
     restart: on-failure
