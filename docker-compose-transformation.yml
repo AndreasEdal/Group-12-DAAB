@@ -1,0 +1,64 @@
+version: "2.2"
+
+# Node 1: 10.123.252.230
+# Node 2: 10.123.252.197
+# Node 3: 10.123.252.206
+
+volumes:
+  hadoop_namenode:
+  hadoop_datanode:
+  kafka:
+
+networks:
+  default:
+    name: big-data-network
+  namenode-private:
+
+services:
+
+  commits-transformation:
+    image: commits-transformation
+    container_name: commits-transformation
+    depends_on:
+      - kafka
+    build: 
+      context: ./SparkTransformation/commitsTransformation
+    restart: on-failure
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
+    environment:
+      - DAAB_SPARK_URL=spark-master:7077
+      - DAAB_NAMENODE_URL=namenode:9000
+      - DAAB_KAFKA_URL=kafka-1:9092,kafka-2:9092,kafka-3:9092
+
+  contents-transformation:
+    image: contents-transformation
+    container_name: contents-transformation
+    depends_on:
+      - kafka
+    build: 
+      context: ./SparkTransformation/contentTransformation
+    restart: on-failure
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
+    environment:
+      - DAAB_SPARK_URL=spark-master:7077
+      - DAAB_NAMENODE_URL=namenode:9000
+      - DAAB_KAFKA_URL=kafka-1:9092,kafka-2:9092,kafka-3:9092
+
+  language-transformation:
+    image: language-transformation
+    container_name: language-transformation
+    depends_on:
+      - kafka
+    ports:
+      - 4040:4040
+    build: 
+      context: ./SparkTransformation/languageTransformation
+    restart: on-failure
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
+    environment:
+      - DAAB_SPARK_URL=spark-master:7077
+      - DAAB_NAMENODE_URL=namenode:9000
+      - DAAB_KAFKA_URL=kafka-1:9092,kafka-2:9092,kafka-3:9092
