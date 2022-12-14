@@ -28,3 +28,29 @@ services:
       - DAAB_SPARK_URL=spark-master:7077
       - DAAB_NAMENODE_URL=namenode:9000
       - DAAB_KAFKA_URL=kafka-1:9092,kafka-2:9092,kafka-3:9092
+
+  content-connector:
+    image: content-connector
+    container_name: content-connector
+    build: 
+      context: ./Connectors/ContentConnector
+    restart: on-failure
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
+    environment:
+      - DAAB_SPARK_URL=spark-master:7077
+      - DAAB_NAMENODE_URL=namenode:9000
+      - DAAB_KAFKA_URL=kafka-1:9092,kafka-2:9092,kafka-3:9092
+
+  language-connector:
+    image: language-connector
+    container_name: language-connector
+    build: 
+      context: ./Connectors/LanguageConnector
+    restart: on-failure
+    volumes:
+      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
+    environment:
+      - DAAB_SPARK_URL=spark-master:7077
+      - DAAB_NAMENODE_URL=namenode:9000
+      - DAAB_KAFKA_URL=kafka-1:9092,kafka-2:9092,kafka-3:9092
