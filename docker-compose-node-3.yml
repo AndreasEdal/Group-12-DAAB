@@ -65,15 +65,3 @@ services:
       - kafka
     environment:
       KAFKA_BROKERS: kafka-3:9092
-
-  backend:
-    image: backend
-    volumes:
-      - ./hadoop_spark_kafka/etc/hosts:/etc/hosts
-    build: 
-      context: ./Backend_server
-    restart: on-failure
-    ports:
-      - 7050:7050
-    environment:
-      - DAAB_KAFKA_URL="10.123.252.230:9092,10.123.252.197:9092,10.123.252.206:9092"
