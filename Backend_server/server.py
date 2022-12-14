@@ -11,20 +11,25 @@ from pyspark.sql.functions import explode, split, to_json, array, col, udf, sum,
 import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
+import os
+
+spark_master_url = os.environ["DAAB_SPARK_URL"] or "spark-master:7077"
+namenode_url = os.environ["DAAB_NAMENODE_URL"] or "namenode:9000"
+kafka_url = os.environ["DAAB_KAFKA_URL"] or "kafka:9092"
 
 spark = SparkSession.builder.appName('backend') \
-    .config('spark.master','spark://spark-master:7077') \
+    .config('spark.master','spark://' + spark_master_url) \
     .config('spark.executor.cores', 1) \
     .config('spark.cores.max',1) \
     .config('spark.executor.memory', '1g') \
-    .config('spark.sql.streaming.checkpointLocation','hdfs://namenode:9000/stream-checkpoint/') \
+    .config('spark.sql.streaming.checkpointLocation','hdfs://' + namenode_url + '/stream-checkpoint/') \
     .getOrCreate()
 
 @app.route('/codeLanguage')
 @cross_origin()
 def getLanguages():
     name = request.args.get("reponame")
-    df = spark.read.parquet("hdfs://namenode:9000/data/language.parquet/")
+    df = spark.read.parquet('hdfs://' + namenode_url + '/data/language.parquet/')
 
     dataByName = df.filter(df.repo_name == name)
 
@@ -50,7 +55,7 @@ def getLanguages():
 @app.route('/mostContributions')
 @cross_origin()
 def getMostContributions():
-    file = "hdfs://namenode:9000/commitData/commitAuthorRepo.json"
+    file = 'hdfs://' + namenode_url + "/commitData/commitAuthorRepo.json"
     df = spark.read.json(file)
 
     name = request.args.get("reponame")
@@ -74,7 +79,7 @@ def getLinesOfCode():
 @cross_origin()
 def getCommitFrequency():
     name = request.args.get("reponame")
-    df = spark.read.parquet("hdfs://namenode:9000/data/commit.parquet/")
+    df = spark.read.parquet('hdfs://' + namenode_url + '/data/commit.parquet/')
 
     dataByName = df.filter(df.repo_name == name)
     if (len(dataByName.select("repo_name").collect()) == 0):
@@ -95,7 +100,7 @@ def getRepoWithMostCommits():
 @cross_origin()
 def getRepoSize():
     name = request.args.get("reponame")
-    df = spark.read.parquet("hdfs://namenode:9000/data/repoSize.parquet/")
+    df = spark.read.parquet('hdfs://' + namenode_url + '/data/repoSize.parquet/')
 
     dataByName = df.filter(df.repo_name == name)
     if (len(dataByName.select("repo_name").collect()) == 0):

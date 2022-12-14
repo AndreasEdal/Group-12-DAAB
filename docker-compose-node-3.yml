@@ -65,3 +65,8 @@ services:
       - kafka
     environment:
       KAFKA_BROKERS: kafka-3:9092
+
+  nginx:
+    build: ./nginx
+    ports:
+    - "7000:80"
