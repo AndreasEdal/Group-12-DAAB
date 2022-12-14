@@ -12,7 +12,7 @@ import locale
 locale.getdefaultlocale()
 locale.getpreferredencoding()
 
-spark = SparkSession.builder.appName('streamTest') \
+spark = SparkSession.builder.appName('backend') \
     .config('spark.master','spark://spark-master:7077') \
     .config('spark.executor.cores', 1) \
     .config('spark.cores.max',1) \
