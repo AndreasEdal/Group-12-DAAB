@@ -6,7 +6,7 @@ using Confluent.Kafka;
 
 var bootstrapServers = Environment.GetEnvironmentVariable("DAAB_KAFKA_URL") ?? "kafka:9092";
 Console.WriteLine($"Using '{bootstrapServers}' as bootstrap server");
-
+Random rnd = new Random();
 var config = new ProducerConfig
 {
     BootstrapServers = bootstrapServers,
@@ -21,7 +21,9 @@ try
         while (!sr.EndOfStream)
         {
             string? json = await sr.ReadLineAsync();
-            var result = await producer.ProduceAsync("content", new Message<Null, string> { Value = json }); 
+            var result = await producer.ProduceAsync("content", new Message<Null, string> { Value = json });
+            Console.WriteLine(json);
+            Thread.Sleep(rnd.Next(0.1,1));
         }
     }
 }
