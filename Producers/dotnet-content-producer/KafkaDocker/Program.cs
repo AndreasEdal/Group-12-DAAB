@@ -5,7 +5,8 @@ using Confluent.Kafka;
 
 
 var bootstrapServers = "kafka:9092";
-Console.WriteLine($"Using '{bootstrapServers}' as bootstrap server");
+//Console.WriteLine($"Using '{bootstrapServers}' as bootstrap server");
+Console.WriteLine("Content Producer Running...");
 Random rnd = new Random();
 var config = new ProducerConfig
 {
@@ -22,8 +23,7 @@ try
         {
             string? json = await sr.ReadLineAsync();
             var result = await producer.ProduceAsync("content", new Message<Null, string> { Value = json });
-            //Console.WriteLine(json);
-            //Thread.Sleep(rnd.Next(0.1,1));
+            Thread.Sleep(rnd.Next(100, 1000));
         }
     }
 }
