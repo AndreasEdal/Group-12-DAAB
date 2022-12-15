@@ -1,0 +1,43 @@
+{
+  'name': 'MyClass',
+  'type': 'record',
+  'namespace': 'com.acme.avro',
+  'fields': [
+    {
+      'name': 'id',
+      'type': 'string'
+    },
+    {
+      'name': 'size',
+      'type': 'string'
+    },
+    {
+      'name': 'content',
+      'type': 'string'
+    },
+    {
+      'name': 'binary',
+      'type': 'boolean'
+    },
+    {
+      'name': 'copies',
+      'type': 'string'
+    },
+    {
+      'name': 'sample_repo_name',
+      'type': 'string'
+    },
+    {
+      'name': 'sample_ref',
+      'type': 'string'
+    },
+    {
+      'name': 'sample_path',
+      'type': 'string'
+    },
+    {
+      'name': 'sample_mode',
+      'type': 'string'
+    }
+  ]
+}

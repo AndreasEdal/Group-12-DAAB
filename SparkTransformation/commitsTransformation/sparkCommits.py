@@ -7,9 +7,9 @@ import os
 locale.getdefaultlocale()
 locale.getpreferredencoding()
 
-spark_master_url = os.environ["DAAB_SPARK_URL"]
-namenode_url = os.environ["DAAB_NAMENODE_URL"]
-kafka_url = os.environ["DAAB_KAFKA_URL"]
+spark_master_url = "spark-master:7077"
+namenode_url = "namenode:9000"
+kafka_url = "kafka:9092"
 
 print("spark_master_url: " + spark_master_url)
 print("namenode_url: " + namenode_url)

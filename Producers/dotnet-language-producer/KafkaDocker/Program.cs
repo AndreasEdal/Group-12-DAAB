@@ -3,7 +3,7 @@ using System.Diagnostics;
 using Newtonsoft.Json;
 using Confluent.Kafka;
 
-var bootstrapServers = Environment.GetEnvironmentVariable("DAAB_KAFKA_URL") ?? "kafka:9092";
+var bootstrapServers = "kafka:9092";
 Console.WriteLine($"Using '{bootstrapServers}' as bootstrap server");
 Random rnd = new Random();
 var config = new ProducerConfig
@@ -21,8 +21,8 @@ try
         {
             string? json = await sr.ReadLineAsync();
             var result = await producer.ProduceAsync("languages", new Message<Null, string> { Value = json }); 
-            Console.WriteLine(json);
-            Thread.Sleep(rnd.Next(10,1000));
+            //Console.WriteLine(json);
+            //Thread.Sleep(rnd.Next(10,1000));
         }
     }
 }

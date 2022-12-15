@@ -25,7 +25,7 @@ spark = SparkSession.builder.appName('language-transformation') \
     .getOrCreate()
 
 #Create schema for input and output
-schema = StructType([
+language_schema = StructType([
     StructField("repo_name", StringType()),
     StructField("language", ArrayType(
         StructType([
@@ -35,10 +35,13 @@ schema = StructType([
     ))
 ])
 
-
+answare_language_schema = StructType([
+    StructField("repo_name", StringType()),
+    StructField("languages", ArrayType(StringType()))    
+])
 
 # Create a read stream from Kafka and a topic
-df = spark \
+languages_df = spark \
     .readStream \
     .format("kafka") \
     .option("kafka.bootstrap.servers", kafka_url) \
@@ -46,15 +49,30 @@ df = spark \
     .option("subscribe", "languages") \
     .load()
 
+
+answer_langauge_df = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", kafka_url) \
+    .option("startingOffsets", "earliest")\
+    .option("subscribe", "answerLanguages") \
+    .load()
+
     
 #Todo: Change subscribed topic!
-value_df = df.select(from_json(col("value").cast("string"),schema).alias("value"))
+value_df = languages_df.select(from_json(col("value").cast("string"),language_schema).alias("value"))
 
-exploded_df = value_df.selectExpr('value.repo_name','value.language.name')
+selected_df = value_df.selectExpr('value.repo_name','value.language.name')
+
+data_collect = selected_df.collect()
+
+data = []
+
+for row in data_collect:
 
 
 #data = exploded_df.select("repo_name", "language.name")
-languageResult = exploded_df.withColumn("languages", col("name")).drop("name")
+languageResult = selected_df.withColumn("languages", col("name")).drop("name")
 #languageResult.show(truncate=False)
 
 # Create a Kafka write stream containing results
