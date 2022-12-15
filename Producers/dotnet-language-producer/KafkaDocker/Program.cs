@@ -22,7 +22,7 @@ try
             string? json = await sr.ReadLineAsync();
             var result = await producer.ProduceAsync("languages", new Message<Null, string> { Value = json }); 
             Console.WriteLine(json);
-            Thread.Sleep(rnd.Next(0.1,1));
+            Thread.Sleep(rnd.Next(10,1000));
         }
     }
 }
