@@ -35,7 +35,7 @@ language_schema = StructType([
     ))
 ])
 
-answare_language_schema = StructType([
+answer_language_schema = StructType([
     StructField("repo_name", StringType()),
     StructField("languages", ArrayType(StringType()))    
 ])
@@ -59,16 +59,29 @@ answer_langauge_df = spark \
     .load()
 
     
-#Todo: Change subscribed topic!
+#Dataframe for language topic
 value_df = languages_df.select(from_json(col("value").cast("string"),language_schema).alias("value"))
 
 selected_df = value_df.selectExpr('value.repo_name','value.language.name')
 
-data_collect = selected_df.collect()
+languageRows = selected_df.Count()
 
-data = []
+#Datafram for anwser languages topic
+answer_value_df = answer_langauge_df.select(from_json(col("value").cast("string"),answer_language_schema).alias("value"))
 
-for row in data_collect:
+answer_selected_df = answer_value_df.selectExpr('value.repo_name', 'value.languages')
+
+answerRows = answer_langauge_df.Count()
+
+differences = False
+
+if languageRows == answerRows:
+    f = open("compareResult.txt", "x")
+    
+
+#data_collect = selected_df.collect()
+#data = []
+#for row in data_collect:
 
 
 #data = exploded_df.select("repo_name", "language.name")
